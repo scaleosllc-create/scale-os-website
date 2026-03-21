@@ -39,12 +39,24 @@ Premium digital marketing agency website for Scale OS LLC. The site serves as a 
 | `surface` | `#F0F0EC` | Image placeholder backgrounds, card backgrounds |
 | `forest-light` | `#E8F0EC` | Icon backgrounds |
 
+### Layout
+
+- **Max content width:** 1200px, centered with auto margins
+- **Section padding:** 48px vertical (desktop), 32px vertical (mobile)
+- **Content padding:** 24px horizontal (mobile), 32px (tablet), 0 (desktop, content constrained by max-width)
+
 ### Typography
 
-- **Headlines (H1, H2):** Serif font — Georgia or a premium serif (PP Editorial New, Ogg) if available. Font-weight 300 (light).
-- **Body / UI:** Neo-grotesque sans-serif — Inter (primary), fallback to system-ui.
-- **Labels / Eyebrows:** Sans-serif, 11px, letter-spacing 2-3px, uppercase, font-weight 600, forest green color.
-- **Scale:** H1: 36px, H2: 24-28px, H3: 16-18px, Body: 14-15px, Labels: 11px, Small: 12px
+- **Headlines (H1, H2):** Georgia serif. Font-weight 300 (light).
+- **Body / UI:** Inter (loaded via Google Fonts), fallback to system-ui, -apple-system, sans-serif.
+- **Labels / Eyebrows:** Sans-serif, 11px, letter-spacing 2px, uppercase, font-weight 600, forest green color.
+- **Scale (mobile / desktop):**
+  - H1: 28px / 36px
+  - H2: 22px / 28px
+  - H3: 16px / 18px
+  - Body: 14px / 15px
+  - Labels: 11px
+  - Small: 12px
 
 ### Animations (Moderate)
 
@@ -52,23 +64,24 @@ Premium digital marketing agency website for Scale OS LLC. The site serves as a 
 - **Count-up numbers:** Stats section numbers animate from 0 to final value on scroll
 - **Hover effects:** Cards lift slightly with shadow on hover, buttons darken
 - **Parallax:** Subtle parallax on hero section images
-- **Page transitions:** Smooth fade between pages
+- **Page transitions:** Optional stretch goal — use View Transitions API if time permits, otherwise skip
 - **No:** particles, 3D, WebGL, floating orbs, gradient animations
 
 ### Component Patterns
 
 - **Buttons:** Primary (ink bg, white text), Secondary (outline, ink border), Accent (forest bg, white text). Border-radius: 3px. Padding: 14px 28px. Font-size: 13px. Letter-spacing: 1px. Uppercase.
 - **Cards:** White bg, 1px border (#E0E0E0), border-radius 8px, padding 24px
-- **Dark sections:** #111 background, white/gray text, used for problem statement and CTAs
+- **Dark sections:** #111 background. Headings: #FFFFFF. Body text: #AAAAAA. Muted text: #666666. Used for problem statement and CTAs.
 - **Image placeholders:** #F0F0EC bg, 2px dashed #CCC border, centered placeholder text. To be replaced with generated images post-build.
-- **Section spacing:** Generous whitespace between sections. Padding 36-48px per section.
+- **Section spacing:** 48px vertical padding per section (desktop), 32px (mobile).
+- **Form inputs:** Border 1px #DDD, border-radius 4px, padding 12px 14px. Focus state: border-color forest green (#2D6A4F), subtle box-shadow `0 0 0 2px #E8F0EC`.
 
 ## Site Structure
 
 ### Navigation (all pages)
 
 - **Desktop:** Fixed top bar. Logo "SCALE OS" (left, 700 weight, letter-spacing 2px) → "Services" | "About" (center-right, 13px) → "Apply" button (right, forest green bg, white text, rounded 3px)
-- **Mobile:** Hamburger menu with slide-out drawer
+- **Mobile:** Hamburger icon (right). Drawer slides in from right with dimmed backdrop overlay. Close via X button or tapping backdrop. Drawer contains: nav links stacked vertically + "Apply" button at bottom.
 - **Active state:** Current page link in forest green, font-weight 600
 
 ### Footer (all pages)
@@ -87,13 +100,13 @@ Premium digital marketing agency website for Scale OS LLC. The site serves as a 
 **Section order:**
 
 1. **Hero** (split layout)
-   - Left: Eyebrow "E-COMMERCE GROWTH PARTNER" → H1 serif "Human strategy. AI infrastructure. Shopify brands that scale." → Subtext → Two CTAs: "BOOK A STRATEGY AUDIT" (primary dark) + "See Our Work →" (outline)
+   - Left: Eyebrow "E-COMMERCE GROWTH PARTNER" → H1 serif "Human strategy. AI infrastructure. Shopify brands that scale." → Subtext → Two CTAs: "BOOK A STRATEGY AUDIT" (primary dark, links to `/apply`) + "See Our Work →" (outline, scrolls to Stats section)
    - Right: Image placeholder (dashboard mockup / Shopify analytics)
 
 2. **Platforms We Build On** (off-white bg)
    - Label: "PLATFORMS WE BUILD ON"
    - Row of platform logos: Shopify, Meta Ads, Google Ads, Klaviyo
-   - Use actual SVG logos for each platform
+   - Use actual SVG logos for each platform, rendered in grayscale to match site palette
 
 3. **The Problem** (dark bg #111)
    - Split layout: copy left, image right
@@ -108,7 +121,7 @@ Premium digital marketing agency website for Scale OS LLC. The site serves as a 
 5. **Stats** (off-white bg)
    - Label: "THE NUMBERS THAT MATTER"
    - 4 stats in a row with dividers: +32% AVG MARGIN LIFT | 40hrs SAVED WEEKLY | 3.2x AVG MER | -41% CAC REDUCTION
-   - Numbers animate (count up) on scroll
+   - Numbers animate (count up) on scroll. Only the numeric portion animates; prefixes (+, -) and suffixes (%, x, hrs) are static. Decimals supported (3.2 counts from 0.0).
 
 6. **How We Work** (white bg)
    - H2: "How we work" + subtitle "From audit to execution in 14 days."
@@ -161,7 +174,7 @@ Premium digital marketing agency website for Scale OS LLC. The site serves as a 
 
 5. **CTA** (dark bg)
    - "See what both pillars could do for your brand."
-   - "BOOK A STRATEGY AUDIT" button
+   - "BOOK A STRATEGY AUDIT" button (links to `/apply`)
 
 6. **Footer**
 
@@ -209,7 +222,7 @@ Premium digital marketing agency website for Scale OS LLC. The site serves as a 
      - Row 1: Your Name (text) + Email Address (email) — side by side
      - Row 2: Business Name (text) + Shopify Store URL (url) — side by side
      - Row 3: Monthly Revenue (select dropdown) — $50K–$100K, $100K–$500K, $500K–$1M, $1M–$5M, $5M+
-     - Row 4: What are you looking for? (multi-select toggle pills) — Meta Ads, Google Ads, Brand Strategy, Creative Strategy, AI Automation, Store Optimization, Full Partnership. Selected state: forest green border + light forest fill.
+     - Row 4: What are you looking for? (multi-select toggle pills, select 1 or more) — Meta Ads, Google Ads, Brand Strategy, Creative Strategy, AI Automation, Store Optimization, Full Partnership. Default state: 1px border #DDD, white bg. Selected state: 1px border forest green, #E8F0EC fill, forest green text.
      - Row 5: Biggest growth challenge (textarea)
      - Row 6: How did you hear about us? (select dropdown) — Referral, Google, Social Media, Other
    - Submit button: "SUBMIT APPLICATION" (dark bg, centered)
@@ -255,12 +268,43 @@ The Apply page form submits to a Next.js API route (`/api/apply`). Implementatio
 - Store in a simple database (Supabase/Airtable)
 - Forward to a webhook
 
-Show a success state after submission: "Application received. We'll be in touch within 48 hours."
+**Form validation:**
+
+| Field | Required | Validation |
+|-------|----------|------------|
+| Your Name | Yes | Min 2 characters |
+| Email Address | Yes | Valid email format |
+| Business Name | Yes | Min 2 characters |
+| Shopify Store URL | Yes | Valid URL format |
+| Monthly Revenue | Yes | Must select one |
+| What are you looking for? | Yes | At least 1 selected |
+| Biggest growth challenge | Yes | Min 10 characters |
+| How did you hear about us? | No | Optional |
+
+- **Validation errors:** Inline, below each field, red text (#DC2626), shown on submit attempt
+- **Loading state:** Button text changes to "SUBMITTING..." with disabled state
+- **Success state:** Form replaced with centered message: "Application received. We'll be in touch within 48 hours." with a link back to home.
+- **Error state:** Toast notification at top: "Something went wrong. Please try again." Button re-enables.
+
+## Additional Pages
+
+### 404 Page (`not-found.tsx`)
+- Centered layout: H1 "Page not found" + subtext "The page you're looking for doesn't exist." + "Back to Home" button (primary dark)
+- Same nav and footer as other pages
+
+## Accessibility
+
+- Target WCAG 2.1 AA for all text contrast and keyboard navigation
+- All images (including placeholders) must have descriptive alt attributes
+- Focus rings visible on all interactive elements (forest green outline)
+- Semantic HTML throughout: `<nav>`, `<main>`, `<footer>`, `<section>`, proper heading hierarchy
+- Form labels associated with inputs via `htmlFor`
 
 ## SEO
 
 - Unique meta title + description per page
 - Semantic HTML (proper heading hierarchy, landmark elements)
 - Schema markup for LocalBusiness
-- Open Graph + Twitter Card meta tags
+- Open Graph + Twitter Card meta tags (OG image: simple branded card with "Scale OS" logo + tagline on ink background, 1200x630px)
 - Sitemap.xml generated by Next.js
+- Favicon: simple "S" lettermark in ink on white, provided as SVG
