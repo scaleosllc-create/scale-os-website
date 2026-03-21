@@ -20,6 +20,7 @@ src/
     layout.tsx          — Root layout: Inter font, metadata, nav + footer wrapper
     page.tsx            — Home page
     not-found.tsx       — 404 page
+    sitemap.ts          — Auto-generated sitemap.xml
     services/
       page.tsx          — Services page
     about/
@@ -130,6 +131,12 @@ const config: Config = {
         "dark-body": "#AAAAAA",
         "dark-muted": "#666666",
         error: "#DC2626",
+        gray: {
+          300: "#BBBBBB",
+          400: "#999999",
+          500: "#777777",
+          700: "#555555",
+        },
       },
       fontFamily: {
         serif: ["Georgia", "Times New Roman", "serif"],
@@ -139,7 +146,7 @@ const config: Config = {
         container: "1200px",
       },
       fontSize: {
-        eyebrow: ["11px", { letterSpacing: "0.15em", fontWeight: "600" }],
+        eyebrow: ["11px", { letterSpacing: "2px", fontWeight: "600" }],
         small: "12px",
       },
     },
@@ -158,16 +165,13 @@ Replace `src/app/globals.css` with:
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
 html {
   scroll-behavior: smooth;
 }
 
-body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  color: #111111;
-  background-color: #FFFFFF;
+*:focus-visible {
+  outline: 2px solid #2D6A4F;
+  outline-offset: 2px;
 }
 ```
 
@@ -177,7 +181,13 @@ Replace `src/app/layout.tsx` with:
 
 ```tsx
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -192,6 +202,12 @@ export const metadata: Metadata = {
       "We scale Shopify brands with human strategy and AI infrastructure.",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Scale OS — E-Commerce Growth Partner",
+    description:
+      "We scale Shopify brands with human strategy and AI infrastructure.",
+  },
 };
 
 export default function RootLayout({
@@ -201,7 +217,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="antialiased">{children}</body>
+      <body className={`${inter.variable} font-sans antialiased text-ink`}>{children}</body>
     </html>
   );
 }
@@ -252,7 +268,7 @@ const variantStyles: Record<ButtonVariant, string> = {
   primary:
     "bg-ink text-white hover:bg-black",
   secondary:
-    "bg-transparent text-ink border border-border hover:border-ink",
+    "bg-transparent text-ink border border-ink hover:bg-ink hover:text-white",
   accent:
     "bg-forest text-white hover:bg-[#245A42]",
 };
@@ -311,7 +327,7 @@ export default function Section({
   id,
 }: SectionProps) {
   return (
-    <section id={id} className={`py-12 md:py-16 lg:py-20 ${variantStyles[variant]} ${className}`}>
+    <section id={id} className={`py-8 md:py-12 ${variantStyles[variant]} ${className}`}>
       <div className="mx-auto max-w-container px-6 md:px-8 lg:px-0">
         {children}
       </div>
@@ -584,6 +600,7 @@ Create `src/components/layout/Navbar.tsx`:
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import Button from "@/components/ui/Button";
 
 const navLinks = [
@@ -636,44 +653,55 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Drawer */}
-      {mobileOpen && (
-        <>
-          <div
-            className="fixed inset-0 bg-black/40 z-40"
-            onClick={() => setMobileOpen(false)}
-          />
-          <div className="fixed top-0 right-0 bottom-0 w-64 bg-white z-50 p-6 flex flex-col">
-            <button
-              className="self-end text-ink text-2xl mb-8"
+      <AnimatePresence>
+        {mobileOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/40 z-40"
               onClick={() => setMobileOpen(false)}
-              aria-label="Close menu"
+            />
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "tween", duration: 0.3 }}
+              className="fixed top-0 right-0 bottom-0 w-64 bg-white z-50 p-6 flex flex-col"
             >
-              &times;
-            </button>
-            <div className="flex flex-col gap-6">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`text-base ${
-                    pathname === link.href
-                      ? "text-forest font-semibold"
-                      : "text-gray-500"
-                  }`}
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-            <div className="mt-auto">
-              <Button href="/apply" variant="accent" className="w-full text-center">
-                Apply
-              </Button>
-            </div>
-          </div>
-        </>
-      )}
+              <button
+                className="self-end text-ink text-2xl mb-8"
+                onClick={() => setMobileOpen(false)}
+                aria-label="Close menu"
+              >
+                &times;
+              </button>
+              <div className="flex flex-col gap-6">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`text-base ${
+                      pathname === link.href
+                        ? "text-forest font-semibold"
+                        : "text-gray-500"
+                    }`}
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+              <div className="mt-auto">
+                <Button href="/apply" variant="accent" className="w-full text-center">
+                  Apply
+                </Button>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }
@@ -1123,12 +1151,9 @@ export default function Stats() {
         <p className="text-eyebrow text-gray-400 text-center mb-8 tracking-[2px]">
           THE NUMBERS THAT MATTER
         </p>
-        <div className="flex flex-wrap justify-around text-center gap-y-8">
-          {stats.map((stat, i) => (
-            <div key={stat.label} className="flex items-center gap-8">
-              {i > 0 && (
-                <div className="hidden md:block w-px h-12 bg-border" />
-              )}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8 text-center">
+          {stats.map((stat) => (
+            <div key={stat.label} className="border-r border-border last:border-r-0">
               <div>
                 <div className="text-[36px] font-bold text-ink">
                   <CountUp
@@ -1183,9 +1208,9 @@ export default function HowWeWork() {
               <div className="text-[28px] font-bold text-forest mb-2">
                 {step.number}
               </div>
-              <h4 className="text-sm font-semibold text-ink mb-1">
+              <h3 className="text-sm font-semibold text-ink mb-1">
                 {step.title}
-              </h4>
+              </h3>
               <p className="text-small text-gray-500 leading-relaxed">
                 {step.description}
               </p>
@@ -2292,7 +2317,8 @@ git commit -m "feat: build Apply page with intake form and API route"
 ### Task 8: 404 Page & Favicon
 
 **Files:**
-- Create: `src/app/not-found.tsx`, `public/favicon.svg`
+- Create: `src/app/not-found.tsx`, `public/favicon.svg`, `src/app/sitemap.ts`
+- Modify: `src/app/layout.tsx`
 
 - [ ] **Step 1: Create 404 page**
 
@@ -2325,48 +2351,81 @@ Create `public/favicon.svg`:
 
 ```svg
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="6" fill="#111111"/>
-  <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-family="Georgia, serif" font-size="20" font-weight="400" fill="white">S</text>
+  <rect width="32" height="32" rx="6" fill="#FFFFFF" stroke="#E0E0E0" stroke-width="1"/>
+  <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-family="Georgia, serif" font-size="20" font-weight="400" fill="#111111">S</text>
 </svg>
 ```
 
 - [ ] **Step 3: Add favicon to layout**
 
-Update `src/app/layout.tsx` metadata to include:
+Update `src/app/layout.tsx` metadata to add `icons`:
 
 ```tsx
-export const metadata: Metadata = {
-  title: {
-    default: "Scale OS — E-Commerce Growth Partner",
-    template: "%s | Scale OS",
-  },
-  description:
-    "We scale Shopify brands with human strategy and AI infrastructure. Lower your CAC, expand margins, and automate operations.",
   icons: {
     icon: "/favicon.svg",
   },
-  openGraph: {
-    title: "Scale OS — E-Commerce Growth Partner",
-    description:
-      "We scale Shopify brands with human strategy and AI infrastructure.",
-    type: "website",
-  },
-};
 ```
 
-- [ ] **Step 4: Verify 404 and favicon**
+- [ ] **Step 4: Create sitemap.ts**
+
+Create `src/app/sitemap.ts`:
+
+```ts
+import { MetadataRoute } from "next";
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = "https://scaleos.com";
+  return [
+    { url: baseUrl, lastModified: new Date(), changeFrequency: "monthly", priority: 1 },
+    { url: `${baseUrl}/services`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/about`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
+    { url: `${baseUrl}/apply`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
+  ];
+}
+```
+
+- [ ] **Step 5: Add LocalBusiness schema to root layout**
+
+Add a JSON-LD script to the `<head>` in `src/app/layout.tsx`, inside the `<html>` tag before `<body>`:
+
+```tsx
+<head>
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        name: "Scale OS LLC",
+        description: "Premium e-commerce growth agency combining human strategy with AI infrastructure for Shopify brands.",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "1309 Coffeen Avenue STE 1200",
+          addressLocality: "Sheridan",
+          addressRegion: "WY",
+          postalCode: "82801",
+          addressCountry: "US",
+        },
+        url: "https://scaleos.com",
+      }),
+    }}
+  />
+</head>
+```
+
+- [ ] **Step 6: Verify 404, favicon, and sitemap**
 
 ```bash
 npm run dev
 ```
 
-Navigate to `/nonexistent`. Expected: Custom 404 page. Check browser tab for favicon.
+Navigate to `/nonexistent`. Expected: Custom 404 page. Check browser tab for favicon. Navigate to `/sitemap.xml`. Expected: XML sitemap with 4 URLs.
 
-- [ ] **Step 5: Commit**
+- [ ] **Step 7: Commit**
 
 ```bash
-git add src/app/not-found.tsx public/favicon.svg src/app/layout.tsx
-git commit -m "feat: add 404 page and favicon"
+git add src/app/not-found.tsx src/app/sitemap.ts public/favicon.svg src/app/layout.tsx
+git commit -m "feat: add 404 page, favicon, sitemap, and LocalBusiness schema"
 ```
 
 ---
