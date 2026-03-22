@@ -28,6 +28,9 @@ export const metadata: Metadata = {
     description:
       "We scale Shopify brands with human strategy and AI infrastructure.",
   },
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -37,6 +40,28 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              name: "Scale OS LLC",
+              description: "Premium e-commerce growth agency combining human strategy with AI infrastructure for Shopify brands.",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "1309 Coffeen Avenue STE 1200",
+                addressLocality: "Sheridan",
+                addressRegion: "WY",
+                postalCode: "82801",
+                addressCountry: "US",
+              },
+              url: "https://scaleos.com",
+            }),
+          }}
+        />
+      </head>
       <body className={`${inter.variable} font-sans antialiased text-ink`}>
         <Navbar />
         <main className="pt-16">{children}</main>
