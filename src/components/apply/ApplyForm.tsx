@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import Button from "@/components/ui/Button";
 import { FormData, FormErrors, validateForm } from "@/lib/validation";
 import { revenueOptions, serviceOptions, referralOptions } from "@/lib/constants";
@@ -188,18 +189,20 @@ export default function ApplyForm() {
           {serviceOptions.map((service) => {
             const selected = formData.services.includes(service);
             return (
-              <button
+              <motion.button
                 key={service}
                 type="button"
+                layout
+                whileTap={{ scale: 0.95 }}
                 onClick={() => toggleService(service)}
-                className={`rounded-full px-4 py-2 text-[13px] border transition-colors ${
+                className={`rounded-full px-4 py-2 text-[13px] border transition-all duration-200 ${
                   selected
                     ? "border-forest bg-forest-light text-forest"
                     : "border-[#ddd] bg-white text-gray-700 hover:border-gray-400"
                 }`}
               >
                 {service}
-              </button>
+              </motion.button>
             );
           })}
         </div>

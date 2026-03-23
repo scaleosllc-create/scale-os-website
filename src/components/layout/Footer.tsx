@@ -8,7 +8,8 @@ const pageLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-off-white border-t border-border">
+    <footer className="bg-off-white">
+      <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
       <div className="mx-auto max-w-container px-6 md:px-8 lg:px-0 py-10">
         <div className="flex flex-col md:flex-row justify-between items-start gap-8">
           <div>
@@ -22,7 +23,6 @@ export default function Footer() {
           </div>
           <div className="flex gap-12 md:gap-16 text-small">
             <div>
-              <p className="font-semibold text-ink mb-2">Pages</p>
               <div className="flex flex-col gap-1.5">
                 {pageLinks.map((link) => (
                   <Link
@@ -36,7 +36,6 @@ export default function Footer() {
               </div>
             </div>
             <div>
-              <p className="font-semibold text-ink mb-2">Contact</p>
               <p className="text-[11px] text-gray-400 leading-relaxed">
                 1309 Coffeen Avenue STE 1200
                 <br />

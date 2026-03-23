@@ -1,6 +1,10 @@
+"use client";
+
 import Section from "@/components/ui/Section";
 import ImagePlaceholder from "@/components/ui/ImagePlaceholder";
 import FadeIn from "@/components/shared/FadeIn";
+import StaggerContainer, { staggerItemVariants } from "@/components/shared/StaggerContainer";
+import { motion } from "framer-motion";
 import { teamMembers } from "@/lib/constants";
 
 export default function Team() {
@@ -14,15 +18,17 @@ export default function Team() {
           Senior operators, not junior executors.
         </p>
       </FadeIn>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {teamMembers.map((member, i) => (
-          <FadeIn key={member.role} delay={i * 0.1}>
+      <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {teamMembers.map((member) => (
+          <motion.div key={member.role} variants={staggerItemVariants}>
             <div className="text-center">
-              <ImagePlaceholder
-                label="Photo"
-                className="w-24 h-24 mx-auto mb-3"
-                rounded="full"
-              />
+              <div className="ring-2 ring-forest/20 ring-offset-2 rounded-full w-24 h-24 mx-auto mb-3">
+                <ImagePlaceholder
+                  label="Photo"
+                  className="w-24 h-24"
+                  rounded="full"
+                />
+              </div>
               <h4 className="text-[15px] font-semibold text-ink mb-1">
                 {member.name}
               </h4>
@@ -33,9 +39,9 @@ export default function Team() {
                 {member.bio}
               </p>
             </div>
-          </FadeIn>
+          </motion.div>
         ))}
-      </div>
+      </StaggerContainer>
     </Section>
   );
 }

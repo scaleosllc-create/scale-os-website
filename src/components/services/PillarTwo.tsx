@@ -1,29 +1,38 @@
+"use client";
+
 import Section from "@/components/ui/Section";
 import Card from "@/components/ui/Card";
 import Eyebrow from "@/components/ui/Eyebrow";
 import ImagePlaceholder from "@/components/ui/ImagePlaceholder";
 import FadeIn from "@/components/shared/FadeIn";
+import StaggerContainer, { staggerItemVariants } from "@/components/shared/StaggerContainer";
+import { motion } from "framer-motion";
+import { PenNib, Lightning, Storefront, Robot } from "@phosphor-icons/react";
 
 const services = [
   {
     title: "AI Ad & Content Generation",
     description:
       "Generate ads, advertorials, and listicles at scale using trained AI workflows. Test more angles in a week than most teams test in a quarter.",
+    icon: <PenNib weight="light" size={28} className="text-forest" />,
   },
   {
     title: "E-Commerce Workflow Automation",
     description:
       "Custom automation workflows that eliminate repetitive tasks across your operations — from inventory to customer communication to reporting.",
+    icon: <Lightning weight="light" size={28} className="text-forest" />,
   },
   {
     title: "AI-Built Store Optimization",
     description:
       "We use AI tools to build, optimize, and iterate on your Shopify storefront — faster development cycles, better conversion rates.",
+    icon: <Storefront weight="light" size={28} className="text-forest" />,
   },
   {
     title: "Operational AI Integration",
     description:
       "End-to-end AI integration into your daily business processes. We don't just hand you a chatbot — we embed intelligence into how your business runs.",
+    icon: <Robot weight="light" size={28} className="text-forest" />,
   },
 ];
 
@@ -53,11 +62,13 @@ export default function PillarTwo() {
         </div>
       </Section>
       <Section>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {services.map((service, i) => (
-            <FadeIn key={service.title} delay={i * 0.1}>
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {services.map((service) => (
+            <motion.div key={service.title} variants={staggerItemVariants}>
               <Card hover>
-                <ImagePlaceholder label="icon" className="w-10 h-10 mb-3" rounded="lg" />
+                <div className="w-10 h-10 rounded-lg bg-forest-light flex items-center justify-center mb-3">
+                  {service.icon}
+                </div>
                 <h3 className="text-[16px] font-semibold text-ink mb-2">
                   {service.title}
                 </h3>
@@ -65,9 +76,9 @@ export default function PillarTwo() {
                   {service.description}
                 </p>
               </Card>
-            </FadeIn>
+            </motion.div>
           ))}
-        </div>
+        </StaggerContainer>
       </Section>
     </>
   );

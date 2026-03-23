@@ -24,7 +24,7 @@ const principles = [
 
 export default function Principles() {
   return (
-    <Section variant="dark">
+    <Section variant="dark" className="noise-overlay">
       <FadeIn>
         <h2 className="font-serif font-light text-[22px] md:text-[28px] text-white mb-8">
           How we think
@@ -34,7 +34,10 @@ export default function Principles() {
         {principles.map((p, i) => (
           <FadeIn key={p.number} delay={i * 0.1}>
             <div className="bg-white/5 rounded-lg p-5">
-              <div className="text-[28px] font-bold text-forest mb-3">
+              <div
+                className="text-[28px] font-bold text-forest mb-3"
+                style={{ textShadow: "0 0 20px rgba(45, 106, 79, 0.3)" }}
+              >
                 {p.number}
               </div>
               <h3 className="text-[16px] font-semibold text-white mb-2">
