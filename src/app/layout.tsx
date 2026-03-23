@@ -1,13 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
 
 export const metadata: Metadata = {
   title: {
@@ -62,7 +58,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.variable} font-sans antialiased text-ink`}>
+      <body className={`${GeistSans.variable} font-sans antialiased text-ink`}>
         <Navbar />
         <main className="pt-16">{children}</main>
         <Footer />

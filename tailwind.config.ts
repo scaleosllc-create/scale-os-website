@@ -27,7 +27,7 @@ const config: Config = {
       },
       fontFamily: {
         serif: ["Georgia", "Times New Roman", "serif"],
-        sans: ["Inter", "system-ui", "-apple-system", "sans-serif"],
+        sans: ["var(--font-geist-sans)", "system-ui", "-apple-system", "sans-serif"],
       },
       maxWidth: {
         container: "1200px",
