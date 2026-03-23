@@ -2,9 +2,9 @@ import Section from "@/components/ui/Section";
 import FadeIn from "@/components/shared/FadeIn";
 
 const advantages = [
-  { value: "10x", label: "Faster creative iteration" },
-  { value: "60%", label: "Less operational overhead" },
-  { value: "1", label: "Unified growth partner" },
+  { value: "50-100", label: "AI-generated creatives per month" },
+  { value: "40hrs", label: "Saved weekly with automation" },
+  { value: "90 days", label: "From audit to full scale" },
 ];
 
 export default function WhyBoth() {

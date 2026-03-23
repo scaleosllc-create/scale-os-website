@@ -7,7 +7,7 @@ import ImagePlaceholder from "@/components/ui/ImagePlaceholder";
 import FadeIn from "@/components/shared/FadeIn";
 import StaggerContainer, { staggerItemVariants } from "@/components/shared/StaggerContainer";
 import { motion } from "framer-motion";
-import { PenNib, Lightning, Storefront, Robot } from "@phosphor-icons/react";
+import { PenNib, Lightning, Storefront, Robot, Article } from "@phosphor-icons/react";
 
 const services = [
   {
@@ -33,6 +33,12 @@ const services = [
     description:
       "End-to-end AI integration into your daily business processes. We don't just hand you a chatbot — we embed intelligence into how your business runs.",
     icon: <Robot weight="light" size={28} className="text-forest" />,
+  },
+  {
+    title: "Advertorial & Listicle Creation at Scale",
+    description:
+      "AI-powered generation of advertorials, listicles, and long-form landing pages. We produce dozens of variations, test them against real traffic, and scale the winners — 10x faster than any copywriting team.",
+    icon: <Article weight="light" size={28} className="text-forest" />,
   },
 ];
 

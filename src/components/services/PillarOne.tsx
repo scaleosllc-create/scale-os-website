@@ -7,7 +7,7 @@ import ImagePlaceholder from "@/components/ui/ImagePlaceholder";
 import FadeIn from "@/components/shared/FadeIn";
 import StaggerContainer, { staggerItemVariants } from "@/components/shared/StaggerContainer";
 import { motion } from "framer-motion";
-import { Megaphone, MagnifyingGlass, Compass, PaintBrush } from "@phosphor-icons/react";
+import { Megaphone, MagnifyingGlass, Compass, PaintBrush, Newspaper } from "@phosphor-icons/react";
 
 const services = [
   {
@@ -33,6 +33,12 @@ const services = [
     description:
       "Data-driven ad creative — from concept to production. We identify winning angles, test relentlessly, and scale what works.",
     icon: <PaintBrush weight="light" size={28} className="text-forest" />,
+  },
+  {
+    title: "Advertorial & Listicle Landing Pages",
+    description:
+      "High-converting advertorial and listicle landing pages that warm up cold traffic before they hit your store. We build, test, and iterate at scale using AI — turning ad clicks into educated buyers.",
+    icon: <Newspaper weight="light" size={28} className="text-forest" />,
   },
 ];
 

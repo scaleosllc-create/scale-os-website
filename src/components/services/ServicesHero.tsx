@@ -11,8 +11,9 @@ export default function ServicesHero() {
           Two systems. One growth engine.
         </h1>
         <p className="text-gray-500 text-[15px] leading-relaxed max-w-lg">
-          We pair elite media buying with custom AI automation — so your Shopify
-          brand grows faster with less overhead.
+          Meta Ads. Google Ads. Brand strategy. Advertorial landing pages. AI
+          automation. We pair elite media buying with custom AI systems — so your
+          Shopify brand grows faster with less overhead.
         </p>
       </FadeIn>
     </Section>
