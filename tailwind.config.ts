@@ -36,6 +36,11 @@ const config: Config = {
         eyebrow: ["11px", { letterSpacing: "2px", fontWeight: "600" }],
         small: "12px",
       },
+      boxShadow: {
+        "card": "0 1px 3px rgba(45, 106, 79, 0.08), 0 4px 12px rgba(45, 106, 79, 0.04)",
+        "card-hover": "0 4px 16px rgba(45, 106, 79, 0.12), 0 8px 32px rgba(45, 106, 79, 0.06)",
+        "btn": "0 1px 2px rgba(17, 17, 17, 0.08)",
+      },
     },
   },
   plugins: [],

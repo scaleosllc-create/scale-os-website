@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 type ButtonVariant = "primary" | "secondary" | "accent";
 
@@ -13,9 +16,9 @@ interface ButtonProps {
 }
 
 const variantStyles: Record<ButtonVariant, string> = {
-  primary: "bg-ink text-white hover:bg-black",
+  primary: "bg-ink text-white hover:bg-black shadow-btn",
   secondary: "bg-transparent text-ink border border-ink hover:bg-ink hover:text-white",
-  accent: "bg-forest text-white hover:bg-[#245A42]",
+  accent: "bg-forest text-white hover:bg-[#245A42] shadow-btn",
 };
 
 export default function Button({
@@ -33,15 +36,23 @@ export default function Button({
 
   if (href) {
     return (
-      <Link href={href} className={styles}>
-        {children}
-      </Link>
+      <motion.div whileTap={{ scale: 0.97 }} className="inline-block">
+        <Link href={href} className={styles}>
+          {children}
+        </Link>
+      </motion.div>
     );
   }
 
   return (
-    <button type={type} className={styles} disabled={disabled} onClick={onClick}>
+    <motion.button
+      type={type}
+      className={styles}
+      disabled={disabled}
+      onClick={onClick}
+      whileTap={disabled ? undefined : { scale: 0.97 }}
+    >
       {children}
-    </button>
+    </motion.button>
   );
 }
