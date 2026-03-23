@@ -1,10 +1,12 @@
 import Hero from "@/components/home/Hero";
 import PlatformLogos from "@/components/home/PlatformLogos";
-import Problem from "@/components/home/Problem";
+import ProblemGrid from "@/components/home/ProblemGrid";
 import TwoPillars from "@/components/home/TwoPillars";
-import Stats from "@/components/home/Stats";
-import HowWeWork from "@/components/home/HowWeWork";
-import Testimonial from "@/components/home/Testimonial";
+import Timeline from "@/components/home/Timeline";
+import Results from "@/components/home/Results";
+import Comparison from "@/components/home/Comparison";
+import Founder from "@/components/home/Founder";
+import FAQ from "@/components/home/FAQ";
 import FinalCTA from "@/components/home/FinalCTA";
 
 export default function Home() {
@@ -12,11 +14,13 @@ export default function Home() {
     <>
       <Hero />
       <PlatformLogos />
-      <Problem />
+      <ProblemGrid />
       <TwoPillars />
-      <Stats />
-      <HowWeWork />
-      <Testimonial />
+      <Timeline />
+      <Results />
+      <Comparison />
+      <Founder />
+      <FAQ />
       <FinalCTA />
     </>
   );
