@@ -36,6 +36,15 @@ const config: Config = {
         eyebrow: ["11px", { letterSpacing: "2px", fontWeight: "600" }],
         small: "12px",
       },
+      animation: {
+        marquee: "marquee 20s linear infinite",
+      },
+      keyframes: {
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+      },
       boxShadow: {
         "card": "0 1px 3px rgba(45, 106, 79, 0.08), 0 4px 12px rgba(45, 106, 79, 0.04)",
         "card-hover": "0 4px 16px rgba(45, 106, 79, 0.12), 0 8px 32px rgba(45, 106, 79, 0.06)",

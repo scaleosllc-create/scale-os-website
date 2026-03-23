@@ -5,7 +5,7 @@ import FadeIn from "@/components/shared/FadeIn";
 
 export default function Problem() {
   return (
-    <Section variant="dark">
+    <Section variant="dark" className="noise-overlay">
       <div className="flex flex-col lg:flex-row gap-8 items-center">
         <FadeIn className="flex-1">
           <Eyebrow>The Old Model Is Broken</Eyebrow>

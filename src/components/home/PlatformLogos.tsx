@@ -3,25 +3,28 @@ import Image from "next/image";
 import FadeIn from "@/components/shared/FadeIn";
 
 const platforms = [
-  { src: "/logos/shopify.svg", alt: "Shopify", label: "Shopify" },
-  { src: "/logos/meta.svg", alt: "Meta Ads", label: "Meta Ads" },
-  { src: "/logos/google.svg", alt: "Google Ads", label: "Google Ads" },
-  { src: "/logos/klaviyo.svg", alt: "Klaviyo", label: "Klaviyo" },
+  { src: "/logos/shopify.svg", alt: "Shopify" },
+  { src: "/logos/meta.svg", alt: "Meta Ads" },
+  { src: "/logos/google.svg", alt: "Google Ads" },
+  { src: "/logos/klaviyo.svg", alt: "Klaviyo" },
 ];
 
 export default function PlatformLogos() {
+  const doubled = [...platforms, ...platforms];
   return (
-    <Section variant="off-white" className="!py-8">
+    <Section variant="off-white" className="!py-6 overflow-hidden">
       <FadeIn>
         <p className="text-eyebrow text-gray-400 text-center mb-6 tracking-[2px]">
           PLATFORMS WE BUILD ON
         </p>
-        <div className="flex justify-center items-center gap-10 md:gap-16 flex-wrap">
-          {platforms.map((p) => (
-            <div key={p.label} className="text-center opacity-60 hover:opacity-100 transition-opacity">
-              <Image src={p.src} alt={p.alt} width={100} height={32} className="grayscale" />
-            </div>
-          ))}
+        <div className="relative">
+          <div className="flex gap-16 animate-marquee">
+            {doubled.map((p, i) => (
+              <div key={`${p.alt}-${i}`} className="flex-shrink-0 opacity-40 hover:opacity-80 transition-opacity">
+                <Image src={p.src} alt={p.alt} width={100} height={32} />
+              </div>
+            ))}
+          </div>
         </div>
       </FadeIn>
     </Section>

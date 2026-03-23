@@ -7,10 +7,11 @@ import FadeIn from "@/components/shared/FadeIn";
 export default function Hero() {
   return (
     <Section>
-      <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
-        <FadeIn className="flex-1">
+      <div className="relative flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_60%_50%_at_40%_40%,rgba(45,106,79,0.06),transparent)]" />
+        <FadeIn direction="left" className="flex-1">
           <Eyebrow>E-Commerce Growth Partner</Eyebrow>
-          <h1 className="font-serif font-light text-[28px] md:text-[36px] text-ink leading-tight mb-4">
+          <h1 className="font-serif font-light text-[28px] md:text-[36px] text-ink leading-tight tracking-tighter mb-4">
             Human strategy. AI infrastructure.
             <br />
             Shopify brands that scale.
@@ -27,11 +28,11 @@ export default function Hero() {
             </Button>
           </div>
         </FadeIn>
-        <FadeIn delay={0.2} className="flex-1 w-full">
+        <FadeIn direction="right" delay={0.2} className="flex-1 w-full">
           <ImagePlaceholder
             label="HERO IMAGE"
             sublabel="Dashboard mockup, Shopify analytics, or brand collage"
-            className="h-[260px] lg:h-[320px]"
+            className="h-[260px] lg:h-[380px]"
           />
         </FadeIn>
       </div>

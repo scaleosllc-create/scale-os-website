@@ -14,8 +14,9 @@ export default function Testimonial() {
               rounded="full"
             />
           </div>
-          <div>
-            <p className="font-serif italic text-[16px] text-gray-700 leading-relaxed mb-3">
+          <div className="relative">
+            <span className="text-[80px] leading-none text-forest/10 font-serif absolute -top-4 -left-2">&ldquo;</span>
+            <p className="font-serif italic text-[18px] md:text-[20px] text-gray-700 leading-relaxed mb-3">
               &ldquo;Scale OS completely transformed how we run our Shopify store.
               Our CAC dropped 38% in the first 60 days, and the AI workflows
               save our team 30+ hours a week.&rdquo;

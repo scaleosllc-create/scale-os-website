@@ -16,7 +16,7 @@ export default function CTASection({
   buttonHref = "/apply",
 }: CTASectionProps) {
   return (
-    <Section variant="dark" className="text-center">
+    <Section variant="dark" className="text-center noise-overlay">
       <FadeIn>
         <h2 className="font-serif font-light text-[22px] md:text-[28px] text-white mb-3">
           {heading}
