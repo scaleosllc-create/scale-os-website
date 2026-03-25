@@ -2,92 +2,86 @@
 
 import Image from "next/image";
 import Section from "@/components/ui/Section";
-import Card from "@/components/ui/Card";
 import Eyebrow from "@/components/ui/Eyebrow";
 import FadeIn from "@/components/shared/FadeIn";
 import StaggerContainer, { staggerItemVariants } from "@/components/shared/StaggerContainer";
 import { motion } from "framer-motion";
-import { PenNib, Lightning, Storefront, Robot, Article } from "@phosphor-icons/react";
+import { Lightning, Gear, ShoppingCart, Article, Cpu } from "@phosphor-icons/react";
 
 const services = [
   {
+    icon: Article,
     title: "AI Ad & Content Generation",
     description:
-      "Generate ads, advertorials, and listicles at scale using trained AI workflows. Test more angles in a week than most teams test in a quarter.",
-    icon: <PenNib weight="light" size={28} className="text-primary" />,
+      "Generate ads, advertorials, and listicles at scale using trained AI workflows. Test 50 ad angles in a week instead of 5 in a month. More creative velocity means faster learning and lower CAC.",
   },
   {
+    icon: Gear,
     title: "E-Commerce Workflow Automation",
     description:
-      "Custom automation workflows that eliminate repetitive tasks across your operations — from inventory to customer communication to reporting.",
-    icon: <Lightning weight="light" size={28} className="text-primary" />,
+      "Custom automation workflows that eliminate 40+ hours of manual work per week. Inventory alerts, customer communication, reporting, order processing — if it\u2019s repetitive, we automate it.",
   },
   {
-    title: "AI-Built Store Optimization",
+    icon: ShoppingCart,
+    title: "Shopify Store Optimization with AI",
     description:
-      "We use AI tools to build, optimize, and iterate on your Shopify storefront — faster development cycles, better conversion rates.",
-    icon: <Storefront weight="light" size={28} className="text-primary" />,
+      "We use AI tools to build, test, and iterate on your Shopify storefront faster than any development team. Product page optimization, checkout flow improvements, and conversion rate testing at machine speed.",
   },
   {
-    title: "Operational AI Integration",
-    description:
-      "End-to-end AI integration into your daily business processes. We don't just hand you a chatbot — we embed intelligence into how your business runs.",
-    icon: <Robot weight="light" size={28} className="text-primary" />,
-  },
-  {
+    icon: Lightning,
     title: "Advertorial & Listicle Creation at Scale",
     description:
-      "AI-powered generation of advertorials, listicles, and long-form landing pages. We produce dozens of variations, test them against real traffic, and scale the winners — 10x faster than any copywriting team.",
-    icon: <Article weight="light" size={28} className="text-primary" />,
+      "AI-powered production of high-converting advertorial and listicle content. We generate, test, and iterate on landing pages that turn cold traffic into buyers — with a volume and speed that manual teams can\u2019t touch.",
+  },
+  {
+    icon: Cpu,
+    title: "Operational AI Integration",
+    description:
+      "End-to-end AI integration into your daily business operations. We don\u2019t hand you a chatbot — we embed intelligence into how your business actually runs. Inventory prediction, dynamic pricing, automated customer service.",
   },
 ];
 
 export default function PillarTwo() {
   return (
-    <>
-      <Section variant="dark">
-        <div className="flex flex-col lg:flex-row gap-12 items-start">
-          <FadeIn className="flex-1">
-            <Eyebrow>Pillar Two</Eyebrow>
-            <h2 className="font-display text-display-sm md:text-display-md tracking-tighter leading-none text-white mb-4">
-              AI Commerce Operations
-            </h2>
-            <p className="text-base text-white/60 leading-relaxed max-w-[65ch]">
-              This is where most agencies can&apos;t follow. We build custom AI
-              workflows that plug directly into your Shopify operations —
-              automating the work that used to require entire teams.
-            </p>
-          </FadeIn>
-        </div>
-      </Section>
-      <Section>
-        <FadeIn className="mb-8">
+    <Section variant="dark">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start mb-16">
+        <FadeIn direction="left">
           <Image
             src="/images/ai-workflow.png"
-            alt="Developer workspace with code editor and project pipeline"
+            alt="Developer workspace with AI automation pipeline"
             width={1376}
             height={768}
             className="rounded-2xl w-full"
           />
         </FadeIn>
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {services.map((service) => (
-            <motion.div key={service.title} variants={staggerItemVariants}>
-              <Card dark hover>
-                <div className="w-12 h-12 rounded-2xl bg-white/[0.06] flex items-center justify-center mb-4">
-                  {service.icon}
-                </div>
-                <h3 className="text-[16px] font-semibold text-white mb-2">
-                  {service.title}
-                </h3>
-                <p className="text-[13px] text-white/60 leading-relaxed">
-                  {service.description}
-                </p>
-              </Card>
-            </motion.div>
-          ))}
-        </StaggerContainer>
-      </Section>
-    </>
+        <FadeIn direction="right" delay={0.15}>
+          <Eyebrow className="!text-primary">PILLAR TWO</Eyebrow>
+          <h2 className="font-display text-display-md md:text-display-lg tracking-tighter text-white mb-4">
+            AI Commerce Operations
+          </h2>
+          <p className="text-white/50 text-base leading-relaxed max-w-[55ch]">
+            This is where most agencies can&apos;t follow. We build custom AI
+            workflows that plug directly into your Shopify operations — automating
+            the work that used to require entire teams. Your unfair competitive
+            advantage.
+          </p>
+        </FadeIn>
+      </div>
+      <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map((service) => (
+          <motion.div key={service.title} variants={staggerItemVariants}>
+            <div className="bg-white/[0.04] rounded-2xl p-8 h-full transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-white/[0.07]">
+              <service.icon size={28} weight="light" className="text-primary mb-5" />
+              <h3 className="font-display text-lg text-white tracking-tight mb-3">
+                {service.title}
+              </h3>
+              <p className="text-white/50 text-sm leading-relaxed">
+                {service.description}
+              </p>
+            </div>
+          </motion.div>
+        ))}
+      </StaggerContainer>
+    </Section>
   );
 }
