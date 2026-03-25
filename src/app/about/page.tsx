@@ -1,14 +1,14 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import AboutHero from "@/components/about/AboutHero";
 import WhyWeExist from "@/components/about/WhyWeExist";
 import Principles from "@/components/about/Principles";
 import Team from "@/components/about/Team";
-import CTASection from "@/components/shared/CTASection";
+import AboutCTA from "@/components/about/AboutCTA";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About — Scale OS",
   description:
-    "Scale OS combines elite e-commerce strategy with AI infrastructure. Human-led, AI-executed.",
+    "Meet the team behind Scale OS. Senior operators building the future of e-commerce growth with AI.",
 };
 
 export default function AboutPage() {
@@ -18,11 +18,7 @@ export default function AboutPage() {
       <WhyWeExist />
       <Principles />
       <Team />
-      <CTASection
-        heading="Want to work with us?"
-        subtext="We take on a limited number of partners each quarter. Tell us about your brand and we'll see if there's a fit."
-        buttonText="Apply for Partnership"
-      />
+      <AboutCTA />
     </>
   );
 }

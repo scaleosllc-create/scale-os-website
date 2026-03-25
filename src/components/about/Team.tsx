@@ -1,49 +1,66 @@
-"use client";
-
 import Image from "next/image";
 import Section from "@/components/ui/Section";
 import FadeIn from "@/components/shared/FadeIn";
-import StaggerContainer, { staggerItemVariants } from "@/components/shared/StaggerContainer";
-import { motion } from "framer-motion";
-import { teamMembers } from "@/lib/constants";
+
+const team = [
+  {
+    name: "Georgi Georgiev",
+    role: "Founder & CEO",
+    image: "/images/founder-headshot.png",
+    bio: "Built his first Shopify store at 22. Spent 5 years in the trenches of e-commerce growth before realizing agencies were the bottleneck, not the solution. Started Scale OS to prove that a small team with the right systems can outperform agencies 10x their size.",
+  },
+  {
+    name: "Maya Johnson",
+    role: "Head of Growth",
+    image: "/images/team-head-of-growth.png",
+    bio: "Former performance lead at a top DTC agency where she managed $2M+ in monthly ad spend across Meta and Google. Left because she was tired of the 'more people, more problems' model. Believes the best media buying is part math, part creative instinct.",
+  },
+  {
+    name: "Daniel Park",
+    role: "AI Operations Lead",
+    image: "/images/team-ai-ops-lead.png",
+    bio: "Full-stack engineer turned AI systems architect. Built automation pipelines for two YC-backed startups before joining Scale OS. Obsessed with eliminating manual work — if a human does it more than twice, he builds a system to do it instead.",
+  },
+];
 
 export default function Team() {
   return (
     <Section>
       <FadeIn>
-        <h2 className="font-display text-display-sm md:text-display-md tracking-tighter leading-none text-on-surface mb-3">
+        <h2 className="font-display text-display-md md:text-display-lg tracking-tighter text-on-surface mb-4">
           The team
         </h2>
-        <p className="text-sm text-on-surface-variant mb-12">
-          Senior operators, not junior executors.
+        <p className="text-on-surface-variant text-base leading-relaxed max-w-[55ch] mb-16">
+          Senior operators who&apos;ve been in the trenches. No junior account
+          managers, no offshore teams, no middlemen.
         </p>
       </FadeIn>
-      <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-10">
-        {teamMembers.map((member) => (
-          <motion.div key={member.role} variants={staggerItemVariants}>
-            <div className="text-center">
-              <div className="rounded-full w-[120px] h-[120px] mx-auto mb-4 overflow-hidden">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+        {team.map((member, index) => (
+          <FadeIn key={member.name} delay={index * 0.1}>
+            <div className="group">
+              <div className="relative overflow-hidden rounded-2xl mb-6 aspect-square">
                 <Image
                   src={member.image}
                   alt={member.name}
-                  width={120}
-                  height={120}
-                  className="rounded-full object-cover w-[120px] h-[120px]"
+                  width={600}
+                  height={600}
+                  className="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.03]"
                 />
               </div>
-              <h4 className="text-[15px] font-semibold text-on-surface mb-1">
+              <h3 className="font-display text-xl text-on-surface tracking-tight mb-1">
                 {member.name}
-              </h4>
-              <p className="text-sm text-primary font-medium mb-2">
+              </h3>
+              <p className="text-primary text-sm font-medium mb-3">
                 {member.role}
               </p>
-              <p className="text-sm text-on-surface-variant leading-relaxed">
+              <p className="text-on-surface-variant text-sm leading-relaxed">
                 {member.bio}
               </p>
             </div>
-          </motion.div>
+          </FadeIn>
         ))}
-      </StaggerContainer>
+      </div>
     </Section>
   );
 }
