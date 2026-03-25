@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Section from "@/components/ui/Section";
 import Eyebrow from "@/components/ui/Eyebrow";
 import Card from "@/components/ui/Card";
@@ -57,6 +58,15 @@ export default function Results() {
           Projected outcomes based on our methodology applied to typical Shopify
           brands in our target range.
         </p>
+      </FadeIn>
+      <FadeIn>
+        <Image
+          src="/images/results-dashboard.png"
+          alt="Shopify Analytics showing hockey stick revenue growth"
+          width={1376}
+          height={768}
+          className="rounded-2xl mb-12 w-full"
+        />
       </FadeIn>
       <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {caseStudies.map((study, idx) => (

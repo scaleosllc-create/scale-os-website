@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Section from "@/components/ui/Section";
 import Eyebrow from "@/components/ui/Eyebrow";
 import FadeIn from "@/components/shared/FadeIn";
@@ -48,6 +49,13 @@ export default function TwoPillars() {
             </ul>
           </FadeIn>
           <FadeIn direction="right" delay={0.15}>
+            <Image
+              src="/images/ecom-products.png"
+              alt="E-commerce product photoshoot in progress"
+              width={1376}
+              height={768}
+              className="rounded-2xl mb-6 w-full"
+            />
             {/* Mock Facebook Ad */}
             <div className="bg-surface-card rounded-2xl overflow-hidden shadow-ambient">
               <div className="px-4 py-3 flex items-center gap-2">

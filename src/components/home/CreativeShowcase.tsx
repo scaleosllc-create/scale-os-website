@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Section from "@/components/ui/Section";
 import Eyebrow from "@/components/ui/Eyebrow";
 import FadeIn from "@/components/shared/FadeIn";
@@ -41,6 +42,15 @@ export default function CreativeShowcase() {
         <p className="text-on-surface-variant text-base leading-relaxed max-w-[55ch] mb-16">
           Real ad formats we build for clients. AI-generated at scale, human-refined for performance.
         </p>
+      </FadeIn>
+      <FadeIn>
+        <Image
+          src="/images/creative-process.png"
+          alt="Agency mood board with printed ad mockups and audience research"
+          width={1376}
+          height={768}
+          className="rounded-2xl mb-16 w-full"
+        />
       </FadeIn>
       <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {creatives.map((creative) => (

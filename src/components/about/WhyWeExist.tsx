@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Section from "@/components/ui/Section";
 import FadeIn from "@/components/shared/FadeIn";
 
@@ -6,6 +7,13 @@ export default function WhyWeExist() {
     <Section variant="surface-low">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         <FadeIn direction="left">
+          <Image
+            src="/images/creative-process.png"
+            alt="Agency workspace with printed ad mockups and creative planning"
+            width={1376}
+            height={768}
+            className="rounded-2xl mb-6 w-full"
+          />
           {/* Code-built agency workspace mockup */}
           <div className="bg-surface-card rounded-2xl overflow-hidden shadow-ambient">
             <div className="bg-surface-low px-5 py-3 flex items-center justify-between">

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Section from "@/components/ui/Section";
 import Eyebrow from "@/components/ui/Eyebrow";
 import FadeIn from "@/components/shared/FadeIn";
@@ -18,6 +19,13 @@ export default function ServicesHero() {
           </p>
         </FadeIn>
         <FadeIn direction="right" delay={0.15}>
+          <Image
+            src="/images/shopify-screen.png"
+            alt="Shopify store displayed on monitor with analytics dashboard"
+            width={1376}
+            height={768}
+            className="rounded-2xl w-full mb-6"
+          />
           {/* Services dashboard mockup */}
           <div className="bg-surface-card rounded-2xl overflow-hidden shadow-ambient">
             <div className="bg-surface-low px-5 py-3 flex items-center justify-between">
