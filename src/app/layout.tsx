@@ -60,7 +60,7 @@ export default function RootLayout({
       </head>
       <body className={`${GeistSans.variable} font-sans antialiased text-ink`}>
         <Navbar />
-        <main className="pt-16">{children}</main>
+        <main className="pt-20">{children}</main>
         <Footer />
       </body>
     </html>

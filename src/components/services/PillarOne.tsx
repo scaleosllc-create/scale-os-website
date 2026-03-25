@@ -45,30 +45,31 @@ const services = [
 export default function PillarOne() {
   return (
     <Section>
-      <div className="flex flex-col lg:flex-row gap-8 items-start mb-10">
+      <div className="flex flex-col lg:flex-row gap-12 items-start mb-14">
         <FadeIn className="flex-1">
           <Eyebrow>Pillar One</Eyebrow>
-          <h2 className="font-serif font-light text-[22px] md:text-[28px] text-ink mb-3">
+          <h2 className="text-3xl md:text-4xl tracking-tighter leading-none font-serif font-light text-ink mb-4">
             Revenue Engineering
           </h2>
-          <p className="text-sm text-gray-500 leading-relaxed">
+          <p className="text-base text-gray-500 leading-relaxed max-w-[65ch]">
             We don&apos;t just run ads — we build profitable acquisition systems.
             Every dollar is tracked to contribution margin, not vanity ROAS. Our
             strategists think in unit economics, not impressions.
           </p>
         </FadeIn>
-        <FadeIn delay={0.2} className="flex-shrink-0 w-full lg:w-[240px]">
+        <FadeIn delay={0.2} className="flex-shrink-0 w-full lg:w-[280px]">
           <ImagePlaceholder
             label="Campaign dashboard visual"
-            className="h-[160px]"
+            className="h-[180px]"
+            rounded="2xl"
           />
         </FadeIn>
       </div>
-      <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {services.map((service) => (
           <motion.div key={service.title} variants={staggerItemVariants}>
             <Card hover>
-              <div className="w-10 h-10 rounded-lg bg-forest-light flex items-center justify-center mb-3">
+              <div className="w-12 h-12 rounded-2xl bg-forest/[0.06] flex items-center justify-center mb-4">
                 {service.icon}
               </div>
               <h3 className="text-[16px] font-semibold text-ink mb-2">

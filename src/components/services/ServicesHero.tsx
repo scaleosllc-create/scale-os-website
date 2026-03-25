@@ -7,10 +7,10 @@ export default function ServicesHero() {
     <Section>
       <FadeIn>
         <Eyebrow>What We Do</Eyebrow>
-        <h1 className="font-serif font-light text-[28px] md:text-[36px] text-ink leading-tight mb-4">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl tracking-tighter leading-none font-serif font-light text-ink mb-6">
           Two systems. One growth engine.
         </h1>
-        <p className="text-gray-500 text-[15px] leading-relaxed max-w-lg">
+        <p className="text-base md:text-lg text-gray-500 leading-relaxed max-w-[55ch]">
           Meta Ads. Google Ads. Brand strategy. Advertorial landing pages. AI
           automation. We pair elite media buying with custom AI systems — so your
           Shopify brand grows faster with less overhead.

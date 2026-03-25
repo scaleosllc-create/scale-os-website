@@ -66,7 +66,7 @@ export default function ApplyForm() {
   if (status === "success") {
     return (
       <div className="text-center py-16">
-        <h2 className="font-serif font-light text-[28px] text-ink mb-3">
+        <h2 className="text-3xl md:text-4xl tracking-tighter leading-none font-serif font-light text-ink mb-4">
           Application received.
         </h2>
         <p className="text-gray-500 mb-6">
@@ -80,12 +80,12 @@ export default function ApplyForm() {
   }
 
   const inputClass =
-    "w-full border border-[#ddd] rounded px-3.5 py-3 text-sm text-ink placeholder:text-gray-300 focus:outline-none focus:border-forest focus:ring-2 focus:ring-forest-light transition-colors";
+    "w-full rounded-xl px-4 py-3 text-sm text-ink placeholder:text-gray-300 ring-1 ring-ink/[0.06] focus:outline-none focus:ring-forest focus:ring-2 transition-all duration-300 bg-white";
 
   return (
     <form onSubmit={handleSubmit} noValidate>
       {status === "error" && (
-        <div className="bg-red-50 border border-red-200 text-error text-sm rounded px-4 py-3 mb-6">
+        <div className="bg-red-50 ring-1 ring-red-200 text-error text-sm rounded-xl px-4 py-3 mb-6">
           Something went wrong. Please try again.
         </div>
       )}
@@ -168,7 +168,7 @@ export default function ApplyForm() {
           name="revenue"
           value={formData.revenue}
           onChange={handleChange}
-          className={`${inputClass} appearance-none bg-white`}
+          className={`${inputClass} appearance-none`}
         >
           <option value="">Select a range</option>
           {revenueOptions.map((opt) => (
@@ -195,10 +195,10 @@ export default function ApplyForm() {
                 layout
                 whileTap={{ scale: 0.95 }}
                 onClick={() => toggleService(service)}
-                className={`rounded-full px-4 py-2 text-[13px] border transition-all duration-200 ${
+                className={`rounded-full px-4 py-2 text-[13px] ring-1 transition-all duration-300 ${
                   selected
-                    ? "border-forest bg-forest-light text-forest"
-                    : "border-[#ddd] bg-white text-gray-700 hover:border-gray-400"
+                    ? "ring-forest bg-forest/[0.06] text-forest"
+                    : "ring-ink/[0.06] bg-white text-gray-700 hover:ring-ink/[0.15]"
                 }`}
               >
                 {service}
@@ -227,7 +227,7 @@ export default function ApplyForm() {
       </div>
 
       {/* Row 6: Referral */}
-      <div className="mb-8">
+      <div className="mb-10">
         <label htmlFor="referral" className="block text-xs font-semibold text-gray-700 tracking-wide mb-1.5">
           HOW DID YOU HEAR ABOUT US?
         </label>
@@ -236,7 +236,7 @@ export default function ApplyForm() {
           name="referral"
           value={formData.referral}
           onChange={handleChange}
-          className={`${inputClass} appearance-none bg-white`}
+          className={`${inputClass} appearance-none`}
         >
           <option value="">Select one (optional)</option>
           {referralOptions.map((opt) => (
@@ -254,10 +254,11 @@ export default function ApplyForm() {
           variant="primary"
           disabled={status === "submitting"}
           className="min-w-[200px]"
+          arrow
         >
           {status === "submitting" ? "SUBMITTING..." : "SUBMIT APPLICATION"}
         </Button>
-        <p className="text-[11px] text-gray-300 mt-3">
+        <p className="text-[11px] text-gray-300 mt-4">
           We&apos;ll review your application and respond within 48 hours.
         </p>
       </div>

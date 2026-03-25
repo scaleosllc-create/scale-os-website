@@ -46,33 +46,34 @@ export default function PillarTwo() {
   return (
     <>
       <Section variant="dark">
-        <div className="flex flex-col lg:flex-row gap-8 items-start">
+        <div className="flex flex-col lg:flex-row gap-12 items-start">
           <FadeIn className="flex-1">
             <Eyebrow>Pillar Two</Eyebrow>
-            <h2 className="font-serif font-light text-[22px] md:text-[28px] text-white mb-3">
+            <h2 className="text-3xl md:text-4xl tracking-tighter leading-none font-serif font-light text-white mb-4">
               AI Commerce Operations
             </h2>
-            <p className="text-sm text-dark-body leading-relaxed">
+            <p className="text-base text-dark-body leading-relaxed max-w-[65ch]">
               This is where most agencies can&apos;t follow. We build custom AI
               workflows that plug directly into your Shopify operations —
               automating the work that used to require entire teams.
             </p>
           </FadeIn>
-          <FadeIn delay={0.2} className="flex-shrink-0 w-full lg:w-[240px]">
+          <FadeIn delay={0.2} className="flex-shrink-0 w-full lg:w-[280px]">
             <ImagePlaceholder
               label="AI workflow diagram"
               dark
-              className="h-[160px]"
+              className="h-[180px]"
+              rounded="2xl"
             />
           </FadeIn>
         </div>
       </Section>
       <Section>
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {services.map((service) => (
             <motion.div key={service.title} variants={staggerItemVariants}>
               <Card hover>
-                <div className="w-10 h-10 rounded-lg bg-forest-light flex items-center justify-center mb-3">
+                <div className="w-12 h-12 rounded-2xl bg-forest/[0.06] flex items-center justify-center mb-4">
                   {service.icon}
                 </div>
                 <h3 className="text-[16px] font-semibold text-ink mb-2">
