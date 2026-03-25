@@ -5,8 +5,10 @@ interface EyebrowProps {
 
 export default function Eyebrow({ children, className = "" }: EyebrowProps) {
   return (
-    <p className={`text-eyebrow uppercase text-forest mb-3 ${className}`}>
+    <span
+      className={`inline-block rounded-full bg-forest/[0.08] px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] font-medium text-forest mb-5 ${className}`}
+    >
       {children}
-    </p>
+    </span>
   );
 }

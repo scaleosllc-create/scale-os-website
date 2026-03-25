@@ -38,7 +38,7 @@ export default function ApplyPage() {
       </Section>
 
       {/* What Happens Next */}
-      <Section variant="off-white">
+      <Section variant="cream">
         <FadeIn>
           <h3 className="font-serif font-light text-[18px] text-ink mb-6">
             After you apply

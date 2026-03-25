@@ -124,7 +124,7 @@ export default function TwoPillars() {
       </Section>
 
       {/* Block 2: AI Commerce Operations — off-white bg */}
-      <Section variant="off-white">
+      <Section variant="cream">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
           <FadeIn direction="left">
             {/* AI Workflow Diagram Mockup */}

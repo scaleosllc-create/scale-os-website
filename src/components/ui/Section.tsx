@@ -1,14 +1,15 @@
 interface SectionProps {
   children: React.ReactNode;
-  variant?: "light" | "dark" | "off-white";
+  variant?: "light" | "dark" | "cream";
   className?: string;
   id?: string;
+  narrow?: boolean;
 }
 
 const variantStyles = {
   light: "bg-white",
-  dark: "bg-ink text-white",
-  "off-white": "bg-off-white",
+  dark: "bg-ink text-white noise-overlay",
+  cream: "bg-off-white",
 };
 
 export default function Section({
@@ -16,10 +17,11 @@ export default function Section({
   variant = "light",
   className = "",
   id,
+  narrow = false,
 }: SectionProps) {
   return (
-    <section id={id} className={`py-8 md:py-12 ${variantStyles[variant]} ${className}`}>
-      <div className="mx-auto max-w-container px-6 md:px-8 lg:px-0">
+    <section id={id} className={`py-16 md:py-24 lg:py-32 ${variantStyles[variant]} ${className}`}>
+      <div className={`mx-auto ${narrow ? "max-w-3xl" : "max-w-container"} px-6 md:px-8 lg:px-12`}>
         {children}
       </div>
     </section>

@@ -12,22 +12,21 @@ interface FadeInProps {
 
 export default function FadeIn({ children, delay = 0, className = "", direction = "up" }: FadeInProps) {
   const directionOffset = {
-    up: { y: 30 },
-    down: { y: -30 },
-    left: { x: 30 },
-    right: { x: -30 },
+    up: { y: 24 },
+    down: { y: -24 },
+    left: { x: 24 },
+    right: { x: -24 },
   };
 
   return (
     <motion.div
-      initial={{ opacity: 0, ...directionOffset[direction] }}
-      whileInView={{ opacity: 1, x: 0, y: 0 }}
+      initial={{ opacity: 0, filter: "blur(4px)", ...directionOffset[direction] }}
+      whileInView={{ opacity: 1, filter: "blur(0px)", x: 0, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{
-        type: "spring",
-        stiffness: 100,
-        damping: 20,
+        duration: 0.8,
         delay,
+        ease: [0.32, 0.72, 0, 1],
       }}
       className={className}
     >

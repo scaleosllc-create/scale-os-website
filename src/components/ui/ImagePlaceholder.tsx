@@ -3,7 +3,7 @@ interface ImagePlaceholderProps {
   sublabel?: string;
   className?: string;
   dark?: boolean;
-  rounded?: "none" | "lg" | "full";
+  rounded?: "none" | "2xl" | "3xl" | "full";
 }
 
 export default function ImagePlaceholder({
@@ -11,37 +11,34 @@ export default function ImagePlaceholder({
   sublabel,
   className = "",
   dark = false,
-  rounded = "lg",
+  rounded = "2xl",
 }: ImagePlaceholderProps) {
   const roundedClass = {
     none: "",
-    lg: "rounded-lg",
+    "2xl": "rounded-2xl",
+    "3xl": "rounded-3xl",
     full: "rounded-full",
   }[rounded];
 
   return (
     <div
-      className={`flex items-center justify-center border animate-pulse ${
+      className={`flex items-center justify-center ${
         dark
-          ? "bg-gradient-to-br from-[#1a1a1a] to-[#1a1a1a]/60 border-[#333]/50"
-          : "bg-gradient-to-br from-surface to-surface/60 border-border/50"
+          ? "bg-gradient-to-br from-white/[0.04] to-white/[0.01] ring-1 ring-white/[0.06]"
+          : "bg-gradient-to-br from-surface to-surface/40 ring-1 ring-ink/[0.04]"
       } ${roundedClass} ${className}`}
       role="img"
       aria-label={label}
     >
       <div className="text-center">
-        <div className={`mb-1 flex justify-center ${dark ? "text-[#555]" : "text-gray-400"}`}>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            <rect x="2" y="2" width="20" height="20" rx="2" />
-            <circle cx="8.5" cy="8.5" r="1.5" />
-            <path d="M14.5 9.5l5.5 5.5v3a2 2 0 01-2 2H6a2 2 0 01-2-2v-1l4-4 3 3z" />
-          </svg>
-        </div>
-        <div className={`text-xs font-semibold ${dark ? "text-[#555]" : "text-gray-400"}`}>
+        <svg className={`w-8 h-8 mx-auto mb-2 ${dark ? "text-white/20" : "text-ink/15"}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" />
+        </svg>
+        <div className={`text-[10px] font-medium tracking-wide ${dark ? "text-white/25" : "text-ink/20"}`}>
           {label}
         </div>
         {sublabel && (
-          <div className={`text-[10px] mt-1 ${dark ? "text-[#444]" : "text-gray-300"}`}>
+          <div className={`text-[9px] mt-1 ${dark ? "text-white/15" : "text-ink/10"}`}>
             {sublabel}
           </div>
         )}

@@ -32,7 +32,7 @@ const rows = [
 
 export default function Comparison() {
   return (
-    <Section variant="off-white">
+    <Section variant="cream">
       <FadeIn>
         <Eyebrow>WHY US</Eyebrow>
         <h2 className="font-serif font-light text-[22px] md:text-[30px] text-ink tracking-tighter mb-10">

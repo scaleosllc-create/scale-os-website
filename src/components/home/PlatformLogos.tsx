@@ -12,7 +12,7 @@ const platforms = [
 export default function PlatformLogos() {
   const doubled = [...platforms, ...platforms];
   return (
-    <Section variant="off-white" className="!py-6 overflow-hidden">
+    <Section variant="cream" className="!py-6 overflow-hidden">
       <FadeIn>
         <p className="text-eyebrow text-gray-400 text-center mb-6 tracking-[2px]">
           PLATFORMS WE BUILD ON

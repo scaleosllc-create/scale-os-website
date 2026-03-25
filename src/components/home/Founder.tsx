@@ -3,7 +3,7 @@ import FadeIn from "@/components/shared/FadeIn";
 
 export default function Founder() {
   return (
-    <Section variant="off-white">
+    <Section variant="cream">
       <FadeIn>
         <div className="max-w-2xl mx-auto text-center">
           {/* Circular placeholder */}

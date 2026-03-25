@@ -9,7 +9,7 @@ const advantages = [
 
 export default function WhyBoth() {
   return (
-    <Section variant="off-white">
+    <Section variant="cream">
       <FadeIn>
         <h2 className="font-serif font-light text-[22px] md:text-[28px] text-ink mb-3">
           Why this combination wins
