@@ -26,24 +26,24 @@ export default function Principles() {
   return (
     <Section variant="dark">
       <FadeIn>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl tracking-tighter leading-none font-serif font-light text-white mb-12">
+        <h2 className="font-display text-display-sm md:text-display-md lg:text-display-lg text-white mb-12">
           How we think
         </h2>
       </FadeIn>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {principles.map((p, i) => (
           <FadeIn key={p.number} delay={i * 0.1}>
-            <div className="bg-white/5 ring-1 ring-white/10 rounded-2xl p-8">
+            <div className="bg-white/5 rounded-2xl p-8">
               <div
-                className="text-[28px] font-bold text-forest mb-4"
-                style={{ textShadow: "0 0 20px rgba(45, 106, 79, 0.3)" }}
+                className="text-[28px] font-bold text-primary mb-4"
+                style={{ textShadow: "0 0 20px rgba(0, 88, 188, 0.3)" }}
               >
                 {p.number}
               </div>
               <h3 className="text-[16px] font-semibold text-white mb-3">
                 {p.title}
               </h3>
-              <p className="text-[13px] text-dark-body leading-relaxed">
+              <p className="text-[13px] text-white/60 leading-relaxed">
                 {p.description}
               </p>
             </div>

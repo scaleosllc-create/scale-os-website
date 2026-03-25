@@ -17,10 +17,10 @@ export default function ApplyPage() {
       <Section className="text-center">
         <FadeIn>
           <Eyebrow className="mx-auto">Apply for Partnership</Eyebrow>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl tracking-tighter leading-none font-serif font-light text-ink mb-6">
+          <h1 className="font-display text-display-md md:text-display-lg tracking-tighter leading-none text-on-surface mb-6">
             Tell us about your brand.
           </h1>
-          <p className="text-base md:text-lg text-gray-500 leading-relaxed max-w-md mx-auto">
+          <p className="text-base md:text-lg text-on-surface-variant leading-relaxed max-w-md mx-auto">
             We work with a limited number of Shopify brands each quarter. Fill
             out the form below and we&apos;ll be in touch within 48 hours if
             there&apos;s a fit.
@@ -31,16 +31,16 @@ export default function ApplyPage() {
       {/* Form */}
       <Section className="!pt-0">
         <FadeIn>
-          <div className="max-w-2xl mx-auto bg-white border border-border rounded-2xl p-8 md:p-12">
+          <div className="max-w-2xl mx-auto bg-surface-card rounded-2xl shadow-ambient p-8 md:p-12">
             <ApplyForm />
           </div>
         </FadeIn>
       </Section>
 
       {/* What Happens Next */}
-      <Section variant="cream">
+      <Section variant="surface-low">
         <FadeIn>
-          <h3 className="text-2xl md:text-3xl tracking-tighter leading-none font-serif font-light text-ink mb-8">
+          <h3 className="font-display text-display-sm tracking-tighter leading-none text-on-surface mb-8">
             After you apply
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -62,14 +62,14 @@ export default function ApplyPage() {
               },
             ].map((step) => (
               <div key={step.num} className="flex gap-4">
-                <div className="text-2xl font-bold text-forest flex-shrink-0">
+                <div className="text-2xl font-bold text-primary flex-shrink-0">
                   {step.num}
                 </div>
                 <div>
-                  <h4 className="text-sm font-semibold text-ink mb-1">
+                  <h4 className="text-sm font-semibold text-on-surface mb-1">
                     {step.title}
                   </h4>
-                  <p className="text-sm text-gray-500 leading-relaxed">
+                  <p className="text-sm text-on-surface-variant leading-relaxed">
                     {step.desc}
                   </p>
                 </div>

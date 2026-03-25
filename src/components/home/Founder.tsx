@@ -3,15 +3,15 @@ import FadeIn from "@/components/shared/FadeIn";
 
 export default function Founder() {
   return (
-    <Section variant="cream">
+    <Section variant="surface-low">
       <FadeIn>
         <div className="max-w-2xl mx-auto text-center">
           {/* Decorative quotation mark */}
-          <div className="text-forest/10 text-[120px] leading-none font-serif select-none -mb-10">
+          <div className="text-primary/10 text-[120px] leading-none font-display select-none -mb-10">
             &ldquo;
           </div>
 
-          <blockquote className="text-xl md:text-2xl font-serif font-light leading-relaxed text-ink mb-8">
+          <blockquote className="text-xl md:text-2xl font-display font-light leading-relaxed text-on-surface mb-8">
             I built Scale OS because I was tired of watching e-commerce
             brands get burned by agencies that don&rsquo;t understand unit
             economics. We combine the strategic depth of a top-tier growth team
@@ -21,14 +21,14 @@ export default function Founder() {
 
           {/* Photo + attribution */}
           <div className="flex items-center justify-center gap-4">
-            <div className="w-20 h-20 rounded-full bg-surface border border-border flex items-center justify-center flex-shrink-0">
-              <span className="text-[10px] uppercase tracking-wider text-gray-400">
+            <div className="w-20 h-20 rounded-full bg-surface-high flex items-center justify-center flex-shrink-0">
+              <span className="text-[10px] uppercase tracking-wider text-on-surface-variant">
                 Photo
               </span>
             </div>
             <div className="text-left">
-              <p className="text-base font-semibold text-ink">Founder Name</p>
-              <p className="text-sm text-gray-500">
+              <p className="text-base font-semibold text-on-surface">Founder Name</p>
+              <p className="text-sm text-on-surface-variant">
                 Founder &amp; CEO, Scale OS
               </p>
             </div>

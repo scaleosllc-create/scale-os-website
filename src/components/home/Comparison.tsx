@@ -38,10 +38,10 @@ const rows = [
 
 export default function Comparison() {
   return (
-    <Section variant="cream">
+    <Section variant="surface-low">
       <FadeIn>
         <Eyebrow>WHY US</Eyebrow>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl tracking-tighter leading-none font-serif font-light text-ink mb-12">
+        <h2 className="font-display text-display-sm md:text-display-md lg:text-display-lg text-on-surface mb-12">
           Traditional agency vs. Scale OS
         </h2>
       </FadeIn>
@@ -49,11 +49,11 @@ export default function Comparison() {
         <div className="overflow-x-auto">
           <div className="min-w-[540px]">
             {/* Header */}
-            <div className="grid grid-cols-[1fr_1fr] gap-8 pb-4 border-b border-border mb-0">
-              <div className="text-[13px] font-semibold text-gray-400 uppercase tracking-wider">
+            <div className="grid grid-cols-[1fr_1fr] gap-8 pb-4 mb-0">
+              <div className="text-[13px] font-semibold text-on-surface-variant uppercase tracking-wider">
                 Traditional Agency
               </div>
-              <div className="text-[13px] font-semibold text-forest uppercase tracking-wider">
+              <div className="text-[13px] font-semibold text-primary uppercase tracking-wider">
                 Scale OS
               </div>
             </div>
@@ -63,29 +63,29 @@ export default function Comparison() {
               {rows.map((row) => (
                 <div
                   key={row.label}
-                  className="grid grid-cols-[1fr_1fr] gap-8 py-5 border-b border-border"
+                  className="grid grid-cols-[1fr_1fr] gap-8 py-5"
                 >
                   <div className="flex items-start gap-3">
-                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-gray-200 flex-shrink-0 mt-0.5">
+                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-surface-high flex-shrink-0 mt-0.5">
                       <X
                         size={12}
                         weight="bold"
-                        className="text-gray-400"
+                        className="text-on-surface-variant"
                       />
                     </span>
-                    <span className="text-sm text-gray-400 leading-relaxed">
+                    <span className="text-sm text-on-surface-variant leading-relaxed">
                       {row.traditional}
                     </span>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-forest/10 flex-shrink-0 mt-0.5">
+                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 flex-shrink-0 mt-0.5">
                       <Check
                         size={12}
                         weight="bold"
-                        className="text-forest"
+                        className="text-primary"
                       />
                     </span>
-                    <span className="text-sm text-forest font-medium leading-relaxed">
+                    <span className="text-sm text-primary font-medium leading-relaxed">
                       {row.scaleOs}
                     </span>
                   </div>

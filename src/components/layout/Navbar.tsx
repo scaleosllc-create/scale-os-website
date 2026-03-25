@@ -27,10 +27,10 @@ export default function Navbar() {
       <nav className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] ${scrolled ? "py-2" : "py-4"}`}>
         <div className={`mx-auto w-max flex items-center gap-8 rounded-full px-6 py-2.5 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] ${
           scrolled
-            ? "bg-white/90 backdrop-blur-xl shadow-float ring-1 ring-ink/[0.05]"
-            : "bg-white/60 backdrop-blur-lg ring-1 ring-ink/[0.03]"
+            ? "bg-white/80 backdrop-blur-xl shadow-ambient"
+            : "bg-white/60 backdrop-blur-lg"
         }`}>
-          <Link href="/" className="text-ink font-bold tracking-[0.15em] text-sm">
+          <Link href="/" className="text-on-surface font-bold tracking-[0.15em] text-sm">
             SCALE OS
           </Link>
 
@@ -41,8 +41,8 @@ export default function Navbar() {
                 href={link.href}
                 className={`text-[13px] transition-colors duration-300 ${
                   pathname === link.href
-                    ? "text-forest font-medium"
-                    : "text-gray-500 hover:text-ink"
+                    ? "text-primary font-medium"
+                    : "text-on-surface-variant hover:text-on-surface"
                 }`}
               >
                 {link.label}
@@ -51,7 +51,7 @@ export default function Navbar() {
           </div>
 
           <div className="hidden md:block">
-            <Button href="/apply" variant="accent" className="!py-2 !px-4 !text-[11px]">
+            <Button href="/apply" variant="primary" className="!py-2 !px-4 !text-[11px]">
               Apply
             </Button>
           </div>
@@ -61,8 +61,8 @@ export default function Navbar() {
             onClick={() => setMobileOpen(true)}
             aria-label="Open menu"
           >
-            <span className="w-4 h-px bg-ink" />
-            <span className="w-4 h-px bg-ink" />
+            <span className="w-4 h-px bg-on-surface" />
+            <span className="w-4 h-px bg-on-surface" />
           </button>
         </div>
       </nav>
@@ -78,7 +78,7 @@ export default function Navbar() {
             onClick={() => setMobileOpen(false)}
           >
             <button
-              className="absolute top-6 right-6 text-ink text-2xl"
+              className="absolute top-6 right-6 text-on-surface text-2xl"
               onClick={() => setMobileOpen(false)}
               aria-label="Close menu"
             >
@@ -94,8 +94,8 @@ export default function Navbar() {
                 >
                   <Link
                     href={link.href}
-                    className={`text-2xl font-serif font-light ${
-                      pathname === link.href ? "text-forest" : "text-ink"
+                    className={`text-2xl font-display font-light ${
+                      pathname === link.href ? "text-primary" : "text-on-surface"
                     }`}
                     onClick={() => setMobileOpen(false)}
                   >
@@ -108,7 +108,7 @@ export default function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
               >
-                <Button href="/apply" variant="accent" arrow>
+                <Button href="/apply" variant="primary" arrow>
                   Apply for Partnership
                 </Button>
               </motion.div>

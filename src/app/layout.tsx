@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
+import { Space_Grotesk } from "next/font/google";
 import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -58,7 +63,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${GeistSans.variable} font-sans antialiased text-ink`}>
+      <body className={`${GeistSans.variable} ${spaceGrotesk.variable} font-sans antialiased text-on-surface bg-background`}>
         <Navbar />
         <main className="pt-20">{children}</main>
         <Footer />

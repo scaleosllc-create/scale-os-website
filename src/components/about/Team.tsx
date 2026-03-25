@@ -11,10 +11,10 @@ export default function Team() {
   return (
     <Section>
       <FadeIn>
-        <h2 className="text-3xl md:text-4xl tracking-tighter leading-none font-serif font-light text-ink mb-3">
+        <h2 className="font-display text-display-sm md:text-display-md tracking-tighter leading-none text-on-surface mb-3">
           The team
         </h2>
-        <p className="text-sm text-gray-400 mb-12">
+        <p className="text-sm text-on-surface-variant mb-12">
           Senior operators, not junior executors.
         </p>
       </FadeIn>
@@ -22,20 +22,20 @@ export default function Team() {
         {teamMembers.map((member) => (
           <motion.div key={member.role} variants={staggerItemVariants}>
             <div className="text-center">
-              <div className="ring-2 ring-forest/20 ring-offset-2 rounded-full w-24 h-24 mx-auto mb-4">
+              <div className="ring-2 ring-primary/20 ring-offset-2 rounded-full w-24 h-24 mx-auto mb-4">
                 <ImagePlaceholder
                   label="Photo"
                   className="w-24 h-24"
                   rounded="full"
                 />
               </div>
-              <h4 className="text-[15px] font-semibold text-ink mb-1">
+              <h4 className="text-[15px] font-semibold text-on-surface mb-1">
                 {member.name}
               </h4>
-              <p className="text-sm text-forest font-medium mb-2">
+              <p className="text-sm text-primary font-medium mb-2">
                 {member.role}
               </p>
-              <p className="text-sm text-gray-400 leading-relaxed">
+              <p className="text-sm text-on-surface-variant leading-relaxed">
                 {member.bio}
               </p>
             </div>

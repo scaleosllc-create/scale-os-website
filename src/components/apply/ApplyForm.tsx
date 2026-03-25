@@ -66,10 +66,10 @@ export default function ApplyForm() {
   if (status === "success") {
     return (
       <div className="text-center py-16">
-        <h2 className="text-3xl md:text-4xl tracking-tighter leading-none font-serif font-light text-ink mb-4">
+        <h2 className="font-display text-display-sm md:text-display-md text-on-surface mb-4">
           Application received.
         </h2>
-        <p className="text-gray-500 mb-6">
+        <p className="text-on-surface-variant mb-6">
           We&apos;ll be in touch within 48 hours.
         </p>
         <Button href="/" variant="primary">
@@ -80,7 +80,7 @@ export default function ApplyForm() {
   }
 
   const inputClass =
-    "w-full rounded-xl px-4 py-3 text-sm text-ink placeholder:text-gray-300 ring-1 ring-ink/[0.06] focus:outline-none focus:ring-forest focus:ring-2 transition-all duration-300 bg-white";
+    "w-full rounded-xl px-4 py-3 text-sm text-on-surface placeholder:text-on-surface-variant/40 ring-1 ring-on-surface/[0.06] focus:outline-none focus:ring-primary focus:ring-2 transition-all duration-300 bg-white";
 
   return (
     <form onSubmit={handleSubmit} noValidate>
@@ -93,7 +93,7 @@ export default function ApplyForm() {
       {/* Row 1 */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
         <div>
-          <label htmlFor="name" className="block text-xs font-semibold text-gray-700 tracking-wide mb-1.5">
+          <label htmlFor="name" className="block text-xs font-semibold text-on-surface-variant tracking-wide mb-1.5">
             YOUR NAME *
           </label>
           <input
@@ -108,7 +108,7 @@ export default function ApplyForm() {
           {errors.name && <p className="text-error text-xs mt-1">{errors.name}</p>}
         </div>
         <div>
-          <label htmlFor="email" className="block text-xs font-semibold text-gray-700 tracking-wide mb-1.5">
+          <label htmlFor="email" className="block text-xs font-semibold text-on-surface-variant tracking-wide mb-1.5">
             EMAIL ADDRESS *
           </label>
           <input
@@ -127,7 +127,7 @@ export default function ApplyForm() {
       {/* Row 2 */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
         <div>
-          <label htmlFor="business" className="block text-xs font-semibold text-gray-700 tracking-wide mb-1.5">
+          <label htmlFor="business" className="block text-xs font-semibold text-on-surface-variant tracking-wide mb-1.5">
             BUSINESS NAME *
           </label>
           <input
@@ -142,7 +142,7 @@ export default function ApplyForm() {
           {errors.business && <p className="text-error text-xs mt-1">{errors.business}</p>}
         </div>
         <div>
-          <label htmlFor="shopifyUrl" className="block text-xs font-semibold text-gray-700 tracking-wide mb-1.5">
+          <label htmlFor="shopifyUrl" className="block text-xs font-semibold text-on-surface-variant tracking-wide mb-1.5">
             SHOPIFY STORE URL *
           </label>
           <input
@@ -160,7 +160,7 @@ export default function ApplyForm() {
 
       {/* Row 3: Revenue */}
       <div className="mb-5">
-        <label htmlFor="revenue" className="block text-xs font-semibold text-gray-700 tracking-wide mb-1.5">
+        <label htmlFor="revenue" className="block text-xs font-semibold text-on-surface-variant tracking-wide mb-1.5">
           MONTHLY REVENUE *
         </label>
         <select
@@ -182,7 +182,7 @@ export default function ApplyForm() {
 
       {/* Row 4: Services */}
       <div className="mb-5">
-        <label className="block text-xs font-semibold text-gray-700 tracking-wide mb-1.5">
+        <label className="block text-xs font-semibold text-on-surface-variant tracking-wide mb-1.5">
           WHAT ARE YOU LOOKING FOR? *
         </label>
         <div className="flex flex-wrap gap-2">
@@ -197,8 +197,8 @@ export default function ApplyForm() {
                 onClick={() => toggleService(service)}
                 className={`rounded-full px-4 py-2 text-[13px] ring-1 transition-all duration-300 ${
                   selected
-                    ? "ring-forest bg-forest/[0.06] text-forest"
-                    : "ring-ink/[0.06] bg-white text-gray-700 hover:ring-ink/[0.15]"
+                    ? "ring-primary bg-primary/[0.06] text-primary"
+                    : "ring-on-surface/[0.06] bg-white text-on-surface-variant hover:ring-on-surface/[0.15]"
                 }`}
               >
                 {service}
@@ -211,7 +211,7 @@ export default function ApplyForm() {
 
       {/* Row 5: Challenge */}
       <div className="mb-5">
-        <label htmlFor="challenge" className="block text-xs font-semibold text-gray-700 tracking-wide mb-1.5">
+        <label htmlFor="challenge" className="block text-xs font-semibold text-on-surface-variant tracking-wide mb-1.5">
           WHAT&apos;S YOUR BIGGEST GROWTH CHALLENGE RIGHT NOW? *
         </label>
         <textarea
@@ -228,7 +228,7 @@ export default function ApplyForm() {
 
       {/* Row 6: Referral */}
       <div className="mb-10">
-        <label htmlFor="referral" className="block text-xs font-semibold text-gray-700 tracking-wide mb-1.5">
+        <label htmlFor="referral" className="block text-xs font-semibold text-on-surface-variant tracking-wide mb-1.5">
           HOW DID YOU HEAR ABOUT US?
         </label>
         <select
@@ -258,7 +258,7 @@ export default function ApplyForm() {
         >
           {status === "submitting" ? "SUBMITTING..." : "SUBMIT APPLICATION"}
         </Button>
-        <p className="text-[11px] text-gray-300 mt-4">
+        <p className="text-[11px] text-on-surface-variant mt-4">
           We&apos;ll review your application and respond within 48 hours.
         </p>
       </div>

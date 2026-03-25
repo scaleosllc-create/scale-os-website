@@ -47,10 +47,10 @@ export default function Results() {
     <Section id="results">
       <FadeIn>
         <Eyebrow>RESULTS</Eyebrow>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl tracking-tighter leading-none font-serif font-light text-ink mb-4">
+        <h2 className="font-display text-display-sm md:text-display-md lg:text-display-lg text-on-surface mb-4">
           What our system delivers
         </h2>
-        <p className="text-gray-500 text-base leading-relaxed mb-12 max-w-[65ch]">
+        <p className="text-on-surface-variant text-base leading-relaxed mb-12 max-w-[65ch]">
           Projected outcomes based on our methodology applied to typical Shopify
           brands in our target range.
         </p>
@@ -72,7 +72,7 @@ export default function Results() {
                     <p className="text-[10px] uppercase tracking-wider text-white/40 mb-0.5">
                       {metric.label}
                     </p>
-                    <p className="text-2xl font-bold text-forest tabular-nums">
+                    <p className="text-2xl font-bold text-primary tabular-nums">
                       {metric.value}
                     </p>
                   </li>

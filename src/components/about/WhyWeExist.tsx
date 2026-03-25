@@ -7,15 +7,15 @@ export default function WhyWeExist() {
     <Section>
       <div className="flex flex-col lg:flex-row gap-12 items-start">
         <FadeIn className="flex-1">
-          <h2 className="text-3xl md:text-4xl tracking-tighter leading-none font-serif font-light text-ink mb-6">
+          <h2 className="font-display text-display-sm md:text-display-md tracking-tighter leading-none text-on-surface mb-6">
             Why we exist
           </h2>
-          <p className="text-base text-gray-500 leading-relaxed mb-4 max-w-[65ch]">
+          <p className="text-base text-on-surface-variant leading-relaxed mb-4 max-w-[65ch]">
             The e-commerce agency model hasn&apos;t changed in a decade. Brands
             hire an agency, the agency hires more people, costs go up, and
             margins go down. Meanwhile, AI is transforming every other industry.
           </p>
-          <p className="text-base text-gray-500 leading-relaxed max-w-[65ch]">
+          <p className="text-base text-on-surface-variant leading-relaxed max-w-[65ch]">
             We built Scale OS to be the agency we always wished existed — one
             that combines the strategic depth of a top-tier growth team with the
             operational leverage of custom AI systems. The result is better

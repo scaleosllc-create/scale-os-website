@@ -1,20 +1,21 @@
 interface SectionProps {
   children: React.ReactNode;
-  variant?: "light" | "dark" | "cream";
+  variant?: "background" | "surface-low" | "dark" | "primary";
   className?: string;
   id?: string;
   narrow?: boolean;
 }
 
 const variantStyles = {
-  light: "bg-white",
-  dark: "bg-ink text-white noise-overlay",
-  cream: "bg-off-white",
+  background: "bg-background",
+  "surface-low": "bg-surface-low",
+  dark: "bg-on-surface text-white",
+  primary: "gradient-hero text-white",
 };
 
 export default function Section({
   children,
-  variant = "light",
+  variant = "background",
   className = "",
   id,
   narrow = false,

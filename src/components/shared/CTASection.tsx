@@ -18,13 +18,13 @@ export default function CTASection({
   return (
     <Section variant="dark" className="text-center">
       <FadeIn>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl tracking-tighter leading-none font-serif font-light text-white mb-4">
+        <h2 className="font-display text-display-md md:text-display-lg text-white mb-4">
           {heading}
         </h2>
-        <p className="text-dark-body text-base mb-8 max-w-md mx-auto">
+        <p className="text-white/60 text-base mb-8 max-w-md mx-auto">
           {subtext}
         </p>
-        <Button href={buttonHref} variant="accent" arrow>
+        <Button href={buttonHref} variant="primary" arrow>
           {buttonText}
         </Button>
       </FadeIn>

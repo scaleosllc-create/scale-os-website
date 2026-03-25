@@ -7,10 +7,10 @@ export default function AboutHero() {
     <Section>
       <FadeIn>
         <Eyebrow>About Scale OS</Eyebrow>
-        <h1 className="text-4xl md:text-5xl lg:text-6xl tracking-tighter leading-none font-serif font-light text-ink mb-6">
+        <h1 className="font-display text-display-md md:text-display-lg tracking-tighter leading-none text-on-surface mb-6">
           Human-led. AI-executed.
         </h1>
-        <p className="text-base md:text-lg text-gray-500 leading-relaxed max-w-[55ch]">
+        <p className="text-base md:text-lg text-on-surface-variant leading-relaxed max-w-[55ch]">
           We started Scale OS because we saw the same problem everywhere:
           agencies were either great at marketing or great at technology — never
           both.

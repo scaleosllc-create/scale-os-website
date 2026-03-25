@@ -12,9 +12,9 @@ const platforms = [
 export default function PlatformLogos() {
   const doubled = [...platforms, ...platforms];
   return (
-    <Section variant="cream" className="!py-6 overflow-hidden">
+    <Section variant="surface-low" className="!py-6 overflow-hidden">
       <FadeIn>
-        <p className="text-eyebrow text-gray-400 text-center mb-6 tracking-[2px]">
+        <p className="text-label-sm text-on-surface-variant text-center mb-6 tracking-[2px]">
           PLATFORMS WE BUILD ON
         </p>
         <div className="relative">
