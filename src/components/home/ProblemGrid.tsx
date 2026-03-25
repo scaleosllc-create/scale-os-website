@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Section from "@/components/ui/Section";
 import Eyebrow from "@/components/ui/Eyebrow";
 import Card from "@/components/ui/Card";
@@ -61,13 +60,6 @@ export default function ProblemGrid() {
   return (
     <Section variant="surface-low">
       <FadeIn>
-        <Image
-          src="/images/problem-visual.png"
-          alt="P&L statement showing rising ad costs and shrinking margins"
-          width={1376}
-          height={768}
-          className="rounded-2xl mb-12 w-full"
-        />
         <Eyebrow>SOUND FAMILIAR?</Eyebrow>
         <h2 className="font-display text-display-md tracking-tighter text-on-surface mb-10">
           The problems killing your margins

@@ -2,6 +2,7 @@ import Hero from "@/components/home/Hero";
 import PlatformLogos from "@/components/home/PlatformLogos";
 import ProblemGrid from "@/components/home/ProblemGrid";
 import TwoPillars from "@/components/home/TwoPillars";
+import CreativeShowcase from "@/components/home/CreativeShowcase";
 import Timeline from "@/components/home/Timeline";
 import Results from "@/components/home/Results";
 import Comparison from "@/components/home/Comparison";
@@ -16,6 +17,7 @@ export default function Home() {
       <PlatformLogos />
       <ProblemGrid />
       <TwoPillars />
+      <CreativeShowcase />
       <Timeline />
       <Results />
       <Comparison />

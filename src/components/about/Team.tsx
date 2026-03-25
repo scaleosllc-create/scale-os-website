@@ -4,10 +4,10 @@ import FadeIn from "@/components/shared/FadeIn";
 
 const team = [
   {
-    name: "Georgi Georgiev",
-    role: "Founder & CEO",
+    name: "Alex Mercer",
+    role: "Creative Strategist",
     image: "/images/founder-headshot.png",
-    bio: "Built his first Shopify store at 22. Spent 5 years in the trenches of e-commerce growth before realizing agencies were the bottleneck, not the solution. Started Scale OS to prove that a small team with the right systems can outperform agencies 10x their size.",
+    bio: "Started in direct response copywriting, then moved into creative direction for DTC brands doing $500K-$5M/month. Has a sixth sense for ad angles that convert — his frameworks for advertorial and listicle creation have driven over $8M in attributable revenue across client accounts.",
   },
   {
     name: "Maya Johnson",

@@ -13,26 +13,26 @@ export default function Founder() {
           </div>
 
           <blockquote className="font-display text-display-sm tracking-tight text-on-surface italic mb-8 leading-relaxed">
-            I built Scale OS because I was tired of watching e-commerce
-            brands get burned by agencies that don&rsquo;t understand unit
-            economics. We combine the strategic depth of a top-tier growth team
-            with AI systems that give you an unfair operational advantage — and
-            we only win when you win.
+            We started Scale OS because we saw the same pattern everywhere —
+            agencies charging premium fees while running the same playbook for
+            every brand. We combine senior-level strategy with AI systems that
+            give e-commerce brands an unfair operational advantage — and we only
+            win when you win.
           </blockquote>
 
           {/* Photo + attribution */}
           <div className="flex items-center justify-center gap-4">
             <Image
               src="/images/founder-headshot.png"
-              alt="Founder of Scale OS"
+              alt="Alex Mercer, Creative Strategist at Scale OS"
               width={96}
               height={96}
               className="rounded-full object-cover w-24 h-24"
             />
             <div className="text-left">
-              <p className="text-base font-medium text-on-surface">Founder Name</p>
+              <p className="text-base font-medium text-on-surface">Alex Mercer</p>
               <p className="text-sm text-on-surface-variant">
-                Founder &amp; CEO, Scale OS
+                Creative Strategist, Scale OS
               </p>
             </div>
           </div>
