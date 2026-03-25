@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 import Button from "@/components/ui/Button";
 
 const navLinks = [
-  { href: "/services", label: "Services" },
-  { href: "/about", label: "About" },
+  { href: "/#services", label: "Services" },
+  { href: "/#about", label: "About" },
+  { href: "/#blog", label: "Blog" },
 ];
 
 export default function Navbar() {
@@ -17,6 +18,25 @@ export default function Navbar() {
   const { scrollY } = useScroll();
   const bgOpacity = useTransform(scrollY, [0, 80], [0.6, 0.9]);
   const shadowOpacity = useTransform(scrollY, [0, 80], [0, 0.3]);
+
+  const handleAnchorClick = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+      const hash = href.split("#")[1];
+      if (!hash) return;
+
+      // If we're already on the homepage, scroll to section
+      if (pathname === "/") {
+        e.preventDefault();
+        const el = document.getElementById(hash);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+      // If on another page, the Link will navigate to /#section and browser handles scroll
+      setMobileOpen(false);
+    },
+    [pathname]
+  );
 
   return (
     <>
@@ -37,11 +57,8 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm transition-colors duration-300 ${
-                  pathname === link.href
-                    ? "text-white font-medium"
-                    : "text-white/50 hover:text-white"
-                }`}
+                onClick={(e) => handleAnchorClick(e, link.href)}
+                className="text-sm transition-colors duration-300 text-white/50 hover:text-white"
               >
                 {link.label}
               </Link>
@@ -86,7 +103,7 @@ export default function Navbar() {
               &times;
             </button>
             <div className="flex flex-col items-center gap-8" onClick={(e) => e.stopPropagation()}>
-              {[{ href: "/", label: "Home" }, ...navLinks].map((link, i) => (
+              {navLinks.map((link, i) => (
                 <motion.div
                   key={link.href}
                   initial={{ opacity: 0, y: 20 }}
@@ -95,10 +112,8 @@ export default function Navbar() {
                 >
                   <Link
                     href={link.href}
-                    className={`text-2xl font-display font-light ${
-                      pathname === link.href ? "text-primary" : "text-white"
-                    }`}
-                    onClick={() => setMobileOpen(false)}
+                    onClick={(e) => handleAnchorClick(e, link.href)}
+                    className="text-2xl font-display font-light text-white"
                   >
                     {link.label}
                   </Link>

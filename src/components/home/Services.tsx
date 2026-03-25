@@ -1,142 +1,171 @@
 "use client";
 
-import Link from "next/link";
 import Section from "@/components/ui/Section";
 import Eyebrow from "@/components/ui/Eyebrow";
 import FadeIn from "@/components/shared/FadeIn";
-import { ArrowRight } from "@phosphor-icons/react";
+import StaggerContainer, {
+  staggerItemVariants,
+} from "@/components/shared/StaggerContainer";
+import { motion } from "framer-motion";
+import {
+  ChartLineUp,
+  MagnifyingGlass,
+  PaintBrush,
+  Compass,
+  Article,
+  Robot,
+  Lightning,
+  Storefront,
+  CopySimple,
+  Gear,
+} from "@phosphor-icons/react";
+import type { Icon } from "@phosphor-icons/react";
 
-const revenueServices = [
-  "Meta Ads",
-  "Google Ads",
-  "Creative Strategy",
-  "Brand Strategy",
-  "Advertorial / Listicle Pages",
-];
-
-const aiServices = [
-  "AI Ad & Content Gen",
-  "E-Commerce Workflow Automation",
-  "Shopify Optimization",
-  "Advertorial at Scale",
-  "Operational AI Integration",
-];
-
-function MetricsMockup() {
-  const metrics = [
-    { label: "ROAS", value: "4.2x" },
-    { label: "CAC", value: "$18.40" },
-    { label: "Revenue", value: "$142K" },
-    { label: "Conv", value: "3.8%" },
-  ];
-
-  return (
-    <div className="grid grid-cols-2 gap-3 mt-8">
-      {metrics.map((m) => (
-        <div key={m.label} className="bg-surface-low rounded-lg p-4">
-          <p className="text-[10px] uppercase tracking-wider text-on-surface-muted mb-1">
-            {m.label}
-          </p>
-          <p className="text-lg font-bold tabular-nums text-white">{m.value}</p>
-        </div>
-      ))}
-    </div>
-  );
+interface Service {
+  icon: Icon;
+  title: string;
+  description: string;
 }
 
-function WorkflowMockup() {
-  const steps = [
-    { num: "01", label: "Ingest product data" },
-    { num: "02", label: "Generate ad variations" },
-    { num: "03", label: "Route to approval queue" },
-    { num: "04", label: "Deploy to ad platforms" },
-  ];
+const revenueServices: Service[] = [
+  {
+    icon: ChartLineUp,
+    title: "Meta Ads",
+    description:
+      "Full-funnel Meta campaigns with systematic creative testing and AI-accelerated iteration cycles.",
+  },
+  {
+    icon: MagnifyingGlass,
+    title: "Google Ads",
+    description:
+      "Search, Shopping, and Performance Max optimized for contribution margin, not vanity ROAS.",
+  },
+  {
+    icon: PaintBrush,
+    title: "Creative Strategy",
+    description:
+      "Hook-driven ad creative frameworks. We test 50 angles in the time it takes most agencies to produce 5.",
+  },
+  {
+    icon: Compass,
+    title: "Brand Strategy",
+    description:
+      "Market positioning, competitive analysis, and brand architecture that makes every ad dollar work harder.",
+  },
+  {
+    icon: Article,
+    title: "Advertorial / Listicle Pages",
+    description:
+      "High-converting landing pages built for cold traffic. Editorially styled, performance-optimized.",
+  },
+];
 
+const aiServices: Service[] = [
+  {
+    icon: Robot,
+    title: "AI Ad & Content Gen",
+    description:
+      "AI systems that generate ad copy, creative variations, and content at scale — with human quality control.",
+  },
+  {
+    icon: Lightning,
+    title: "Workflow Automation",
+    description:
+      "Custom automation pipelines: order processing, email flows, inventory management, customer segmentation.",
+  },
+  {
+    icon: Storefront,
+    title: "Shopify Optimization",
+    description:
+      "Theme performance, conversion rate optimization, app stack audits, and checkout flow improvements.",
+  },
+  {
+    icon: CopySimple,
+    title: "Advertorial at Scale",
+    description:
+      "AI-powered advertorial and listicle generation with human editing. Produce 10x the landing pages.",
+  },
+  {
+    icon: Gear,
+    title: "Operational AI",
+    description:
+      "Deploy AI across your business operations — customer service, reporting, analytics, and internal tools.",
+  },
+];
+
+function ServicePillar({
+  label,
+  title,
+  description,
+  services,
+}: {
+  label: string;
+  title: string;
+  description: string;
+  services: Service[];
+}) {
   return (
-    <div className="space-y-3 mt-8">
-      {steps.map((step) => (
-        <div
-          key={step.num}
-          className="flex items-center gap-4 bg-surface-low rounded-lg px-4 py-3"
-        >
-          <span className="text-primary font-display text-sm font-bold tabular-nums">
-            {step.num}
-          </span>
-          <span className="text-sm text-on-surface-variant">{step.label}</span>
-        </div>
-      ))}
+    <div>
+      <FadeIn>
+        <p className="text-label-sm uppercase text-primary mb-4">{label}</p>
+        <h3 className="font-display text-display-sm tracking-tighter text-white mb-3">
+          {title}
+        </h3>
+        <p className="text-on-surface-variant text-sm leading-relaxed mb-10 max-w-[50ch]">
+          {description}
+        </p>
+      </FadeIn>
+      <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {services.map((service) => {
+          const Icon = service.icon;
+          return (
+            <motion.div
+              key={service.title}
+              variants={staggerItemVariants}
+              className="bg-surface-card rounded-2xl p-6 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-surface-high"
+            >
+              <Icon size={24} weight="light" className="text-primary mb-4" />
+              <h4 className="font-display text-base text-white tracking-tight mb-2">
+                {service.title}
+              </h4>
+              <p className="text-[13px] text-on-surface-variant leading-relaxed">
+                {service.description}
+              </p>
+            </motion.div>
+          );
+        })}
+      </StaggerContainer>
     </div>
   );
 }
 
 export default function Services() {
   return (
-    <Section>
+    <Section id="services">
       <FadeIn>
-        <Eyebrow>What We Do</Eyebrow>
-        <h2 className="font-display text-display-sm md:text-display-md lg:text-display-lg tracking-tighter text-white mb-12">
+        <Eyebrow>Services</Eyebrow>
+        <h2 className="font-display text-display-md md:text-display-lg tracking-tighter text-white mb-6">
           Two systems. One growth engine.
         </h2>
+        <p className="text-on-surface-variant text-base md:text-lg leading-relaxed max-w-xl mb-20">
+          We combine human-led growth strategy with AI-powered operations to
+          scale Shopify brands faster.
+        </p>
       </FadeIn>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <FadeIn>
-          <div className="bg-surface-card rounded-2xl p-8 lg:p-10 h-full">
-            <h3 className="font-display text-xl text-white tracking-tight mb-6">
-              Revenue Engineering
-            </h3>
-            <ul className="space-y-3">
-              {revenueServices.map((service) => (
-                <li
-                  key={service}
-                  className="text-sm text-on-surface-variant leading-relaxed flex gap-2"
-                >
-                  <span className="text-primary mt-0.5 flex-shrink-0">
-                    &bull;
-                  </span>
-                  {service}
-                </li>
-              ))}
-            </ul>
-            <MetricsMockup />
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-2 text-sm text-primary mt-8 transition-colors duration-300 hover:text-primary-container"
-            >
-              Learn more
-              <ArrowRight size={14} weight="bold" />
-            </Link>
-          </div>
-        </FadeIn>
-
-        <FadeIn delay={0.1}>
-          <div className="bg-surface-card rounded-2xl p-8 lg:p-10 h-full">
-            <h3 className="font-display text-xl text-white tracking-tight mb-6">
-              AI Commerce Operations
-            </h3>
-            <ul className="space-y-3">
-              {aiServices.map((service) => (
-                <li
-                  key={service}
-                  className="text-sm text-on-surface-variant leading-relaxed flex gap-2"
-                >
-                  <span className="text-primary mt-0.5 flex-shrink-0">
-                    &bull;
-                  </span>
-                  {service}
-                </li>
-              ))}
-            </ul>
-            <WorkflowMockup />
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-2 text-sm text-primary mt-8 transition-colors duration-300 hover:text-primary-container"
-            >
-              Learn more
-              <ArrowRight size={14} weight="bold" />
-            </Link>
-          </div>
-        </FadeIn>
+      <div className="space-y-20">
+        <ServicePillar
+          label="Pillar One"
+          title="Revenue Engineering"
+          description="Human-led performance marketing that drives real profit. We manage your ad accounts like they're our own."
+          services={revenueServices}
+        />
+        <ServicePillar
+          label="Pillar Two"
+          title="AI Commerce Operations"
+          description="Custom AI systems that automate the repetitive work and multiply your team's output."
+          services={aiServices}
+        />
       </div>
     </Section>
   );

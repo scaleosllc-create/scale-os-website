@@ -1,8 +1,9 @@
 import Link from "next/link";
 
 const pageLinks = [
-  { href: "/services", label: "Services" },
-  { href: "/about", label: "About" },
+  { href: "/#services", label: "Services" },
+  { href: "/#about", label: "About" },
+  { href: "/#blog", label: "Blog" },
   { href: "/apply", label: "Apply" },
 ];
 
