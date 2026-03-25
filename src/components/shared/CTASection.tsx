@@ -16,15 +16,15 @@ export default function CTASection({
   buttonHref = "/apply",
 }: CTASectionProps) {
   return (
-    <Section variant="dark" className="text-center noise-overlay">
+    <Section variant="dark" className="text-center">
       <FadeIn>
-        <h2 className="font-serif font-light text-[22px] md:text-[28px] text-white mb-3">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl tracking-tighter leading-none font-serif font-light text-white mb-4">
           {heading}
         </h2>
-        <p className="text-dark-body text-sm mb-7 max-w-md mx-auto">
+        <p className="text-dark-body text-base mb-8 max-w-md mx-auto">
           {subtext}
         </p>
-        <Button href={buttonHref} variant="accent">
+        <Button href={buttonHref} variant="accent" arrow>
           {buttonText}
         </Button>
       </FadeIn>

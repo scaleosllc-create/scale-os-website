@@ -2,6 +2,7 @@
 
 import Section from "@/components/ui/Section";
 import Eyebrow from "@/components/ui/Eyebrow";
+import Card from "@/components/ui/Card";
 import FadeIn from "@/components/shared/FadeIn";
 import StaggerContainer, {
   staggerItemVariants,
@@ -10,29 +11,32 @@ import { motion } from "framer-motion";
 
 const caseStudies = [
   {
-    title: "Premium Skincare Brand \u2014 DTC",
+    title: "Premium Skincare Brand",
+    subtitle: "DTC",
     metrics: [
-      "Monthly Revenue: $180K \u2192 $340K",
-      "CAC Reduced by 34%",
-      "ROAS: 2.1x \u2192 4.8x",
+      { label: "Monthly Revenue", value: "$180K \u2192 $340K" },
+      { label: "CAC Reduced", value: "34%" },
+      { label: "ROAS", value: "2.1x \u2192 4.8x" },
     ],
     tags: ["Meta Ads", "Creative Strategy", "AI Automation"],
   },
   {
-    title: "Fitness Equipment \u2014 Shopify Plus",
+    title: "Fitness Equipment",
+    subtitle: "Shopify Plus",
     metrics: [
-      "Monthly Revenue: $420K \u2192 $890K",
-      "40hrs/week saved with AI workflows",
-      "Ad creative output: 5x increase",
+      { label: "Monthly Revenue", value: "$420K \u2192 $890K" },
+      { label: "Time Saved", value: "40hrs/week" },
+      { label: "Creative Output", value: "5x increase" },
     ],
     tags: ["Google Ads", "Workflow Automation", "Listicles"],
   },
   {
-    title: "Home & Living Brand \u2014 DTC",
+    title: "Home & Living Brand",
+    subtitle: "DTC",
     metrics: [
-      "Monthly Revenue: $95K \u2192 $210K",
-      "CAC: $42 \u2192 $19",
-      "Conversion Rate: 1.8% \u2192 3.4%",
+      { label: "Monthly Revenue", value: "$95K \u2192 $210K" },
+      { label: "CAC", value: "$42 \u2192 $19" },
+      { label: "Conv Rate", value: "1.8% \u2192 3.4%" },
     ],
     tags: ["Meta Ads", "Store Optimization", "Advertorials"],
   },
@@ -43,10 +47,10 @@ export default function Results() {
     <Section id="results">
       <FadeIn>
         <Eyebrow>RESULTS</Eyebrow>
-        <h2 className="font-serif font-light text-[22px] md:text-[30px] text-ink tracking-tighter mb-3">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl tracking-tighter leading-none font-serif font-light text-ink mb-4">
           What our system delivers
         </h2>
-        <p className="text-gray-500 text-sm leading-relaxed mb-10 max-w-xl">
+        <p className="text-gray-500 text-base leading-relaxed mb-12 max-w-[65ch]">
           Projected outcomes based on our methodology applied to typical Shopify
           brands in our target range.
         </p>
@@ -56,31 +60,35 @@ export default function Results() {
           <motion.div
             key={study.title}
             variants={staggerItemVariants}
-            className="bg-[#111] border border-white/10 rounded-lg p-6 shadow-card"
           >
-            <h3 className="text-[14px] font-semibold text-white mb-4">
-              {study.title}
-            </h3>
-            <ul className="space-y-2 mb-5">
-              {study.metrics.map((metric) => (
-                <li
-                  key={metric}
-                  className="text-[13px] text-forest font-medium"
-                >
-                  {metric}
-                </li>
-              ))}
-            </ul>
-            <div className="flex flex-wrap gap-1.5">
-              {study.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-[10px] uppercase tracking-wider text-gray-400 border border-white/10 rounded-full px-2.5 py-1"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
+            <Card dark className="h-full">
+              <p className="text-lg font-semibold text-white mb-1">
+                {study.title}
+              </p>
+              <p className="text-xs text-white/50 mb-5">{study.subtitle}</p>
+              <ul className="space-y-3 mb-6">
+                {study.metrics.map((metric) => (
+                  <li key={metric.label}>
+                    <p className="text-[10px] uppercase tracking-wider text-white/40 mb-0.5">
+                      {metric.label}
+                    </p>
+                    <p className="text-2xl font-bold text-forest tabular-nums">
+                      {metric.value}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+              <div className="flex flex-wrap gap-1.5">
+                {study.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full bg-white/10 px-3 py-1 text-[10px] text-white/60 tracking-wide"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </Card>
           </motion.div>
         ))}
       </StaggerContainer>

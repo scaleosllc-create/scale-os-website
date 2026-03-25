@@ -6,25 +6,33 @@ export default function Founder() {
     <Section variant="cream">
       <FadeIn>
         <div className="max-w-2xl mx-auto text-center">
-          {/* Circular placeholder */}
-          <div className="w-24 h-24 rounded-full bg-surface border border-border mx-auto mb-6 flex items-center justify-center">
-            <span className="text-[10px] uppercase tracking-wider text-gray-400">
-              Photo
-            </span>
+          {/* Decorative quotation mark */}
+          <div className="text-forest/10 text-[120px] leading-none font-serif select-none -mb-10">
+            &ldquo;
           </div>
 
-          <blockquote className="font-serif italic text-[16px] md:text-[18px] text-ink leading-relaxed mb-6">
-            &ldquo;I built Scale OS because I was tired of watching e-commerce
+          <blockquote className="text-xl md:text-2xl font-serif font-light leading-relaxed text-ink mb-8">
+            I built Scale OS because I was tired of watching e-commerce
             brands get burned by agencies that don&rsquo;t understand unit
             economics. We combine the strategic depth of a top-tier growth team
             with AI systems that give you an unfair operational advantage — and
-            we only win when you win.&rdquo;
+            we only win when you win.
           </blockquote>
 
-          <p className="text-[13px] text-gray-500">
-            <span className="font-semibold text-ink">Founder Name</span>{" "}
-            &middot; Founder &amp; CEO, Scale OS
-          </p>
+          {/* Photo + attribution */}
+          <div className="flex items-center justify-center gap-4">
+            <div className="w-20 h-20 rounded-full bg-surface border border-border flex items-center justify-center flex-shrink-0">
+              <span className="text-[10px] uppercase tracking-wider text-gray-400">
+                Photo
+              </span>
+            </div>
+            <div className="text-left">
+              <p className="text-base font-semibold text-ink">Founder Name</p>
+              <p className="text-sm text-gray-500">
+                Founder &amp; CEO, Scale OS
+              </p>
+            </div>
+          </div>
         </div>
       </FadeIn>
     </Section>

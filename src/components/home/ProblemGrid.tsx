@@ -61,7 +61,7 @@ export default function ProblemGrid() {
     <Section>
       <FadeIn>
         <Eyebrow>SOUND FAMILIAR?</Eyebrow>
-        <h2 className="font-serif font-light text-[22px] md:text-[30px] text-ink tracking-tighter mb-8">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl tracking-tighter leading-none font-serif font-light text-ink mb-10">
           The problems killing your margins
         </h2>
       </FadeIn>
@@ -69,11 +69,13 @@ export default function ProblemGrid() {
         {problems.map((problem) => (
           <motion.div key={problem.title} variants={staggerItemVariants}>
             <Card hover className="h-full">
-              <problem.icon size={24} weight="light" className="text-forest mb-3" />
-              <h3 className="text-[15px] font-semibold text-ink mb-2">
+              <div className="w-12 h-12 rounded-2xl bg-forest/[0.06] flex items-center justify-center mb-4">
+                <problem.icon size={24} weight="light" className="text-forest" />
+              </div>
+              <h3 className="text-base font-semibold text-ink mb-2">
                 {problem.title}
               </h3>
-              <p className="text-[13px] text-gray-500 leading-relaxed">
+              <p className="text-sm text-gray-500 leading-relaxed">
                 {problem.description}
               </p>
             </Card>

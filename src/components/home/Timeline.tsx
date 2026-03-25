@@ -43,10 +43,10 @@ const phases = [
 
 export default function Timeline() {
   return (
-    <Section variant="dark" className="noise-overlay">
+    <Section variant="dark">
       <FadeIn>
         <Eyebrow className="!text-forest">THE SCALE OS SYSTEM</Eyebrow>
-        <h2 className="font-serif font-light text-[22px] md:text-[30px] text-white tracking-tighter mb-10">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl tracking-tighter leading-none font-serif font-light text-white mb-12">
           From audit to scale in 90 days.
         </h2>
       </FadeIn>
@@ -55,13 +55,13 @@ export default function Timeline() {
           <motion.div
             key={phase.phase}
             variants={staggerItemVariants}
-            className="bg-white/5 border border-white/10 rounded-lg p-6"
+            className="bg-white/5 ring-1 ring-white/10 rounded-2xl p-8"
           >
-            <p className="text-eyebrow text-forest mb-2">{phase.phase}</p>
-            <h3 className="text-[16px] font-semibold text-white mb-4">
+            <p className="text-forest text-sm font-bold mb-2">{phase.phase}</p>
+            <h3 className="text-xl font-semibold text-white mb-5">
               {phase.title}
             </h3>
-            <ul className="space-y-2.5">
+            <ul className="space-y-3">
               {phase.items.map((item) => (
                 <li
                   key={item}

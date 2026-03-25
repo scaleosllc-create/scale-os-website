@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Section from "@/components/ui/Section";
 import Eyebrow from "@/components/ui/Eyebrow";
 import FadeIn from "@/components/shared/FadeIn";
-import { CaretDown } from "@phosphor-icons/react";
+import { Plus, Minus } from "@phosphor-icons/react";
 
 const faqs = [
   {
@@ -45,30 +45,31 @@ export default function FAQ() {
     <Section>
       <FadeIn>
         <Eyebrow>FAQ</Eyebrow>
-        <h2 className="font-serif font-light text-[22px] md:text-[30px] text-ink tracking-tighter mb-8">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl tracking-tighter leading-none font-serif font-light text-ink mb-10">
           Common questions
         </h2>
       </FadeIn>
       <FadeIn delay={0.1}>
-        <div className="max-w-2xl mx-auto space-y-2">
+        <div className="max-w-2xl mx-auto divide-y divide-border">
           {faqs.map((faq, i) => (
-            <div
-              key={faq.q}
-              className="border border-border rounded-lg overflow-hidden"
-            >
+            <div key={faq.q}>
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full flex items-center justify-between p-4 text-left hover:bg-off-white transition-colors"
+                className="w-full flex items-center justify-between py-6 text-left group"
               >
-                <span className="text-[14px] font-medium text-ink pr-4">
+                <span className="text-base md:text-lg font-medium text-ink pr-4">
                   {faq.q}
                 </span>
                 <motion.span
-                  animate={{ rotate: openIndex === i ? 180 : 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="flex-shrink-0"
+                  animate={{ rotate: openIndex === i ? 90 : 0 }}
+                  transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
+                  className="flex-shrink-0 w-8 h-8 rounded-full bg-ink/[0.04] flex items-center justify-center transition-colors duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:bg-ink/[0.08]"
                 >
-                  <CaretDown size={16} weight="bold" className="text-gray-400" />
+                  {openIndex === i ? (
+                    <Minus size={14} weight="bold" className="text-ink" />
+                  ) : (
+                    <Plus size={14} weight="bold" className="text-ink" />
+                  )}
                 </motion.span>
               </button>
               <AnimatePresence>
@@ -77,10 +78,10 @@ export default function FAQ() {
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.25, ease: "easeInOut" }}
+                    transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
                     className="overflow-hidden"
                   >
-                    <p className="px-4 pb-4 text-[13px] text-gray-500 leading-relaxed">
+                    <p className="pb-6 text-sm md:text-base text-gray-500 leading-relaxed max-w-[65ch]">
                       {faq.a}
                     </p>
                   </motion.div>

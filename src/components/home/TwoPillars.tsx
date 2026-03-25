@@ -25,10 +25,10 @@ export default function TwoPillars() {
       <Section>
         <FadeIn>
           <Eyebrow>WHAT WE DO</Eyebrow>
-          <h2 className="font-serif font-light text-[22px] md:text-[30px] text-ink tracking-tighter mb-3">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl tracking-tighter leading-none font-serif font-light text-ink mb-4">
             Two systems. One growth engine.
           </h2>
-          <p className="text-gray-500 text-sm leading-relaxed max-w-xl mb-0">
+          <p className="text-gray-500 text-base leading-relaxed max-w-[65ch] mb-0">
             We don&apos;t do one without the other. The combination is what
             creates unfair advantage.
           </p>
@@ -37,22 +37,22 @@ export default function TwoPillars() {
 
       {/* Block 1: Revenue Engineering — white bg */}
       <Section>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
           <FadeIn direction="left">
             <Eyebrow>PILLAR ONE</Eyebrow>
-            <h3 className="text-[18px] font-semibold text-ink mb-3">
+            <h3 className="text-xl md:text-2xl font-semibold text-ink mb-4">
               Revenue Engineering
             </h3>
-            <p className="text-[13px] text-gray-500 leading-relaxed mb-5">
+            <p className="text-sm text-gray-500 leading-relaxed mb-6 max-w-[65ch]">
               Meta Ads. Google Ads. Brand strategy. Creative strategy. We
               don&apos;t just manage campaigns — we engineer profitable growth
               systems built on real unit economics.
             </p>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               {revenueServices.map((s) => (
                 <li
                   key={s}
-                  className="text-[13px] text-gray-700 flex items-center gap-2"
+                  className="text-sm text-gray-700 flex items-center gap-3"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-forest flex-shrink-0" />
                   {s}
@@ -62,7 +62,7 @@ export default function TwoPillars() {
           </FadeIn>
           <FadeIn direction="right" delay={0.15}>
             {/* Google Ads Dashboard Mockup */}
-            <div className="bg-white border border-border rounded-lg shadow-card p-5">
+            <div className="bg-white border border-border rounded-2xl shadow-float p-6">
               <div className="flex items-center justify-between mb-5">
                 <span className="text-[13px] font-semibold text-ink">
                   Google Ads Dashboard
@@ -70,19 +70,19 @@ export default function TwoPillars() {
                 <span className="text-[11px] text-gray-400">Last 30 days</span>
               </div>
               <div className="grid grid-cols-3 gap-3 mb-5">
-                <div className="bg-off-white rounded-md p-3">
+                <div className="bg-off-white rounded-xl ring-1 ring-ink/5 p-3">
                   <p className="text-[10px] uppercase tracking-wider text-gray-500 mb-1">
                     CPC
                   </p>
                   <p className="text-xl font-semibold text-ink">$0.82</p>
                 </div>
-                <div className="bg-off-white rounded-md p-3">
+                <div className="bg-off-white rounded-xl ring-1 ring-ink/5 p-3">
                   <p className="text-[10px] uppercase tracking-wider text-gray-500 mb-1">
                     CTR
                   </p>
                   <p className="text-xl font-semibold text-ink">4.6%</p>
                 </div>
-                <div className="bg-forest-light rounded-md p-3">
+                <div className="bg-forest-light rounded-xl ring-1 ring-ink/5 p-3">
                   <p className="text-[10px] uppercase tracking-wider text-gray-500 mb-1">
                     Conv Rate
                   </p>
@@ -90,7 +90,7 @@ export default function TwoPillars() {
                 </div>
               </div>
               {/* Bar chart SVG */}
-              <div className="bg-off-white rounded-md p-4">
+              <div className="bg-off-white rounded-xl ring-1 ring-ink/5 p-4">
                 <svg viewBox="0 0 400 100" className="w-full h-auto">
                   {[
                     { x: 20, h: 40 },
@@ -123,12 +123,12 @@ export default function TwoPillars() {
         </div>
       </Section>
 
-      {/* Block 2: AI Commerce Operations — off-white bg */}
+      {/* Block 2: AI Commerce Operations — cream bg */}
       <Section variant="cream">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
           <FadeIn direction="left">
             {/* AI Workflow Diagram Mockup */}
-            <div className="bg-white border border-border rounded-lg shadow-card p-5">
+            <div className="bg-white border border-border rounded-2xl shadow-float p-6">
               <div className="flex items-center justify-between mb-5">
                 <span className="text-[13px] font-semibold text-ink">
                   AI Workflow Engine
@@ -146,7 +146,7 @@ export default function TwoPillars() {
                     (label) => (
                       <div
                         key={label}
-                        className="bg-off-white border border-border rounded-md p-2.5 text-center"
+                        className="bg-off-white border border-border rounded-xl p-2.5 text-center"
                       >
                         <p className="text-[10px] uppercase tracking-wider text-gray-400 mb-0.5">
                           Input
@@ -163,7 +163,7 @@ export default function TwoPillars() {
                   <div className="w-px h-4 bg-forest" />
                 </div>
                 {/* Processing */}
-                <div className="bg-forest/5 border border-forest/20 rounded-md p-3 text-center">
+                <div className="bg-forest/5 border border-forest/20 rounded-xl p-3 text-center">
                   <p className="text-[10px] uppercase tracking-wider text-forest mb-0.5">
                     AI Processing
                   </p>
@@ -182,7 +182,7 @@ export default function TwoPillars() {
                     (label) => (
                       <div
                         key={label}
-                        className="bg-forest-light border border-forest/10 rounded-md p-2.5 text-center"
+                        className="bg-forest-light border border-forest/10 rounded-xl p-2.5 text-center"
                       >
                         <p className="text-[10px] uppercase tracking-wider text-gray-400 mb-0.5">
                           Output
@@ -199,19 +199,19 @@ export default function TwoPillars() {
           </FadeIn>
           <FadeIn direction="right" delay={0.15}>
             <Eyebrow>PILLAR TWO</Eyebrow>
-            <h3 className="text-[18px] font-semibold text-ink mb-3">
+            <h3 className="text-xl md:text-2xl font-semibold text-ink mb-4">
               AI Commerce Operations
             </h3>
-            <p className="text-[13px] text-gray-500 leading-relaxed mb-5">
+            <p className="text-sm text-gray-500 leading-relaxed mb-6 max-w-[65ch]">
               Custom AI workflows that automate your operations — from ad
               creation to store optimization. This is your unfair competitive
               advantage.
             </p>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               {aiServices.map((s) => (
                 <li
                   key={s}
-                  className="text-[13px] text-gray-700 flex items-center gap-2"
+                  className="text-sm text-gray-700 flex items-center gap-3"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-forest flex-shrink-0" />
                   {s}
