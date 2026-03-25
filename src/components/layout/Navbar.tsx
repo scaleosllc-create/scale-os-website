@@ -24,15 +24,15 @@ export default function Navbar() {
       const hash = href.split("#")[1];
       if (!hash) return;
 
-      // If we're already on the homepage, scroll to section
       if (pathname === "/") {
         e.preventDefault();
         const el = document.getElementById(hash);
         if (el) {
-          el.scrollIntoView({ behavior: "smooth" });
+          const offset = 80; // navbar height
+          const top = el.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: "smooth" });
         }
       }
-      // If on another page, the Link will navigate to /#section and browser handles scroll
       setMobileOpen(false);
     },
     [pathname]

@@ -41,3 +41,12 @@ h1, h2 {
 .gradient-hero {
   background: linear-gradient(135deg, #0058bc, #0070eb);
 }
+
+/* Hide scrollbar for slider */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}

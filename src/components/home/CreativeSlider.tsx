@@ -19,56 +19,50 @@ const creatives = [
 
 export default function CreativeSlider() {
   return (
-    <section id="work" className="py-16 md:py-24 lg:py-32 bg-background">
+    <section id="work" className="py-16 md:py-24 lg:py-32 bg-background overflow-hidden">
       <div className="mx-auto max-w-container px-6 md:px-8 lg:px-12 mb-10 md:mb-14">
         <FadeIn>
           <Eyebrow>Creative Examples</Eyebrow>
-          <h2 className="font-display tracking-tighter text-display-md md:text-display-lg text-on-surface">
+          <h2 className="font-display tracking-tighter text-display-md md:text-display-lg text-white">
             Ad creatives. Built with AI.
           </h2>
-          <p className="mt-4 text-lg text-on-surface-variant max-w-xl">
-            A selection of product creatives generated using our AI creative pipeline.
+          <p className="mt-4 text-base md:text-lg text-on-surface-variant max-w-xl">
+            A selection of product creatives generated using our AI creative
+            pipeline.
           </p>
         </FadeIn>
       </div>
 
-      <div
-        className="flex gap-4 overflow-x-auto snap-x snap-mandatory"
-        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-      >
-        {creatives.map((creative, index) => (
-          <div
-            key={creative.id}
-            className={`snap-start shrink-0 w-72 md:w-80 ${
-              index === 0 ? "pl-6 md:pl-8 lg:pl-[max(3rem,calc((100vw-1280px)/2+3rem))]" : ""
-            } ${
-              index === creatives.length - 1 ? "pr-6 md:pr-8 lg:pr-[max(3rem,calc((100vw-1280px)/2+3rem))]" : ""
-            }`}
-          >
-            <div className="relative aspect-square rounded-2xl overflow-hidden bg-surface-card">
-              <Image
-                src={creative.image}
-                alt={`${creative.brand} ${creative.product} ad creative`}
-                fill
-                sizes="(max-width: 768px) 288px, 320px"
-                className="object-cover"
-              />
-              {creative.overlay && (
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-5">
-                  <span className="font-display text-lg tracking-tight text-white">
-                    {creative.overlay}
-                  </span>
-                </div>
-              )}
+      <div className="relative">
+        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory hide-scrollbar px-6 md:px-8 lg:px-12">
+          {creatives.map((creative) => (
+            <div
+              key={creative.id}
+              className="snap-start shrink-0 w-64 md:w-72 lg:w-80"
+            >
+              <div className="relative aspect-square rounded-2xl overflow-hidden bg-surface-card">
+                <Image
+                  src={creative.image}
+                  alt={`${creative.brand} ${creative.product} ad creative`}
+                  fill
+                  sizes="(max-width: 768px) 256px, (max-width: 1024px) 288px, 320px"
+                  className="object-cover"
+                />
+                {creative.overlay && (
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-5">
+                    <span className="font-display text-lg tracking-tight text-white">
+                      {creative.overlay}
+                    </span>
+                  </div>
+                )}
+              </div>
+              <p className="text-[10px] uppercase tracking-wider text-on-surface-muted mt-3">
+                {creative.brand}
+              </p>
+              <p className="text-sm text-white/70">{creative.product}</p>
             </div>
-            <p className="text-[10px] uppercase tracking-wider text-on-surface-variant mt-3">
-              {creative.brand}
-            </p>
-            <p className="text-sm text-white/70">
-              {creative.product}
-            </p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
