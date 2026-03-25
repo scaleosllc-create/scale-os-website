@@ -54,25 +54,20 @@ export default function Principles() {
       </FadeIn>
       <StaggerContainer className="space-y-0">
         {principles.map((principle, index) => (
-          <motion.div
-            key={principle.number}
-            variants={staggerItemVariants}
-            className={`grid grid-cols-1 md:grid-cols-[80px_1fr] gap-4 md:gap-8 py-8 ${
-              index < principles.length - 1
-                ? "border-b border-white/[0.06]"
-                : ""
-            }`}
-          >
-            <span className="font-display text-display-sm text-primary">
-              {principle.number}
-            </span>
-            <div>
-              <h3 className="font-display text-xl text-white mb-3 tracking-tight">
-                {principle.title}
-              </h3>
-              <p className="text-white/50 text-base leading-relaxed max-w-[55ch]">
-                {principle.description}
-              </p>
+          <motion.div key={principle.number} variants={staggerItemVariants}>
+            {index > 0 && <div className="h-px bg-white/[0.04]" />}
+            <div className="grid grid-cols-1 md:grid-cols-[80px_1fr] gap-4 md:gap-8 py-8">
+              <span className="font-display text-display-sm text-primary">
+                {principle.number}
+              </span>
+              <div>
+                <h3 className="font-display text-xl text-white mb-3 tracking-tight">
+                  {principle.title}
+                </h3>
+                <p className="text-white/50 text-base leading-relaxed max-w-[55ch]">
+                  {principle.description}
+                </p>
+              </div>
             </div>
           </motion.div>
         ))}

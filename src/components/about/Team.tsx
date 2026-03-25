@@ -36,7 +36,7 @@ export default function Team() {
           people making the decisions.
         </p>
       </FadeIn>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 mb-16">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
         {team.map((member, index) => (
           <FadeIn key={member.name} delay={index * 0.1}>
             <div className="group">
@@ -62,17 +62,6 @@ export default function Team() {
           </FadeIn>
         ))}
       </div>
-
-      {/* Team culture image */}
-      <FadeIn>
-        <Image
-          src="/images/hero-lifestyle.png"
-          alt="Scale OS team workspace and collaborative environment"
-          width={1376}
-          height={600}
-          className="rounded-2xl w-full"
-        />
-      </FadeIn>
     </Section>
   );
 }

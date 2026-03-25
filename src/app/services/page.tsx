@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import ServicesHero from "@/components/services/ServicesHero";
-import PillarOne from "@/components/services/PillarOne";
-import PillarTwo from "@/components/services/PillarTwo";
-import WhyBoth from "@/components/services/WhyBoth";
-import ServicesCaseStudies from "@/components/services/ServicesCaseStudies";
-import ServicesCTA from "@/components/services/ServicesCTA";
+import Section from "@/components/ui/Section";
+import Eyebrow from "@/components/ui/Eyebrow";
+import FadeIn from "@/components/shared/FadeIn";
+import ServiceGrid from "@/components/services/ServiceGrid";
+import CTASection from "@/components/shared/CTASection";
 
 export const metadata: Metadata = {
   title: "Services — Scale OS",
@@ -15,12 +14,25 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <ServicesHero />
-      <PillarOne />
-      <PillarTwo />
-      <WhyBoth />
-      <ServicesCaseStudies />
-      <ServicesCTA />
+      <Section className="text-center !pb-8">
+        <FadeIn>
+          <Eyebrow>Services</Eyebrow>
+          <h1 className="font-display text-display-md md:text-display-lg tracking-tighter text-white mb-6 max-w-3xl mx-auto">
+            Two systems. One growth engine.
+          </h1>
+          <p className="text-on-surface-variant text-base md:text-lg leading-relaxed max-w-xl mx-auto">
+            We combine human-led growth strategy with AI-powered operations to
+            scale Shopify brands faster.
+          </p>
+        </FadeIn>
+      </Section>
+      <ServiceGrid />
+      <CTASection
+        heading="See what both pillars can do for your brand."
+        subtext="We take on 3 new brands per quarter."
+        buttonText="Apply for Strategy Audit"
+        variant="primary"
+      />
     </>
   );
 }

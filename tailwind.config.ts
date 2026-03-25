@@ -47,14 +47,9 @@ const config: Config = {
         "4xl": "2rem",
       },
       animation: {
-        marquee: "marquee 25s linear infinite",
         "fade-up": "fadeUp 0.8s cubic-bezier(0.32, 0.72, 0, 1) forwards",
       },
       keyframes: {
-        marquee: {
-          "0%": { transform: "translateX(0)" },
-          "100%": { transform: "translateX(-50%)" },
-        },
         fadeUp: {
           "0%": { opacity: "0", transform: "translateY(24px)", filter: "blur(4px)" },
           "100%": { opacity: "1", transform: "translateY(0)", filter: "blur(0)" },
