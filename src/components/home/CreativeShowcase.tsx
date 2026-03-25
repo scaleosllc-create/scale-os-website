@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Section from "@/components/ui/Section";
 import Eyebrow from "@/components/ui/Eyebrow";
 import FadeIn from "@/components/shared/FadeIn";
@@ -36,21 +35,12 @@ export default function CreativeShowcase() {
     <Section variant="surface-low">
       <FadeIn>
         <Eyebrow>OUR WORK</Eyebrow>
-        <h2 className="font-display text-display-md md:text-display-lg tracking-tighter text-on-surface mb-4">
+        <h2 className="font-display text-display-md md:text-display-lg tracking-tighter text-white mb-4">
           Creatives that convert
         </h2>
         <p className="text-on-surface-variant text-base leading-relaxed max-w-[55ch] mb-16">
           Real ad formats we build for clients. AI-generated at scale, human-refined for performance.
         </p>
-      </FadeIn>
-      <FadeIn>
-        <Image
-          src="/images/creative-process.png"
-          alt="Agency mood board with printed ad mockups and audience research"
-          width={1376}
-          height={768}
-          className="rounded-2xl mb-16 w-full"
-        />
       </FadeIn>
       <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {creatives.map((creative) => (
@@ -58,14 +48,14 @@ export default function CreativeShowcase() {
             <div className="bg-surface-card rounded-2xl overflow-hidden hover-kinetic h-full flex flex-col">
               {/* Ad type badge */}
               <div className="px-5 pt-5 pb-3">
-                <span className="text-[10px] uppercase tracking-wider text-primary font-medium bg-primary/[0.06] rounded-full px-3 py-1">
+                <span className="text-[10px] uppercase tracking-wider text-primary font-medium bg-primary/[0.1] rounded-full px-3 py-1">
                   {creative.type}
                 </span>
               </div>
 
               {/* Creative content */}
               <div className="px-5 pb-4 flex-1">
-                <h3 className="font-display text-base text-on-surface tracking-tight mb-2 leading-snug">
+                <h3 className="font-display text-base text-white tracking-tight mb-2 leading-snug">
                   {creative.headline}
                 </h3>
                 <p className="text-on-surface-variant text-sm leading-relaxed mb-4">
@@ -79,15 +69,15 @@ export default function CreativeShowcase() {
               {/* Performance metrics */}
               <div className="bg-surface-low px-5 py-3 grid grid-cols-3 gap-2">
                 <div>
-                  <p className="text-[9px] uppercase tracking-wider text-on-surface-variant">CTR</p>
-                  <p className="text-sm font-bold text-on-surface tabular-nums">{creative.metrics.ctr}</p>
+                  <p className="text-[9px] uppercase tracking-wider text-on-surface-muted">CTR</p>
+                  <p className="text-sm font-bold text-white tabular-nums">{creative.metrics.ctr}</p>
                 </div>
                 <div>
-                  <p className="text-[9px] uppercase tracking-wider text-on-surface-variant">CPC</p>
-                  <p className="text-sm font-bold text-on-surface tabular-nums">{creative.metrics.cpc}</p>
+                  <p className="text-[9px] uppercase tracking-wider text-on-surface-muted">CPC</p>
+                  <p className="text-sm font-bold text-white tabular-nums">{creative.metrics.cpc}</p>
                 </div>
                 <div>
-                  <p className="text-[9px] uppercase tracking-wider text-on-surface-variant">Conv</p>
+                  <p className="text-[9px] uppercase tracking-wider text-on-surface-muted">Conv</p>
                   <p className="text-sm font-bold text-primary tabular-nums">{creative.metrics.conv}</p>
                 </div>
               </div>

@@ -17,7 +17,7 @@ export default function ApplyPage() {
       <Section className="text-center">
         <FadeIn>
           <Eyebrow className="mx-auto">Apply for Partnership</Eyebrow>
-          <h1 className="font-display text-display-md md:text-display-lg tracking-tighter leading-none text-on-surface mb-6">
+          <h1 className="font-display text-display-md md:text-display-lg tracking-tighter leading-none text-white mb-6">
             Tell us about your brand.
           </h1>
           <p className="text-base md:text-lg text-on-surface-variant leading-relaxed max-w-md mx-auto">
@@ -31,7 +31,7 @@ export default function ApplyPage() {
       {/* Form */}
       <Section className="!pt-0">
         <FadeIn>
-          <div className="max-w-2xl mx-auto bg-surface-card rounded-2xl shadow-ambient p-8 md:p-12">
+          <div className="max-w-2xl mx-auto bg-surface-card rounded-2xl p-8 md:p-12">
             <ApplyForm />
           </div>
         </FadeIn>
@@ -40,7 +40,7 @@ export default function ApplyPage() {
       {/* What Happens Next */}
       <Section variant="surface-low">
         <FadeIn>
-          <h3 className="font-display text-display-sm tracking-tighter leading-none text-on-surface mb-8">
+          <h3 className="font-display text-display-sm tracking-tighter leading-none text-white mb-8">
             After you apply
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -66,7 +66,7 @@ export default function ApplyPage() {
                   {step.num}
                 </div>
                 <div>
-                  <h4 className="text-sm font-semibold text-on-surface mb-1">
+                  <h4 className="text-sm font-semibold text-white mb-1">
                     {step.title}
                   </h4>
                   <p className="text-sm text-on-surface-variant leading-relaxed">

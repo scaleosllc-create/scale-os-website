@@ -66,7 +66,7 @@ export default function ApplyForm() {
   if (status === "success") {
     return (
       <div className="text-center py-16">
-        <h2 className="font-display text-display-sm md:text-display-md text-on-surface mb-4">
+        <h2 className="font-display text-display-sm md:text-display-md text-white mb-4">
           Application received.
         </h2>
         <p className="text-on-surface-variant mb-6">
@@ -80,12 +80,12 @@ export default function ApplyForm() {
   }
 
   const inputClass =
-    "w-full rounded-xl px-4 py-3 text-sm text-on-surface placeholder:text-on-surface-variant/40 bg-surface-low focus:bg-surface-card focus:outline-none focus:ring-0 focus:shadow-[inset_0_-2px_0_0_#0058bc] transition-all duration-300";
+    "w-full rounded-xl px-4 py-3 text-sm text-white placeholder:text-on-surface-muted bg-surface-low border-0 focus:bg-surface-high focus:outline-none focus:ring-0 focus:shadow-[inset_0_-2px_0_0_#0058bc] transition-all duration-300";
 
   return (
     <form onSubmit={handleSubmit} noValidate>
       {status === "error" && (
-        <div className="bg-red-50 text-error text-sm rounded-xl px-4 py-3 mb-6">
+        <div className="bg-error/10 text-error text-sm rounded-xl px-4 py-3 mb-6">
           Something went wrong. Please try again.
         </div>
       )}
@@ -197,8 +197,8 @@ export default function ApplyForm() {
                 onClick={() => toggleService(service)}
                 className={`rounded-full px-4 py-2 text-[13px] transition-all duration-300 ${
                   selected
-                    ? "bg-primary/10 text-primary"
-                    : "bg-surface-low text-on-surface-variant hover:bg-surface-high"
+                    ? "bg-primary/20 text-primary"
+                    : "bg-surface-low text-white/60 hover:bg-surface-high"
                 }`}
               >
                 {service}
@@ -258,7 +258,7 @@ export default function ApplyForm() {
         >
           {status === "submitting" ? "SUBMITTING..." : "SUBMIT APPLICATION"}
         </Button>
-        <p className="text-[11px] text-on-surface-variant mt-4">
+        <p className="text-[11px] text-on-surface-muted mt-4">
           We&apos;ll review your application and respond within 48 hours.
         </p>
       </div>

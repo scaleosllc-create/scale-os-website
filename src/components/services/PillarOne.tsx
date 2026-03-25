@@ -45,7 +45,7 @@ export default function PillarOne() {
     <Section variant="surface-low">
       <FadeIn>
         <Eyebrow>PILLAR ONE</Eyebrow>
-        <h2 className="font-display text-display-md md:text-display-lg tracking-tighter text-on-surface mb-4">
+        <h2 className="font-display text-display-md md:text-display-lg tracking-tighter text-white mb-4">
           Revenue Engineering
         </h2>
         <p className="text-on-surface-variant text-base leading-relaxed max-w-[60ch] mb-16">
@@ -57,9 +57,9 @@ export default function PillarOne() {
       <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {services.map((service) => (
           <motion.div key={service.title} variants={staggerItemVariants}>
-            <div className="bg-surface-card rounded-2xl p-8 h-full hover-kinetic">
+            <div className="bg-surface-card rounded-2xl p-8 h-full transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-surface-high">
               <service.icon size={28} weight="light" className="text-primary mb-5" />
-              <h3 className="font-display text-lg text-on-surface tracking-tight mb-3">
+              <h3 className="font-display text-lg text-white tracking-tight mb-3">
                 {service.title}
               </h3>
               <p className="text-on-surface-variant text-sm leading-relaxed">

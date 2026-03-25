@@ -7,7 +7,7 @@ export default function AboutHero() {
     <Section className="!pt-32 !pb-16 lg:!pt-40 lg:!pb-20">
       <FadeIn>
         <Eyebrow>ABOUT SCALE OS</Eyebrow>
-        <h1 className="font-display text-display-lg md:text-[4.5rem] tracking-tighter leading-[1.02] text-on-surface max-w-4xl mb-6">
+        <h1 className="font-display text-display-lg md:text-[4.5rem] tracking-tighter leading-[1.02] text-white max-w-4xl mb-6">
           We built the agency we always wished existed.
         </h1>
         <p className="text-on-surface-variant text-xl leading-relaxed max-w-[55ch]">

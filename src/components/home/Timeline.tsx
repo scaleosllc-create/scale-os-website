@@ -45,7 +45,7 @@ export default function Timeline() {
   return (
     <Section variant="dark">
       <FadeIn>
-        <Eyebrow className="!text-primary">THE SCALE OS SYSTEM</Eyebrow>
+        <Eyebrow>THE SCALE OS SYSTEM</Eyebrow>
         <h2 className="font-display text-display-md tracking-tighter text-white mb-12">
           From audit to scale in 90 days.
         </h2>
@@ -55,7 +55,7 @@ export default function Timeline() {
           <motion.div
             key={phase.phase}
             variants={staggerItemVariants}
-            className="bg-white/5 rounded-2xl p-8"
+            className="bg-white/[0.04] rounded-2xl p-8"
           >
             <p className="text-primary font-display text-display-sm mb-2">{phase.phase}</p>
             <h3 className="text-xl font-semibold text-white mb-5">
@@ -65,7 +65,7 @@ export default function Timeline() {
               {phase.items.map((item) => (
                 <li
                   key={item}
-                  className="text-[13px] text-white/60 leading-relaxed flex gap-2"
+                  className="text-[13px] text-on-surface-variant leading-relaxed flex gap-2"
                 >
                   <span className="text-primary mt-0.5 flex-shrink-0">&bull;</span>
                   {item}

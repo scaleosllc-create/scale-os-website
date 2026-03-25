@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <Section className="text-center min-h-[60vh] flex items-center justify-center">
       <div>
-        <h1 className="font-display text-display-md md:text-display-lg tracking-tighter leading-none text-on-surface mb-4">
+        <h1 className="font-display text-display-md md:text-display-lg tracking-tighter leading-none text-white mb-4">
           Page not found
         </h1>
         <p className="text-on-surface-variant text-base mb-8">

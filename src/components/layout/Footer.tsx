@@ -8,7 +8,7 @@ const pageLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-on-surface text-white">
+    <footer className="bg-surface-low border-t border-white/[0.06]">
       <div className="mx-auto max-w-container px-6 md:px-8 lg:px-12 py-16 md:py-24">
         <div className="font-display text-display-sm tracking-wider text-white mb-8">
           SCALE OS
@@ -22,7 +22,7 @@ export default function Footer() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm text-white/50 hover:text-white/80 transition-colors duration-300"
+                  className="text-sm text-white/40 hover:text-white/70 transition-colors duration-300"
                 >
                   {link.label}
                 </Link>
@@ -47,7 +47,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="text-xs text-white/30">
+        <div className="text-xs text-white/20">
           &copy; {new Date().getFullYear()} Scale OS LLC. All rights reserved.
         </div>
       </div>

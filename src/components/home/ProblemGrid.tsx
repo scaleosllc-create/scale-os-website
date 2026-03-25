@@ -2,7 +2,6 @@
 
 import Section from "@/components/ui/Section";
 import Eyebrow from "@/components/ui/Eyebrow";
-import Card from "@/components/ui/Card";
 import FadeIn from "@/components/shared/FadeIn";
 import StaggerContainer, {
   staggerItemVariants,
@@ -58,27 +57,27 @@ const problems = [
 
 export default function ProblemGrid() {
   return (
-    <Section variant="surface-low">
+    <Section>
       <FadeIn>
         <Eyebrow>SOUND FAMILIAR?</Eyebrow>
-        <h2 className="font-display text-display-md tracking-tighter text-on-surface mb-10">
+        <h2 className="font-display text-display-md tracking-tighter text-white mb-10">
           The problems killing your margins
         </h2>
       </FadeIn>
       <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {problems.map((problem) => (
           <motion.div key={problem.title} variants={staggerItemVariants}>
-            <Card hover className="h-full">
-              <div className="w-12 h-12 rounded-2xl bg-primary/[0.06] flex items-center justify-center mb-4">
+            <div className="bg-surface-card rounded-2xl p-8 h-full transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-surface-high">
+              <div className="w-12 h-12 rounded-2xl bg-primary/[0.1] flex items-center justify-center mb-4">
                 <problem.icon size={24} weight="light" className="text-primary" />
               </div>
-              <h3 className="text-base font-semibold text-on-surface mb-2">
+              <h3 className="text-base font-semibold text-white mb-2">
                 {problem.title}
               </h3>
               <p className="text-sm text-on-surface-variant leading-relaxed">
                 {problem.description}
               </p>
-            </Card>
+            </div>
           </motion.div>
         ))}
       </StaggerContainer>

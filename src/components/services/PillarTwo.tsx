@@ -46,37 +46,23 @@ export default function PillarTwo() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start mb-16">
         <FadeIn direction="left">
           {/* Mock Automation Workflow */}
-          <div className="bg-white/[0.06] rounded-2xl p-5">
-            <p className="text-[10px] uppercase tracking-wider text-white/40 mb-4">Live Workflow</p>
+          <div className="bg-white/[0.04] rounded-2xl p-5">
+            <p className="text-[10px] uppercase tracking-wider text-on-surface-muted mb-4">Live Workflow</p>
             <div className="space-y-3">
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center text-[10px] text-primary font-bold">1</div>
-                <div className="flex-1 bg-white/[0.04] rounded-lg px-3 py-2">
-                  <p className="text-[11px] text-white/70">New order received &rarr; Shopify webhook</p>
+              {[
+                { step: "1", text: "New order received \u2192 Shopify webhook", status: "Active" },
+                { step: "2", text: "AI generates post-purchase email sequence", status: "Active" },
+                { step: "3", text: "Customer tagged \u2192 Klaviyo segment updated", status: "Active" },
+                { step: "4", text: "AI creates retargeting ad from purchase data", status: "Processing" },
+              ].map((item) => (
+                <div key={item.step} className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center text-[10px] text-primary font-bold">{item.step}</div>
+                  <div className="flex-1 bg-white/[0.04] rounded-lg px-3 py-2">
+                    <p className="text-[11px] text-white/70">{item.text}</p>
+                  </div>
+                  <span className={`text-[9px] ${item.status === "Active" ? "text-green-400" : "text-yellow-400"}`}>{item.status}</span>
                 </div>
-                <span className="text-[9px] text-green-400">Active</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center text-[10px] text-primary font-bold">2</div>
-                <div className="flex-1 bg-white/[0.04] rounded-lg px-3 py-2">
-                  <p className="text-[11px] text-white/70">AI generates post-purchase email sequence</p>
-                </div>
-                <span className="text-[9px] text-green-400">Active</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center text-[10px] text-primary font-bold">3</div>
-                <div className="flex-1 bg-white/[0.04] rounded-lg px-3 py-2">
-                  <p className="text-[11px] text-white/70">Customer tagged &rarr; Klaviyo segment updated</p>
-                </div>
-                <span className="text-[9px] text-green-400">Active</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center text-[10px] text-primary font-bold">4</div>
-                <div className="flex-1 bg-white/[0.04] rounded-lg px-3 py-2">
-                  <p className="text-[11px] text-white/70">AI creates retargeting ad from purchase data</p>
-                </div>
-                <span className="text-[9px] text-yellow-400">Processing</span>
-              </div>
+              ))}
             </div>
             <div className="mt-4 pt-3 border-t border-white/[0.06] flex items-center justify-between">
               <span className="text-[10px] text-white/30">Last run: 2 min ago</span>
@@ -85,7 +71,7 @@ export default function PillarTwo() {
           </div>
         </FadeIn>
         <FadeIn direction="right" delay={0.15}>
-          <Eyebrow className="!text-primary">PILLAR TWO</Eyebrow>
+          <Eyebrow>PILLAR TWO</Eyebrow>
           <h2 className="font-display text-display-md md:text-display-lg tracking-tighter text-white mb-4">
             AI Commerce Operations
           </h2>

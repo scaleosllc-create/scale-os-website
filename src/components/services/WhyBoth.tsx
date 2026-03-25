@@ -7,7 +7,7 @@ export default function WhyBoth() {
     <Section variant="surface-low">
       <FadeIn>
         <Eyebrow>THE ADVANTAGE</Eyebrow>
-        <h2 className="font-display text-display-md md:text-display-lg tracking-tighter text-on-surface mb-6 max-w-3xl">
+        <h2 className="font-display text-display-md md:text-display-lg tracking-tighter text-white mb-6 max-w-3xl">
           Why the combination wins
         </h2>
         <p className="text-on-surface-variant text-lg leading-relaxed max-w-[60ch] mb-16">
@@ -42,7 +42,7 @@ export default function WhyBoth() {
               <span className="font-display text-display-lg text-primary">
                 {item.stat}
               </span>
-              <h3 className="font-display text-lg text-on-surface tracking-tight mt-2 mb-3">
+              <h3 className="font-display text-lg text-white tracking-tight mt-2 mb-3">
                 {item.label}
               </h3>
               <p className="text-on-surface-variant text-sm leading-relaxed">

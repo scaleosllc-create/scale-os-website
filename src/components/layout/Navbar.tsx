@@ -15,8 +15,8 @@ export default function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const { scrollY } = useScroll();
-  const bgOpacity = useTransform(scrollY, [0, 80], [0.6, 0.85]);
-  const shadowOpacity = useTransform(scrollY, [0, 80], [0, 0.04]);
+  const bgOpacity = useTransform(scrollY, [0, 80], [0.6, 0.9]);
+  const shadowOpacity = useTransform(scrollY, [0, 80], [0, 0.3]);
 
   return (
     <>
@@ -24,11 +24,11 @@ export default function Navbar() {
         <motion.div
           className="flex items-center gap-8 rounded-full px-6 py-3 backdrop-blur-xl"
           style={{
-            backgroundColor: useTransform(bgOpacity, (v) => `rgba(255, 255, 255, ${v})`),
-            boxShadow: useTransform(shadowOpacity, (v) => `0 4px 16px rgba(25, 28, 29, ${v})`),
+            backgroundColor: useTransform(bgOpacity, (v) => `rgba(10, 10, 10, ${v})`),
+            boxShadow: useTransform(shadowOpacity, (v) => `0 4px 16px rgba(0, 0, 0, ${v})`),
           }}
         >
-          <Link href="/" className="font-display font-bold text-on-surface tracking-wider text-sm">
+          <Link href="/" className="font-display font-bold text-white tracking-wider text-sm">
             SCALE OS
           </Link>
 
@@ -39,8 +39,8 @@ export default function Navbar() {
                 href={link.href}
                 className={`text-sm transition-colors duration-300 ${
                   pathname === link.href
-                    ? "text-primary font-medium"
-                    : "text-on-surface-variant hover:text-on-surface"
+                    ? "text-white font-medium"
+                    : "text-white/50 hover:text-white"
                 }`}
               >
                 {link.label}
@@ -51,7 +51,7 @@ export default function Navbar() {
           <div className="hidden md:block">
             <Link
               href="/apply"
-              className="bg-primary text-on-primary rounded-full px-4 py-1.5 text-xs font-medium transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-primary-container"
+              className="bg-primary text-white rounded-full px-4 py-1.5 text-xs font-medium transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-primary-container"
             >
               Apply
             </Link>
@@ -62,8 +62,8 @@ export default function Navbar() {
             onClick={() => setMobileOpen(true)}
             aria-label="Open menu"
           >
-            <span className="w-4 h-px bg-on-surface" />
-            <span className="w-4 h-px bg-on-surface" />
+            <span className="w-4 h-px bg-white" />
+            <span className="w-4 h-px bg-white" />
           </button>
         </motion.div>
       </nav>
@@ -75,7 +75,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-50 backdrop-blur-3xl bg-on-surface/95 flex flex-col items-center justify-center"
+            className="fixed inset-0 z-50 backdrop-blur-3xl bg-background/98 flex flex-col items-center justify-center"
             onClick={() => setMobileOpen(false)}
           >
             <button

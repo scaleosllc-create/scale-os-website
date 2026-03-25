@@ -4,15 +4,15 @@ import FadeIn from "@/components/shared/FadeIn";
 
 export default function Founder() {
   return (
-    <Section variant="surface-low">
+    <Section>
       <FadeIn>
         <div className="max-w-2xl mx-auto text-center">
           {/* Decorative quotation mark */}
-          <div className="text-primary/10 text-[120px] leading-none font-display select-none -mb-10">
+          <div className="text-primary/20 text-[120px] leading-none font-display select-none -mb-10">
             &ldquo;
           </div>
 
-          <blockquote className="font-display text-display-sm tracking-tight text-on-surface italic mb-8 leading-relaxed">
+          <blockquote className="font-display text-display-sm tracking-tight text-white italic mb-8 leading-relaxed">
             We started Scale OS because we saw the same pattern everywhere —
             agencies charging premium fees while running the same playbook for
             every brand. We combine senior-level strategy with AI systems that
@@ -30,7 +30,7 @@ export default function Founder() {
               className="rounded-full object-cover w-24 h-24"
             />
             <div className="text-left">
-              <p className="text-base font-medium text-on-surface">Alex Mercer</p>
+              <p className="text-base font-medium text-white">Alex Mercer</p>
               <p className="text-sm text-on-surface-variant">
                 Creative Strategist, Scale OS
               </p>

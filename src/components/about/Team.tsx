@@ -27,7 +27,7 @@ export default function Team() {
   return (
     <Section>
       <FadeIn>
-        <h2 className="font-display text-display-md md:text-display-lg tracking-tighter text-on-surface mb-4">
+        <h2 className="font-display text-display-md md:text-display-lg tracking-tighter text-white mb-4">
           The team
         </h2>
         <p className="text-on-surface-variant text-base leading-relaxed max-w-[55ch] mb-16">
@@ -48,7 +48,7 @@ export default function Team() {
                   className="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.03]"
                 />
               </div>
-              <h3 className="font-display text-xl text-on-surface tracking-tight mb-1">
+              <h3 className="font-display text-xl text-white tracking-tight mb-1">
                 {member.name}
               </h3>
               <p className="text-primary text-sm font-medium mb-3">

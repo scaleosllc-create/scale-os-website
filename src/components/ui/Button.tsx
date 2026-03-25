@@ -18,9 +18,9 @@ interface ButtonProps {
 }
 
 const variantStyles: Record<ButtonVariant, string> = {
-  primary: "bg-primary text-on-primary hover:bg-primary-container",
-  secondary: "bg-surface-high text-on-surface-variant hover:bg-surface-low",
-  ghost: "bg-transparent text-primary hover:bg-primary/[0.04]",
+  primary: "bg-primary text-white hover:bg-primary-container",
+  secondary: "bg-surface-high text-white/80 hover:bg-surface-card hover:text-white",
+  ghost: "bg-transparent text-white/60 hover:text-white",
 };
 
 export default function Button({

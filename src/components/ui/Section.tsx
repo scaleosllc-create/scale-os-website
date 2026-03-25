@@ -1,6 +1,6 @@
 interface SectionProps {
   children: React.ReactNode;
-  variant?: "background" | "surface-low" | "dark" | "primary";
+  variant?: "background" | "surface-low" | "dark" | "primary" | "light";
   className?: string;
   id?: string;
   narrow?: boolean;
@@ -9,8 +9,9 @@ interface SectionProps {
 const variantStyles = {
   background: "bg-background",
   "surface-low": "bg-surface-low",
-  dark: "bg-on-surface text-white",
+  dark: "bg-surface-card",
   primary: "gradient-hero text-white",
+  light: "bg-white text-[#0a0a0a]",
 };
 
 export default function Section({

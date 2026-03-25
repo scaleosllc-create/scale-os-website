@@ -45,25 +45,25 @@ export default function FAQ() {
     <Section>
       <FadeIn>
         <Eyebrow>FAQ</Eyebrow>
-        <h2 className="font-display text-display-md tracking-tighter text-on-surface mb-10">
+        <h2 className="font-display text-display-md tracking-tighter text-white mb-10">
           Common questions
         </h2>
       </FadeIn>
       <FadeIn delay={0.1}>
         <div className="max-w-2xl mx-auto">
           {faqs.map((faq, i) => (
-            <div key={faq.q}>
+            <div key={faq.q} className={i > 0 ? "border-t border-white/[0.06]" : ""}>
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full flex items-center justify-between py-6 text-left group rounded-xl px-3 -mx-3 transition-colors duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-surface-low"
+                className="w-full flex items-center justify-between py-6 text-left group rounded-xl px-3 -mx-3 transition-colors duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-white/[0.03]"
               >
-                <span className="font-display text-lg font-medium text-on-surface pr-4">
+                <span className="font-display text-lg font-medium text-white pr-4">
                   {faq.q}
                 </span>
                 <motion.span
                   animate={{ rotate: openIndex === i ? 90 : 0 }}
                   transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
-                  className="flex-shrink-0 w-8 h-8 rounded-full bg-on-surface/[0.04] flex items-center justify-center transition-colors duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:bg-on-surface/[0.08]"
+                  className="flex-shrink-0 w-8 h-8 rounded-full bg-white/[0.04] flex items-center justify-center transition-colors duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:bg-white/[0.08]"
                 >
                   {openIndex === i ? (
                     <Minus size={14} weight="bold" className="text-primary" />

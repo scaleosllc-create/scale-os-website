@@ -23,29 +23,18 @@ h1, h2 {
   font-variant-numeric: tabular-nums;
 }
 
-/* Subtle grain texture — fixed overlay */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 50;
-  pointer-events: none;
-  opacity: 0.015;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-}
-
 /* Premium transition timing */
 .transition-kinetic {
   transition: all 0.7s cubic-bezier(0.32, 0.72, 0, 1);
 }
 
-/* Kinetic hover — scale + shadow bloom */
+/* Kinetic hover — scale + subtle glow */
 .hover-kinetic {
   transition: all 0.5s cubic-bezier(0.32, 0.72, 0, 1);
 }
 .hover-kinetic:hover {
   transform: scale(1.02);
-  box-shadow: 0 30px 60px -10px rgba(25, 28, 29, 0.1);
+  box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.4);
 }
 
 /* Hero gradient */

@@ -1,28 +1,29 @@
 import Section from "@/components/ui/Section";
-import Image from "next/image";
 import FadeIn from "@/components/shared/FadeIn";
 
-const platforms = [
-  { src: "/logos/shopify.svg", alt: "Shopify" },
-  { src: "/logos/meta.svg", alt: "Meta Ads" },
-  { src: "/logos/google.svg", alt: "Google Ads" },
-  { src: "/logos/klaviyo.svg", alt: "Klaviyo" },
+const clients = [
+  "AURORA SKINCARE", "VELTA FITNESS", "MAISON HOME", "DRIFT APPAREL",
+  "NOVA BEAUTY", "KINETIC SUPPLY", "MERIDIAN GOODS", "SOLACE LIVING",
+  "AURORA SKINCARE", "VELTA FITNESS", "MAISON HOME", "DRIFT APPAREL",
+  "NOVA BEAUTY", "KINETIC SUPPLY", "MERIDIAN GOODS", "SOLACE LIVING",
 ];
 
 export default function PlatformLogos() {
-  const doubled = [...platforms, ...platforms];
   return (
-    <Section variant="surface-low" className="!py-6 overflow-hidden">
+    <Section variant="surface-low" className="!py-8 overflow-hidden">
       <FadeIn>
-        <p className="text-label-sm text-on-surface-variant text-center mb-6 tracking-[2px]">
-          PLATFORMS WE BUILD ON
+        <p className="text-on-surface-muted text-xs text-center mb-6 tracking-widest uppercase">
+          TRUSTED BY 40+ SHOPIFY BRANDS
         </p>
         <div className="relative">
-          <div className="flex gap-16 animate-marquee">
-            {doubled.map((p, i) => (
-              <div key={`${p.alt}-${i}`} className="flex-shrink-0 opacity-40 hover:opacity-80 transition-opacity">
-                <Image src={p.src} alt={p.alt} width={100} height={32} />
-              </div>
+          <div className="flex gap-12 animate-marquee">
+            {clients.map((client, i) => (
+              <span
+                key={`${client}-${i}`}
+                className="text-white/20 text-sm font-medium tracking-widest uppercase whitespace-nowrap"
+              >
+                {client}
+              </span>
             ))}
           </div>
         </div>

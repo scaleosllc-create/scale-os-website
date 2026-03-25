@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Section from "@/components/ui/Section";
 import Eyebrow from "@/components/ui/Eyebrow";
 import FadeIn from "@/components/shared/FadeIn";
@@ -23,12 +22,12 @@ const aiServices = [
 export default function TwoPillars() {
   return (
     <>
-      {/* Block 1: Revenue Engineering — background */}
+      {/* Block 1: Revenue Engineering */}
       <Section>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
           <FadeIn direction="left">
             <Eyebrow>PILLAR ONE</Eyebrow>
-            <h3 className="font-display text-display-sm tracking-tighter text-on-surface mb-4">
+            <h3 className="font-display text-display-sm md:text-display-md tracking-tighter text-white mb-4">
               Revenue Engineering
             </h3>
             <p className="text-sm text-on-surface-variant leading-relaxed mb-6 max-w-[65ch]">
@@ -42,81 +41,62 @@ export default function TwoPillars() {
                   key={s}
                   className="text-sm text-on-surface-variant flex items-center gap-3"
                 >
-                  <Check size={16} weight="bold" className="text-primary flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
                   {s}
                 </li>
               ))}
             </ul>
           </FadeIn>
           <FadeIn direction="right" delay={0.15}>
-            <Image
-              src="/images/ecom-products.png"
-              alt="E-commerce product photoshoot in progress"
-              width={1376}
-              height={768}
-              className="rounded-2xl mb-6 w-full"
-            />
-            {/* Mock Facebook Ad */}
-            <div className="bg-surface-card rounded-2xl overflow-hidden shadow-ambient">
-              <div className="px-4 py-3 flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary text-[10px] font-bold">SC</div>
-                <div>
-                  <p className="text-[11px] font-medium text-on-surface">Scale OS Client</p>
-                  <p className="text-[9px] text-on-surface-variant">Sponsored</p>
-                </div>
+            <div className="bg-surface-card rounded-2xl p-8">
+              <div className="flex items-center gap-2 mb-6">
+                <div className="w-2 h-2 rounded-full bg-primary" />
+                <span className="text-[10px] uppercase tracking-wider text-on-surface-muted">Revenue Engine Active</span>
               </div>
-              <div className="bg-gradient-to-br from-primary/[0.08] to-primary/[0.02] px-4 py-8 text-center">
-                <p className="font-display text-lg text-on-surface tracking-tight mb-2">Still paying $40+ per customer?</p>
-                <p className="text-sm text-on-surface-variant">Our clients cut their CAC by 34% in 60 days.</p>
-              </div>
-              <div className="px-4 py-3 flex items-center justify-between">
-                <div>
-                  <p className="text-[10px] text-on-surface-variant">scaleos-client.com</p>
-                  <p className="text-[11px] font-medium text-on-surface">See How We Did It</p>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-surface-low rounded-xl p-4">
+                  <p className="text-[9px] uppercase tracking-wider text-on-surface-muted mb-1">ROAS</p>
+                  <p className="text-2xl font-bold text-primary tabular-nums">4.2x</p>
                 </div>
-                <div className="bg-primary text-white text-[10px] font-medium px-3 py-1.5 rounded">Shop Now</div>
+                <div className="bg-surface-low rounded-xl p-4">
+                  <p className="text-[9px] uppercase tracking-wider text-on-surface-muted mb-1">CAC</p>
+                  <p className="text-2xl font-bold text-white tabular-nums">$18.40</p>
+                </div>
+                <div className="bg-surface-low rounded-xl p-4">
+                  <p className="text-[9px] uppercase tracking-wider text-on-surface-muted mb-1">Revenue</p>
+                  <p className="text-2xl font-bold text-white tabular-nums">$142K</p>
+                </div>
+                <div className="bg-surface-low rounded-xl p-4">
+                  <p className="text-[9px] uppercase tracking-wider text-on-surface-muted mb-1">Conv Rate</p>
+                  <p className="text-2xl font-bold text-white tabular-nums">3.8%</p>
+                </div>
               </div>
             </div>
           </FadeIn>
         </div>
       </Section>
 
-      {/* Block 2: AI Commerce Operations — dark */}
-      <Section variant="dark">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+      {/* Block 2: AI Commerce Operations */}
+      <Section variant="surface-low">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
           <FadeIn direction="left">
-            {/* Mock Automation Workflow */}
-            <div className="bg-white/[0.06] rounded-2xl p-5">
-              <p className="text-[10px] uppercase tracking-wider text-white/40 mb-4">Live Workflow</p>
+            <div className="bg-white/[0.04] rounded-2xl p-6">
+              <p className="text-[10px] uppercase tracking-wider text-on-surface-muted mb-4">Live Workflow</p>
               <div className="space-y-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center text-[10px] text-primary font-bold">1</div>
-                  <div className="flex-1 bg-white/[0.04] rounded-lg px-3 py-2">
-                    <p className="text-[11px] text-white/70">New order received &rarr; Shopify webhook</p>
+                {[
+                  { step: "1", text: "New order received \u2192 Shopify webhook", status: "Active" },
+                  { step: "2", text: "AI generates post-purchase email sequence", status: "Active" },
+                  { step: "3", text: "Customer tagged \u2192 Klaviyo segment updated", status: "Active" },
+                  { step: "4", text: "AI creates retargeting ad from purchase data", status: "Processing" },
+                ].map((item) => (
+                  <div key={item.step} className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center text-[10px] text-primary font-bold">{item.step}</div>
+                    <div className="flex-1 bg-white/[0.04] rounded-lg px-3 py-2">
+                      <p className="text-[11px] text-white/70">{item.text}</p>
+                    </div>
+                    <span className={`text-[9px] ${item.status === "Active" ? "text-green-400" : "text-yellow-400"}`}>{item.status}</span>
                   </div>
-                  <span className="text-[9px] text-green-400">Active</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center text-[10px] text-primary font-bold">2</div>
-                  <div className="flex-1 bg-white/[0.04] rounded-lg px-3 py-2">
-                    <p className="text-[11px] text-white/70">AI generates post-purchase email sequence</p>
-                  </div>
-                  <span className="text-[9px] text-green-400">Active</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center text-[10px] text-primary font-bold">3</div>
-                  <div className="flex-1 bg-white/[0.04] rounded-lg px-3 py-2">
-                    <p className="text-[11px] text-white/70">Customer tagged &rarr; Klaviyo segment updated</p>
-                  </div>
-                  <span className="text-[9px] text-green-400">Active</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center text-[10px] text-primary font-bold">4</div>
-                  <div className="flex-1 bg-white/[0.04] rounded-lg px-3 py-2">
-                    <p className="text-[11px] text-white/70">AI creates retargeting ad from purchase data</p>
-                  </div>
-                  <span className="text-[9px] text-yellow-400">Processing</span>
-                </div>
+                ))}
               </div>
               <div className="mt-4 pt-3 border-t border-white/[0.06] flex items-center justify-between">
                 <span className="text-[10px] text-white/30">Last run: 2 min ago</span>
@@ -125,11 +105,11 @@ export default function TwoPillars() {
             </div>
           </FadeIn>
           <FadeIn direction="right" delay={0.15}>
-            <Eyebrow className="!text-primary">PILLAR TWO</Eyebrow>
-            <h3 className="font-display text-display-sm tracking-tighter text-white mb-4">
+            <Eyebrow>PILLAR TWO</Eyebrow>
+            <h3 className="font-display text-display-sm md:text-display-md tracking-tighter text-white mb-4">
               AI Commerce Operations
             </h3>
-            <p className="text-sm text-white/60 leading-relaxed mb-6 max-w-[65ch]">
+            <p className="text-sm text-on-surface-variant leading-relaxed mb-6 max-w-[65ch]">
               Custom AI workflows that automate your operations — from ad
               creation to store optimization. This is your unfair competitive
               advantage.
@@ -138,7 +118,7 @@ export default function TwoPillars() {
               {aiServices.map((s) => (
                 <li
                   key={s}
-                  className="text-sm text-white/60 flex items-center gap-3"
+                  className="text-sm text-on-surface-variant flex items-center gap-3"
                 >
                   <Check size={16} weight="bold" className="text-primary flex-shrink-0" />
                   {s}
