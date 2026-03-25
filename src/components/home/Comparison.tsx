@@ -53,7 +53,7 @@ export default function Comparison() {
               <div className="text-[13px] font-semibold text-on-surface-variant uppercase tracking-wider">
                 Traditional Agency
               </div>
-              <div className="text-[13px] font-semibold text-primary uppercase tracking-wider">
+              <div className="text-[13px] font-display font-bold text-primary uppercase tracking-wider">
                 Scale OS
               </div>
             </div>
@@ -63,21 +63,21 @@ export default function Comparison() {
               {rows.map((row) => (
                 <div
                   key={row.label}
-                  className="grid grid-cols-[1fr_1fr] gap-8 py-5"
+                  className="grid grid-cols-[1fr_1fr] gap-8 py-4"
                 >
                   <div className="flex items-start gap-3">
                     <span className="flex items-center justify-center w-6 h-6 rounded-full bg-surface-high flex-shrink-0 mt-0.5">
                       <X
                         size={12}
                         weight="bold"
-                        className="text-on-surface-variant"
+                        className="text-on-surface-variant/40"
                       />
                     </span>
                     <span className="text-sm text-on-surface-variant leading-relaxed">
                       {row.traditional}
                     </span>
                   </div>
-                  <div className="flex items-start gap-3">
+                  <div className="flex items-start gap-3 bg-surface-card rounded-xl px-3 py-2 -my-2">
                     <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 flex-shrink-0 mt-0.5">
                       <Check
                         size={12}

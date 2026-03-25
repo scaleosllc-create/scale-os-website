@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Section from "@/components/ui/Section";
 import Eyebrow from "@/components/ui/Eyebrow";
 import FadeIn from "@/components/shared/FadeIn";
@@ -45,8 +46,15 @@ export default function Timeline() {
   return (
     <Section variant="dark">
       <FadeIn>
+        <Image
+          src="/images/timeline-visual.png"
+          alt="Growth phases"
+          width={1200}
+          height={675}
+          className="rounded-2xl mb-16 w-full opacity-80"
+        />
         <Eyebrow className="!text-primary">THE SCALE OS SYSTEM</Eyebrow>
-        <h2 className="font-display text-display-sm md:text-display-md lg:text-display-lg text-white mb-12">
+        <h2 className="font-display text-display-md tracking-tighter text-white mb-12">
           From audit to scale in 90 days.
         </h2>
       </FadeIn>
@@ -57,7 +65,7 @@ export default function Timeline() {
             variants={staggerItemVariants}
             className="bg-white/5 rounded-2xl p-8"
           >
-            <p className="text-primary text-sm font-bold mb-2">{phase.phase}</p>
+            <p className="text-primary font-display text-display-sm mb-2">{phase.phase}</p>
             <h3 className="text-xl font-semibold text-white mb-5">
               {phase.title}
             </h3>

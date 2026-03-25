@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Section from "@/components/ui/Section";
 import Eyebrow from "@/components/ui/Eyebrow";
 import Card from "@/components/ui/Card";
@@ -58,10 +59,17 @@ const problems = [
 
 export default function ProblemGrid() {
   return (
-    <Section>
+    <Section variant="surface-low">
       <FadeIn>
+        <Image
+          src="/images/problem-visual.png"
+          alt="Rising costs visualization"
+          width={1200}
+          height={675}
+          className="rounded-2xl mb-12 w-full"
+        />
         <Eyebrow>SOUND FAMILIAR?</Eyebrow>
-        <h2 className="font-display text-display-sm md:text-display-md lg:text-display-lg text-on-surface mb-10">
+        <h2 className="font-display text-display-md tracking-tighter text-on-surface mb-10">
           The problems killing your margins
         </h2>
       </FadeIn>

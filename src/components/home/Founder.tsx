@@ -11,7 +11,7 @@ export default function Founder() {
             &ldquo;
           </div>
 
-          <blockquote className="text-xl md:text-2xl font-display font-light leading-relaxed text-on-surface mb-8">
+          <blockquote className="font-display text-display-sm tracking-tight text-on-surface italic mb-8 leading-relaxed">
             I built Scale OS because I was tired of watching e-commerce
             brands get burned by agencies that don&rsquo;t understand unit
             economics. We combine the strategic depth of a top-tier growth team
@@ -27,7 +27,7 @@ export default function Founder() {
               </span>
             </div>
             <div className="text-left">
-              <p className="text-base font-semibold text-on-surface">Founder Name</p>
+              <p className="text-base font-medium text-on-surface">Founder Name</p>
               <p className="text-sm text-on-surface-variant">
                 Founder &amp; CEO, Scale OS
               </p>

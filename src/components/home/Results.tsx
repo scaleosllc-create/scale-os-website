@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Section from "@/components/ui/Section";
 import Eyebrow from "@/components/ui/Eyebrow";
 import Card from "@/components/ui/Card";
@@ -46,6 +47,15 @@ export default function Results() {
   return (
     <Section id="results">
       <FadeIn>
+        <div className="relative mb-12">
+          <Image
+            src="/images/growth-visual.png"
+            alt="Ascending growth chart visualization"
+            width={800}
+            height={600}
+            className="rounded-2xl w-full opacity-60"
+          />
+        </div>
         <Eyebrow>RESULTS</Eyebrow>
         <h2 className="font-display text-display-sm md:text-display-md lg:text-display-lg text-on-surface mb-4">
           What our system delivers
@@ -61,7 +71,7 @@ export default function Results() {
             key={study.title}
             variants={staggerItemVariants}
           >
-            <Card dark className="h-full">
+            <Card dark hover className="h-full">
               <p className="text-lg font-semibold text-white mb-1">
                 {study.title}
               </p>
@@ -82,7 +92,7 @@ export default function Results() {
                 {study.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full bg-white/10 px-3 py-1 text-[10px] text-white/60 tracking-wide"
+                    className="rounded-full bg-primary/10 px-3 py-1 text-[10px] text-primary tracking-wide"
                   >
                     {tag}
                   </span>
