@@ -1,11 +1,12 @@
+import Image from "next/image";
 import Section from "@/components/ui/Section";
 import FadeIn from "@/components/shared/FadeIn";
 
 export default function WhyWeExist() {
   return (
     <Section>
-      <div className="flex flex-col lg:flex-row gap-12 items-start">
-        <FadeIn className="flex-1">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <FadeIn>
           <h2 className="font-display text-display-sm md:text-display-md tracking-tighter leading-none text-on-surface mb-6">
             Why we exist
           </h2>
@@ -20,6 +21,15 @@ export default function WhyWeExist() {
             operational leverage of custom AI systems. The result is better
             performance at a fraction of the traditional overhead.
           </p>
+        </FadeIn>
+        <FadeIn direction="right" delay={0.15}>
+          <Image
+            src="/images/workspace.png"
+            alt="Agency office with monitors showing dashboards"
+            width={1376}
+            height={768}
+            className="rounded-2xl w-full"
+          />
         </FadeIn>
       </div>
     </Section>

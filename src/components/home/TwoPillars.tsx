@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Section from "@/components/ui/Section";
 import Eyebrow from "@/components/ui/Eyebrow";
 import FadeIn from "@/components/shared/FadeIn";
@@ -48,7 +49,13 @@ export default function TwoPillars() {
             </ul>
           </FadeIn>
           <FadeIn direction="right" delay={0.15}>
-            <div className="rounded-2xl bg-surface p-8" />
+            <Image
+              src="/images/workspace.png"
+              alt="Agency office with monitors showing dashboards"
+              width={1376}
+              height={768}
+              className="rounded-2xl w-full"
+            />
           </FadeIn>
         </div>
       </Section>
@@ -57,7 +64,13 @@ export default function TwoPillars() {
       <Section variant="dark">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
           <FadeIn direction="left">
-            <div className="rounded-2xl bg-white/5 p-8" />
+            <Image
+              src="/images/ai-workflow.png"
+              alt="Developer workspace with code editor and project pipeline"
+              width={1376}
+              height={768}
+              className="rounded-2xl w-full"
+            />
           </FadeIn>
           <FadeIn direction="right" delay={0.15}>
             <Eyebrow className="!text-primary">PILLAR TWO</Eyebrow>

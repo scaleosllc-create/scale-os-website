@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Section from "@/components/ui/Section";
 import Card from "@/components/ui/Card";
 import Eyebrow from "@/components/ui/Eyebrow";
@@ -60,6 +61,15 @@ export default function PillarTwo() {
         </div>
       </Section>
       <Section>
+        <FadeIn className="mb-8">
+          <Image
+            src="/images/ai-workflow.png"
+            alt="Developer workspace with code editor and project pipeline"
+            width={1376}
+            height={768}
+            className="rounded-2xl w-full"
+          />
+        </FadeIn>
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {services.map((service) => (
             <motion.div key={service.title} variants={staggerItemVariants}>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Section from "@/components/ui/Section";
 import Eyebrow from "@/components/ui/Eyebrow";
 import Card from "@/components/ui/Card";
@@ -46,6 +47,13 @@ export default function Results() {
   return (
     <Section id="results">
       <FadeIn>
+        <Image
+          src="/images/growth-visual.png"
+          alt="Whiteboard showing customer acquisition funnel and growth metrics"
+          width={1376}
+          height={768}
+          className="rounded-2xl mb-12 w-full"
+        />
         <Eyebrow>RESULTS</Eyebrow>
         <h2 className="font-display text-display-sm md:text-display-md lg:text-display-lg text-on-surface mb-4">
           What our system delivers

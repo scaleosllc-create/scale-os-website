@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Section from "@/components/ui/Section";
 import Eyebrow from "@/components/ui/Eyebrow";
 import FadeIn from "@/components/shared/FadeIn";
@@ -45,6 +46,13 @@ export default function Timeline() {
   return (
     <Section variant="dark">
       <FadeIn>
+        <Image
+          src="/images/timeline-visual.png"
+          alt="Project timeline showing audit, testing, and scale phases"
+          width={1376}
+          height={768}
+          className="rounded-2xl mb-12 w-full"
+        />
         <Eyebrow className="!text-primary">THE SCALE OS SYSTEM</Eyebrow>
         <h2 className="font-display text-display-md tracking-tighter text-white mb-12">
           From audit to scale in 90 days.

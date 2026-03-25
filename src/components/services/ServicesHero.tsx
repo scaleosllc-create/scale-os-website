@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Section from "@/components/ui/Section";
 import Eyebrow from "@/components/ui/Eyebrow";
 import FadeIn from "@/components/shared/FadeIn";
@@ -15,6 +16,13 @@ export default function ServicesHero() {
           automation. We pair elite media buying with custom AI systems — so your
           Shopify brand grows faster with less overhead.
         </p>
+        <Image
+          src="/images/workspace.png"
+          alt="Agency office with monitors showing dashboards"
+          width={1376}
+          height={768}
+          className="rounded-2xl w-full"
+        />
       </FadeIn>
     </Section>
   );
