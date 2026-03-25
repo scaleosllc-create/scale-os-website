@@ -62,7 +62,7 @@ export default function ApplyPage() {
               },
             ].map((step) => (
               <div key={step.num} className="flex gap-4">
-                <div className="text-2xl font-bold text-primary flex-shrink-0">
+                <div className="text-primary font-display text-display-sm flex-shrink-0">
                   {step.num}
                 </div>
                 <div>

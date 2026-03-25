@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { useState } from "react";
+import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 import Button from "@/components/ui/Button";
 
 const navLinks = [
@@ -14,23 +14,21 @@ const navLinks = [
 export default function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const { scrollY } = useScroll();
+  const bgOpacity = useTransform(scrollY, [0, 80], [0.6, 0.85]);
+  const shadowOpacity = useTransform(scrollY, [0, 80], [0, 0.04]);
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] ${scrolled ? "py-2" : "py-4"}`}>
-        <div className={`mx-auto w-max flex items-center gap-8 rounded-full px-6 py-2.5 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] ${
-          scrolled
-            ? "bg-white/80 backdrop-blur-xl shadow-ambient"
-            : "bg-white/60 backdrop-blur-lg"
-        }`}>
-          <Link href="/" className="text-on-surface font-bold tracking-[0.15em] text-sm">
+      <nav className="fixed top-0 left-0 right-0 z-40 flex justify-center pt-4">
+        <motion.div
+          className="flex items-center gap-8 rounded-full px-6 py-3 backdrop-blur-xl"
+          style={{
+            backgroundColor: useTransform(bgOpacity, (v) => `rgba(255, 255, 255, ${v})`),
+            boxShadow: useTransform(shadowOpacity, (v) => `0 4px 16px rgba(25, 28, 29, ${v})`),
+          }}
+        >
+          <Link href="/" className="font-display font-bold text-on-surface tracking-wider text-sm">
             SCALE OS
           </Link>
 
@@ -39,7 +37,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-[13px] transition-colors duration-300 ${
+                className={`text-sm transition-colors duration-300 ${
                   pathname === link.href
                     ? "text-primary font-medium"
                     : "text-on-surface-variant hover:text-on-surface"
@@ -51,9 +49,12 @@ export default function Navbar() {
           </div>
 
           <div className="hidden md:block">
-            <Button href="/apply" variant="primary" className="!py-2 !px-4 !text-[11px]">
+            <Link
+              href="/apply"
+              className="bg-primary text-on-primary rounded-full px-4 py-1.5 text-xs font-medium transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-primary-container"
+            >
               Apply
-            </Button>
+            </Link>
           </div>
 
           <button
@@ -64,7 +65,7 @@ export default function Navbar() {
             <span className="w-4 h-px bg-on-surface" />
             <span className="w-4 h-px bg-on-surface" />
           </button>
-        </div>
+        </motion.div>
       </nav>
 
       <AnimatePresence>
@@ -74,11 +75,11 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-50 backdrop-blur-3xl bg-white/80 flex flex-col items-center justify-center"
+            className="fixed inset-0 z-50 backdrop-blur-3xl bg-on-surface/95 flex flex-col items-center justify-center"
             onClick={() => setMobileOpen(false)}
           >
             <button
-              className="absolute top-6 right-6 text-on-surface text-2xl"
+              className="absolute top-6 right-6 text-white text-2xl"
               onClick={() => setMobileOpen(false)}
               aria-label="Close menu"
             >
@@ -95,7 +96,7 @@ export default function Navbar() {
                   <Link
                     href={link.href}
                     className={`text-2xl font-display font-light ${
-                      pathname === link.href ? "text-primary" : "text-on-surface"
+                      pathname === link.href ? "text-primary" : "text-white"
                     }`}
                     onClick={() => setMobileOpen(false)}
                   >

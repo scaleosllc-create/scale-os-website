@@ -22,7 +22,7 @@ export default function Team() {
         {teamMembers.map((member) => (
           <motion.div key={member.role} variants={staggerItemVariants}>
             <div className="text-center">
-              <div className="ring-2 ring-primary/20 ring-offset-2 rounded-full w-24 h-24 mx-auto mb-4">
+              <div className="rounded-full w-24 h-24 mx-auto mb-4 overflow-hidden">
                 <ImagePlaceholder
                   label="Photo"
                   className="w-24 h-24"

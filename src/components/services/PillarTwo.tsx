@@ -1,9 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import Section from "@/components/ui/Section";
 import Card from "@/components/ui/Card";
 import Eyebrow from "@/components/ui/Eyebrow";
-import ImagePlaceholder from "@/components/ui/ImagePlaceholder";
 import FadeIn from "@/components/shared/FadeIn";
 import StaggerContainer, { staggerItemVariants } from "@/components/shared/StaggerContainer";
 import { motion } from "framer-motion";
@@ -58,13 +58,16 @@ export default function PillarTwo() {
               automating the work that used to require entire teams.
             </p>
           </FadeIn>
-          <FadeIn delay={0.2} className="flex-shrink-0 w-full lg:w-[280px]">
-            <ImagePlaceholder
-              label="AI workflow diagram"
-              dark
-              className="h-[180px]"
-              rounded="2xl"
-            />
+          <FadeIn delay={0.2} className="flex-shrink-0 w-full lg:w-[320px]">
+            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden">
+              <Image
+                src="/images/ai-workflow.png"
+                alt="AI workflow automation diagram showing connected commerce operations"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 320px"
+              />
+            </div>
           </FadeIn>
         </div>
       </Section>
@@ -72,14 +75,14 @@ export default function PillarTwo() {
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {services.map((service) => (
             <motion.div key={service.title} variants={staggerItemVariants}>
-              <Card hover>
-                <div className="w-12 h-12 rounded-2xl bg-primary/[0.06] flex items-center justify-center mb-4">
+              <Card dark hover>
+                <div className="w-12 h-12 rounded-2xl bg-white/[0.06] flex items-center justify-center mb-4">
                   {service.icon}
                 </div>
-                <h3 className="text-[16px] font-semibold text-on-surface mb-2">
+                <h3 className="text-[16px] font-semibold text-white mb-2">
                   {service.title}
                 </h3>
-                <p className="text-[13px] text-on-surface-variant leading-relaxed">
+                <p className="text-[13px] text-white/60 leading-relaxed">
                   {service.description}
                 </p>
               </Card>

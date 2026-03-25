@@ -7,6 +7,7 @@ interface CTASectionProps {
   subtext: string;
   buttonText: string;
   buttonHref?: string;
+  variant?: "background" | "surface-low" | "dark" | "primary";
 }
 
 export default function CTASection({
@@ -14,14 +15,21 @@ export default function CTASection({
   subtext,
   buttonText,
   buttonHref = "/apply",
+  variant = "dark",
 }: CTASectionProps) {
+  const isDark = variant === "dark" || variant === "primary";
+
   return (
-    <Section variant="dark" className="text-center">
+    <Section variant={variant} className="text-center">
       <FadeIn>
-        <h2 className="font-display text-display-md md:text-display-lg tracking-tighter text-white mb-4">
+        <h2 className={`font-display text-display-md md:text-display-lg tracking-tighter mb-4 ${
+          isDark ? "text-white" : "text-on-surface"
+        }`}>
           {heading}
         </h2>
-        <p className="text-white/60 text-base mb-8 max-w-md mx-auto">
+        <p className={`text-base mb-8 max-w-md mx-auto ${
+          isDark ? "text-white/60" : "text-on-surface-variant"
+        }`}>
           {subtext}
         </p>
         <Button href={buttonHref} variant="primary" arrow>

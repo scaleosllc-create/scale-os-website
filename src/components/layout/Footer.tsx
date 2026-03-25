@@ -8,39 +8,46 @@ const pageLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-surface-card">
-      <div className="mx-auto max-w-container px-6 md:px-8 lg:px-12 py-16 md:py-20">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-12">
+    <footer className="bg-on-surface text-white">
+      <div className="mx-auto max-w-container px-6 md:px-8 lg:px-12 py-16 md:py-24">
+        <div className="font-display text-display-sm tracking-wider text-white mb-8">
+          SCALE OS
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
           <div>
-            <div className="font-bold tracking-[0.15em] text-on-surface text-sm mb-3">
-              SCALE OS
-            </div>
-            <p className="text-sm text-on-surface-variant">
-              Human strategy. AI infrastructure.
-            </p>
-          </div>
-          <div className="flex gap-16 md:gap-20">
+            <p className="text-label-sm uppercase text-white/30 mb-4">Pages</p>
             <div className="flex flex-col gap-3">
               {pageLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm text-on-surface-variant hover:text-on-surface transition-colors duration-300"
+                  className="text-sm text-white/50 hover:text-white/80 transition-colors duration-300"
                 >
                   {link.label}
                 </Link>
               ))}
             </div>
-            <div>
-              <p className="text-xs text-on-surface-variant leading-relaxed">
-                1309 Coffeen Avenue STE 1200
-                <br />
-                Sheridan, Wyoming 82801
-              </p>
-            </div>
+          </div>
+
+          <div>
+            <p className="text-label-sm uppercase text-white/30 mb-4">Contact</p>
+            <p className="text-xs text-white/40 leading-relaxed">
+              1309 Coffeen Avenue STE 1200
+              <br />
+              Sheridan, Wyoming 82801
+            </p>
+          </div>
+
+          <div>
+            <p className="text-label-sm uppercase text-white/30 mb-4">Legal</p>
+            <p className="text-xs text-white/40 leading-relaxed">
+              All rights reserved. Scale OS LLC.
+            </p>
           </div>
         </div>
-        <div className="text-xs text-on-surface-variant mt-12">
+
+        <div className="text-xs text-white/30">
           &copy; {new Date().getFullYear()} Scale OS LLC. All rights reserved.
         </div>
       </div>
