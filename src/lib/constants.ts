@@ -45,16 +45,19 @@ export const teamMembers = [
     name: "Founder Name",
     role: "Founder & CEO",
     bio: "Brief bio — background, expertise, what drives them.",
+    image: "/images/founder-headshot.png",
   },
   {
     name: "Team Member",
     role: "Head of Growth",
     bio: "Brief bio — background, expertise, what drives them.",
+    image: "/images/team-head-of-growth.png",
   },
   {
     name: "Team Member",
     role: "AI Operations Lead",
     bio: "Brief bio — background, expertise, what drives them.",
+    image: "/images/team-ai-ops-lead.png",
   },
 ];
 

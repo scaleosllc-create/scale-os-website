@@ -1,7 +1,7 @@
 "use client";
 
+import Image from "next/image";
 import Section from "@/components/ui/Section";
-import ImagePlaceholder from "@/components/ui/ImagePlaceholder";
 import FadeIn from "@/components/shared/FadeIn";
 import StaggerContainer, { staggerItemVariants } from "@/components/shared/StaggerContainer";
 import { motion } from "framer-motion";
@@ -22,11 +22,13 @@ export default function Team() {
         {teamMembers.map((member) => (
           <motion.div key={member.role} variants={staggerItemVariants}>
             <div className="text-center">
-              <div className="rounded-full w-24 h-24 mx-auto mb-4 overflow-hidden">
-                <ImagePlaceholder
-                  label="Photo"
-                  className="w-24 h-24"
-                  rounded="full"
+              <div className="rounded-full w-[120px] h-[120px] mx-auto mb-4 overflow-hidden">
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  width={120}
+                  height={120}
+                  className="rounded-full object-cover w-[120px] h-[120px]"
                 />
               </div>
               <h4 className="text-[15px] font-semibold text-on-surface mb-1">

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Section from "@/components/ui/Section";
 import FadeIn from "@/components/shared/FadeIn";
 
@@ -21,11 +22,13 @@ export default function Founder() {
 
           {/* Photo + attribution */}
           <div className="flex items-center justify-center gap-4">
-            <div className="w-20 h-20 rounded-full bg-surface-high flex items-center justify-center flex-shrink-0">
-              <span className="text-[10px] uppercase tracking-wider text-on-surface-variant">
-                Photo
-              </span>
-            </div>
+            <Image
+              src="/images/founder-headshot.png"
+              alt="Founder of Scale OS"
+              width={96}
+              height={96}
+              className="rounded-full object-cover w-24 h-24"
+            />
             <div className="text-left">
               <p className="text-base font-medium text-on-surface">Founder Name</p>
               <p className="text-sm text-on-surface-variant">
