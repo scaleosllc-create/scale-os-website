@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Section from "@/components/ui/Section";
 import FadeIn from "@/components/shared/FadeIn";
 
@@ -21,17 +20,6 @@ export default function WhyWeExist() {
             operational leverage of custom AI systems. The result is better
             performance at a fraction of the traditional overhead.
           </p>
-        </FadeIn>
-        <FadeIn delay={0.2} className="flex-shrink-0 w-full lg:w-[320px]">
-          <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden">
-            <Image
-              src="/images/workspace.png"
-              alt="Scale OS team workspace showing collaborative strategy sessions"
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 320px"
-            />
-          </div>
         </FadeIn>
       </div>
     </Section>

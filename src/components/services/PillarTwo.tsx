@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Section from "@/components/ui/Section";
 import Card from "@/components/ui/Card";
 import Eyebrow from "@/components/ui/Eyebrow";
@@ -57,17 +56,6 @@ export default function PillarTwo() {
               workflows that plug directly into your Shopify operations —
               automating the work that used to require entire teams.
             </p>
-          </FadeIn>
-          <FadeIn delay={0.2} className="flex-shrink-0 w-full lg:w-[320px]">
-            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden">
-              <Image
-                src="/images/ai-workflow.png"
-                alt="AI workflow automation diagram showing connected commerce operations"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 320px"
-              />
-            </div>
           </FadeIn>
         </div>
       </Section>

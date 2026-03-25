@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Section from "@/components/ui/Section";
 import Eyebrow from "@/components/ui/Eyebrow";
 import Card from "@/components/ui/Card";
@@ -47,15 +46,6 @@ export default function Results() {
   return (
     <Section id="results">
       <FadeIn>
-        <div className="relative mb-12">
-          <Image
-            src="/images/growth-visual.png"
-            alt="Ascending growth chart visualization"
-            width={800}
-            height={600}
-            className="rounded-2xl w-full opacity-60"
-          />
-        </div>
         <Eyebrow>RESULTS</Eyebrow>
         <h2 className="font-display text-display-sm md:text-display-md lg:text-display-lg text-on-surface mb-4">
           What our system delivers
