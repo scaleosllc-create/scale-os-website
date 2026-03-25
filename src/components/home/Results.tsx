@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Section from "@/components/ui/Section";
 import Eyebrow from "@/components/ui/Eyebrow";
 import FadeIn from "@/components/shared/FadeIn";
@@ -49,11 +50,22 @@ export default function Results() {
         <h2 className="font-display text-display-sm md:text-display-md lg:text-display-lg text-white mb-4">
           What our system delivers
         </h2>
-        <p className="text-on-surface-variant text-base leading-relaxed mb-16 max-w-[65ch]">
+        <p className="text-on-surface-variant text-base leading-relaxed mb-12 max-w-[65ch]">
           Projected outcomes based on our methodology applied to typical Shopify
           brands in our target range.
         </p>
       </FadeIn>
+
+      <FadeIn delay={0.1}>
+        <Image
+          src="/images/results-dashboard.png"
+          alt="Performance analytics dashboard showing campaign metrics and revenue growth"
+          width={1376}
+          height={600}
+          className="rounded-2xl w-full mb-12"
+        />
+      </FadeIn>
+
       <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {caseStudies.map((study) => (
           <motion.div

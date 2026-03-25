@@ -3,6 +3,7 @@ import ServicesHero from "@/components/services/ServicesHero";
 import PillarOne from "@/components/services/PillarOne";
 import PillarTwo from "@/components/services/PillarTwo";
 import WhyBoth from "@/components/services/WhyBoth";
+import ServicesCaseStudies from "@/components/services/ServicesCaseStudies";
 import ServicesCTA from "@/components/services/ServicesCTA";
 
 export const metadata: Metadata = {
@@ -18,6 +19,7 @@ export default function ServicesPage() {
       <PillarOne />
       <PillarTwo />
       <WhyBoth />
+      <ServicesCaseStudies />
       <ServicesCTA />
     </>
   );

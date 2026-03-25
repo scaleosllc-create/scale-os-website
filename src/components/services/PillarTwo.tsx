@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Section from "@/components/ui/Section";
 import Eyebrow from "@/components/ui/Eyebrow";
 import FadeIn from "@/components/shared/FadeIn";
@@ -11,32 +12,37 @@ const services = [
   {
     icon: Article,
     title: "AI Ad & Content Generation",
+    stat: "50 angles/week",
     description:
-      "Generate ads, advertorials, and listicles at scale using trained AI workflows. Test 50 ad angles in a week instead of 5 in a month. More creative velocity means faster learning and lower CAC.",
+      "Generate ads, advertorials, and listicles at scale using trained AI workflows. Test 50 ad angles in a week instead of 5 in a month. More creative velocity means faster learning and lower CAC. Our clients see 40-60% drops in cost per creative test.",
   },
   {
     icon: Gear,
     title: "E-Commerce Workflow Automation",
+    stat: "40+ hours saved/week",
     description:
-      "Custom automation workflows that eliminate 40+ hours of manual work per week. Inventory alerts, customer communication, reporting, order processing — if it\u2019s repetitive, we automate it.",
+      "Custom automation workflows that eliminate 40+ hours of manual work per week. Inventory alerts, customer communication, reporting, order processing — if it is repetitive, we automate it. Average ROI on automation: 12x within 90 days.",
   },
   {
     icon: ShoppingCart,
-    title: "Shopify Store Optimization with AI",
+    title: "Shopify Store Optimization",
+    stat: "22% avg conversion lift",
     description:
-      "We use AI tools to build, test, and iterate on your Shopify storefront faster than any development team. Product page optimization, checkout flow improvements, and conversion rate testing at machine speed.",
+      "We use AI tools to build, test, and iterate on your Shopify storefront faster than any development team. Product page optimization, checkout flow improvements, and conversion rate testing at machine speed. Changes that take agencies weeks ship in days.",
   },
   {
     icon: Lightning,
-    title: "Advertorial & Listicle Creation at Scale",
+    title: "Advertorial Creation at Scale",
+    stat: "3x landing page output",
     description:
-      "AI-powered production of high-converting advertorial and listicle content. We generate, test, and iterate on landing pages that turn cold traffic into buyers — with a volume and speed that manual teams can\u2019t touch.",
+      "AI-powered production of high-converting advertorial and listicle content. We generate, test, and iterate on landing pages that turn cold traffic into buyers — with a volume and speed that manual teams cannot touch. New pages live in 48 hours, not 3 weeks.",
   },
   {
     icon: Cpu,
     title: "Operational AI Integration",
+    stat: "End-to-end intelligence",
     description:
-      "End-to-end AI integration into your daily business operations. We don\u2019t hand you a chatbot — we embed intelligence into how your business actually runs. Inventory prediction, dynamic pricing, automated customer service.",
+      "Full AI integration into your daily business operations. We do not hand you a chatbot — we embed intelligence into how your business actually runs. Inventory prediction, dynamic pricing, automated customer service, and data pipelines that make decisions while you sleep.",
   },
 ];
 
@@ -46,7 +52,7 @@ export default function PillarTwo() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start mb-16">
         <FadeIn direction="left">
           {/* Mock Automation Workflow */}
-          <div className="bg-white/[0.04] rounded-2xl p-5">
+          <div className="bg-white/[0.04] rounded-2xl p-5 mb-6">
             <p className="text-[10px] uppercase tracking-wider text-on-surface-muted mb-4">Live Workflow</p>
             <div className="space-y-3">
               {[
@@ -69,6 +75,13 @@ export default function PillarTwo() {
               <span className="text-[10px] text-primary">847 automations this week</span>
             </div>
           </div>
+          <Image
+            src="/images/results-dashboard.png"
+            alt="Analytics dashboard showing campaign performance metrics"
+            width={688}
+            height={400}
+            className="rounded-2xl w-full"
+          />
         </FadeIn>
         <FadeIn direction="right" delay={0.15}>
           <Eyebrow>PILLAR TWO</Eyebrow>
@@ -76,10 +89,10 @@ export default function PillarTwo() {
             AI Commerce Operations
           </h2>
           <p className="text-white/50 text-base leading-relaxed max-w-[55ch]">
-            This is where most agencies can&apos;t follow. We build custom AI
+            This is where most agencies cannot follow. We build custom AI
             workflows that plug directly into your Shopify operations — automating
             the work that used to require entire teams. Your unfair competitive
-            advantage.
+            advantage, running 24/7.
           </p>
         </FadeIn>
       </div>
@@ -88,9 +101,12 @@ export default function PillarTwo() {
           <motion.div key={service.title} variants={staggerItemVariants}>
             <div className="bg-white/[0.04] rounded-2xl p-8 h-full transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-white/[0.07]">
               <service.icon size={28} weight="light" className="text-primary mb-5" />
-              <h3 className="font-display text-lg text-white tracking-tight mb-3">
+              <h3 className="font-display text-lg text-white tracking-tight mb-1">
                 {service.title}
               </h3>
+              <p className="text-primary text-xs font-medium mb-3">
+                {service.stat}
+              </p>
               <p className="text-white/50 text-sm leading-relaxed">
                 {service.description}
               </p>

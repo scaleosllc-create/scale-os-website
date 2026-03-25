@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Section from "@/components/ui/Section";
 import Eyebrow from "@/components/ui/Eyebrow";
 import FadeIn from "@/components/shared/FadeIn";
@@ -11,38 +12,52 @@ const services = [
   {
     icon: MegaphoneSimple,
     title: "Meta Ads Management",
+    stat: "4.2x avg ROAS",
     description:
-      "Full-funnel Meta campaigns from prospecting to retargeting. We build creative systems that scale — not one-off ads that burn out after two weeks. Structured testing, dynamic creative, and rigorous bid optimization.",
+      "Full-funnel Meta campaigns from prospecting to retargeting. We build creative systems that scale — structured testing across 50+ ad angles per month, dynamic creative optimization, and rigorous bid management that targets contribution margin, not vanity metrics.",
   },
   {
     icon: MagnifyingGlass,
     title: "Google Ads Management",
+    stat: "30% avg CAC reduction",
     description:
-      "Search, Shopping, and Performance Max campaigns engineered for profitable customer acquisition. We think in contribution margin, not ROAS — because a 5x ROAS means nothing if your margins are underwater.",
+      "Search, Shopping, and Performance Max campaigns engineered for profitable customer acquisition. We think in contribution margin, not ROAS — because a 5x ROAS means nothing if your margins are underwater. Full-funnel Google strategy from brand defense to cold prospecting.",
   },
   {
     icon: PaintBrush,
     title: "Creative Strategy & Production",
+    stat: "10x creative velocity",
     description:
-      "Data-driven ad creative from concept to production. We analyze what\u2019s working, identify winning angles from competitor research, and produce thumb-stopping creative at a pace traditional teams can\u2019t match.",
+      "Data-driven ad creative from concept to production. We analyze top-performing hooks, identify winning angles from competitor research, and produce thumb-stopping creative at a pace traditional teams cannot match. 50 ad variations tested per week, not per quarter.",
   },
   {
     icon: Crosshair,
     title: "Brand Strategy & Positioning",
+    stat: "Category-defining brands",
     description:
-      "Positioning, messaging, and identity that makes your brand impossible to ignore. We define who you are, who you\u2019re for, and why you win — then make sure every ad, every landing page, every touchpoint reinforces it.",
+      "Positioning, messaging, and identity that makes your brand impossible to ignore. We define who you are, who you are for, and why you win — then make sure every ad, every landing page, every touchpoint reinforces that story with precision.",
   },
   {
     icon: Article,
-    title: "Advertorial & Listicle Landing Pages",
+    title: "Advertorial & Listicle Pages",
+    stat: "3.4% avg conversion rate",
     description:
-      "High-converting advertorial and listicle pages that bridge the gap between ad click and purchase. Native-feeling content that educates, builds trust, and converts cold traffic into customers.",
+      "High-converting advertorial and listicle pages that bridge the gap between ad click and purchase. Native-feeling content that educates, builds trust, and converts cold traffic into customers — at 2-3x the rate of standard product pages.",
   },
 ];
 
 export default function PillarOne() {
   return (
     <Section variant="surface-low">
+      <FadeIn>
+        <Image
+          src="/images/ecom-products.png"
+          alt="Premium e-commerce product photography and brand assets"
+          width={1376}
+          height={600}
+          className="rounded-2xl w-full mb-16"
+        />
+      </FadeIn>
       <FadeIn>
         <Eyebrow>PILLAR ONE</Eyebrow>
         <h2 className="font-display text-display-md md:text-display-lg tracking-tighter text-white mb-4">
@@ -59,9 +74,12 @@ export default function PillarOne() {
           <motion.div key={service.title} variants={staggerItemVariants}>
             <div className="bg-surface-card rounded-2xl p-8 h-full transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-surface-high">
               <service.icon size={28} weight="light" className="text-primary mb-5" />
-              <h3 className="font-display text-lg text-white tracking-tight mb-3">
+              <h3 className="font-display text-lg text-white tracking-tight mb-1">
                 {service.title}
               </h3>
+              <p className="text-primary text-xs font-medium mb-3">
+                {service.stat}
+              </p>
               <p className="text-on-surface-variant text-sm leading-relaxed">
                 {service.description}
               </p>

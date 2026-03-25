@@ -56,26 +56,28 @@ export default function WhyWeExist() {
           </h2>
           <div className="space-y-4 text-on-surface-variant text-base leading-relaxed">
             <p>
-              We watched it happen for years. Brands hire an agency, the agency
-              hires more people, costs balloon, and margins evaporate. The bigger
-              the team, the slower the execution. The more layers of management,
-              the further the strategy gets from the person actually running your
-              ads.
+              We spent years inside the traditional agency world. The pattern was
+              always the same: brand hires agency, agency hires more people, costs
+              balloon, margins evaporate. The bigger the team, the slower the
+              execution. The more layers of management, the further the strategy
+              gets from the person actually running your ads.
+            </p>
+            <p>
+              The worst part? Brands were paying premium retainers for junior
+              account managers to execute playbooks written by someone who left
+              the agency two years ago. The senior strategist who sold you in the
+              pitch? You never see them again after week one.
             </p>
             <p>
               So we asked a different question: what if you could get the
               strategic depth of a 20-person agency with the speed and overhead
-              of a 3-person team?
-            </p>
-            <p>
-              The answer was AI — not as a buzzword, but as genuine operational
-              infrastructure. Custom workflows that handle the repetitive work.
-              Trained models that generate and test creative at 10x the speed.
-              Systems that turn data into decisions without a human bottleneck.
+              of a 3-person team? What if every person you work with is senior,
+              and AI handles everything else?
             </p>
             <p className="text-white font-medium">
               Scale OS is what happens when you stop hiring for headcount and
-              start building for leverage.
+              start building for leverage. Three senior operators, 12 AI workflows,
+              zero layers of management between you and your strategy.
             </p>
           </div>
         </FadeIn>

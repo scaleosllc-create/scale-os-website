@@ -1,6 +1,38 @@
+"use client";
+
 import Section from "@/components/ui/Section";
 import Eyebrow from "@/components/ui/Eyebrow";
 import FadeIn from "@/components/shared/FadeIn";
+import StaggerContainer, { staggerItemVariants } from "@/components/shared/StaggerContainer";
+import { motion } from "framer-motion";
+
+const comparison = [
+  {
+    category: "Creative Testing",
+    without: "5 ad variations per month",
+    with: "50+ ad variations per week",
+  },
+  {
+    category: "Campaign Reporting",
+    without: "Weekly PDF report, 3-day delay",
+    with: "Real-time dashboards, AI-flagged anomalies",
+  },
+  {
+    category: "Landing Pages",
+    without: "1 new page every 3 weeks",
+    with: "New advertorial live in 48 hours",
+  },
+  {
+    category: "Operational Work",
+    without: "40+ hours/week manual tasks",
+    with: "Fully automated workflows",
+  },
+  {
+    category: "Team Access",
+    without: "Junior account manager",
+    with: "Direct access to senior strategists",
+  },
+];
 
 export default function WhyBoth() {
   return (
@@ -16,7 +48,9 @@ export default function WhyBoth() {
           what creates escape velocity.
         </p>
       </FadeIn>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      {/* Stats row */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
         {[
           {
             stat: "10x",
@@ -52,6 +86,34 @@ export default function WhyBoth() {
           </FadeIn>
         ))}
       </div>
+
+      {/* Comparison table */}
+      <FadeIn>
+        <h3 className="font-display text-display-sm tracking-tighter text-white mb-8">
+          Traditional agency vs. Scale OS
+        </h3>
+      </FadeIn>
+      <StaggerContainer className="space-y-0">
+        {/* Header */}
+        <motion.div variants={staggerItemVariants} className="grid grid-cols-[1fr_1fr_1fr] gap-4 md:gap-8 pb-4 mb-2">
+          <span className="text-[10px] uppercase tracking-wider text-on-surface-muted" />
+          <span className="text-[10px] uppercase tracking-wider text-on-surface-muted">Without AI</span>
+          <span className="text-[10px] uppercase tracking-wider text-primary">With Scale OS</span>
+        </motion.div>
+        {comparison.map((row, index) => (
+          <motion.div
+            key={row.category}
+            variants={staggerItemVariants}
+            className={`grid grid-cols-[1fr_1fr_1fr] gap-4 md:gap-8 py-5 ${
+              index < comparison.length - 1 ? "border-b border-white/[0.06]" : ""
+            }`}
+          >
+            <span className="font-display text-sm text-white">{row.category}</span>
+            <span className="text-sm text-on-surface-variant">{row.without}</span>
+            <span className="text-sm text-white font-medium">{row.with}</span>
+          </motion.div>
+        ))}
+      </StaggerContainer>
     </Section>
   );
 }
