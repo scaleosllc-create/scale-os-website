@@ -19,7 +19,7 @@ const creatives = [
 
 export default function CreativeSlider() {
   return (
-    <section id="work" className="py-16 md:py-24 lg:py-32 bg-background overflow-hidden">
+    <section id="work" className="py-16 md:py-24 lg:py-32 bg-background">
       <div className="mx-auto max-w-container px-6 md:px-8 lg:px-12 mb-10 md:mb-14">
         <FadeIn>
           <Eyebrow>Creative Examples</Eyebrow>
@@ -33,36 +33,37 @@ export default function CreativeSlider() {
         </FadeIn>
       </div>
 
-      <div className="relative">
-        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory hide-scrollbar px-6 md:px-8 lg:px-12">
-          {creatives.map((creative) => (
-            <div
-              key={creative.id}
-              className="snap-start shrink-0 w-64 md:w-72 lg:w-80"
-            >
-              <div className="relative aspect-square rounded-2xl overflow-hidden bg-surface-card">
-                <Image
-                  src={creative.image}
-                  alt={`${creative.brand} ${creative.product} ad creative`}
-                  fill
-                  sizes="(max-width: 768px) 256px, (max-width: 1024px) 288px, 320px"
-                  className="object-cover"
-                />
-                {creative.overlay && (
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-5">
-                    <span className="font-display text-lg tracking-tight text-white">
-                      {creative.overlay}
-                    </span>
-                  </div>
-                )}
-              </div>
-              <p className="text-[10px] uppercase tracking-wider text-on-surface-muted mt-3">
-                {creative.brand}
-              </p>
-              <p className="text-sm text-white/70">{creative.product}</p>
+      <div
+        className="flex gap-5 overflow-x-auto snap-x snap-mandatory hide-scrollbar cursor-grab active:cursor-grabbing"
+        style={{ paddingLeft: "max(1.5rem, calc((100vw - 1280px) / 2 + 3rem))", paddingRight: "max(1.5rem, calc((100vw - 1280px) / 2 + 3rem))" }}
+      >
+        {creatives.map((creative) => (
+          <div
+            key={creative.id}
+            className="snap-start shrink-0 w-[280px] md:w-[320px]"
+          >
+            <div className="relative aspect-square rounded-2xl overflow-hidden bg-surface-card">
+              <Image
+                src={creative.image}
+                alt={`${creative.brand} ${creative.product} ad creative`}
+                fill
+                sizes="320px"
+                className="object-cover"
+              />
+              {creative.overlay && (
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-5">
+                  <span className="font-display text-lg tracking-tight text-white">
+                    {creative.overlay}
+                  </span>
+                </div>
+              )}
             </div>
-          ))}
-        </div>
+            <p className="text-[10px] uppercase tracking-wider text-on-surface-muted mt-3">
+              {creative.brand}
+            </p>
+            <p className="text-sm text-white/70">{creative.product}</p>
+          </div>
+        ))}
       </div>
     </section>
   );
