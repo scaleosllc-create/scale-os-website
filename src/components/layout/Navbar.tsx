@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState, useCallback } from "react";
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 import Button from "@/components/ui/Button";
+import Logo from "@/components/ui/Logo";
 
 const navLinks = [
   { href: "/#services", label: "Services" },
@@ -48,8 +49,8 @@ export default function Navbar() {
             boxShadow: useTransform(shadowOpacity, (v) => `0 4px 16px rgba(0, 0, 0, ${v})`),
           }}
         >
-          <Link href="/" className="font-display font-bold text-white tracking-wider text-sm">
-            SCALE OS
+          <Link href="/">
+            <Logo size={20} />
           </Link>
 
           <div className="hidden md:flex items-center gap-6">

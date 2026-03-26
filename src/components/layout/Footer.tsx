@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Logo from "@/components/ui/Logo";
 
 const pageLinks = [
   { href: "/#services", label: "Services" },
@@ -11,8 +12,8 @@ export default function Footer() {
   return (
     <footer className="bg-surface-low border-t border-white/[0.06]">
       <div className="mx-auto max-w-container px-6 md:px-8 lg:px-12 py-16 md:py-24">
-        <div className="font-display text-display-sm tracking-wider text-white mb-8">
-          SCALE OS
+        <div className="mb-8">
+          <Logo size={28} />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
