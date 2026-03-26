@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef, useState, useCallback } from "react";
 import Image from "next/image";
 import Eyebrow from "@/components/ui/Eyebrow";
 import FadeIn from "@/components/shared/FadeIn";
@@ -18,6 +19,34 @@ const creatives = [
 ];
 
 export default function CreativeSlider() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
+  const handleMouseDown = useCallback((e: React.MouseEvent) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setIsDragging(true);
+    setStartX(e.pageX - el.offsetLeft);
+    setScrollLeft(el.scrollLeft);
+  }, []);
+
+  const handleMouseMove = useCallback(
+    (e: React.MouseEvent) => {
+      if (!isDragging || !scrollRef.current) return;
+      e.preventDefault();
+      const x = e.pageX - scrollRef.current.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      scrollRef.current.scrollLeft = scrollLeft - walk;
+    },
+    [isDragging, startX, scrollLeft]
+  );
+
+  const handleMouseUp = useCallback(() => {
+    setIsDragging(false);
+  }, []);
+
   return (
     <section id="work" className="py-16 md:py-24 lg:py-32 bg-background">
       <div className="mx-auto max-w-container px-6 md:px-8 lg:px-12 mb-10 md:mb-14">
@@ -34,8 +63,18 @@ export default function CreativeSlider() {
       </div>
 
       <div
-        className="flex gap-5 overflow-x-auto snap-x snap-mandatory hide-scrollbar cursor-grab active:cursor-grabbing"
-        style={{ paddingLeft: "max(1.5rem, calc((100vw - 1280px) / 2 + 3rem))", paddingRight: "max(1.5rem, calc((100vw - 1280px) / 2 + 3rem))" }}
+        ref={scrollRef}
+        className={`flex gap-5 overflow-x-auto hide-scrollbar select-none ${
+          isDragging ? "cursor-grabbing" : "cursor-grab"
+        }`}
+        style={{
+          paddingLeft: "max(1.5rem, calc((100vw - 1280px) / 2 + 3rem))",
+          paddingRight: "max(1.5rem, calc((100vw - 1280px) / 2 + 3rem))",
+        }}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseUp}
       >
         {creatives.map((creative) => (
           <div
@@ -48,10 +87,11 @@ export default function CreativeSlider() {
                 alt={`${creative.brand} ${creative.product} ad creative`}
                 fill
                 sizes="320px"
-                className="object-cover"
+                className="object-cover pointer-events-none"
+                draggable={false}
               />
               {creative.overlay && (
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-5">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-5 pointer-events-none">
                   <span className="font-display text-lg tracking-tight text-white">
                     {creative.overlay}
                   </span>
