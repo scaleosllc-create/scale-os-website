@@ -1,28 +1,59 @@
 "use client";
 
-import { useRef, useState, useCallback } from "react";
+import { useRef, useState, useCallback, useEffect } from "react";
 import Image from "next/image";
 import Eyebrow from "@/components/ui/Eyebrow";
 import FadeIn from "@/components/shared/FadeIn";
 
 const creatives = [
-  { id: 1, image: "/images/creatives/creative-01-weekender.jpg", brand: "DRIFT CO.", product: "Leather Weekender", overlay: null },
-  { id: 2, image: "/images/creatives/creative-02-serum.jpg", brand: "AURORA SKINCARE", product: "Vitamin C Serum", overlay: "Your skin, upgraded." },
-  { id: 3, image: "/images/creatives/creative-03-earbuds.jpg", brand: "KINETIC AUDIO", product: "Wireless Earbuds", overlay: null },
-  { id: 4, image: "/images/creatives/creative-04-matcha.jpg", brand: "SOLACE LIVING", product: "Organic Matcha Set", overlay: "Ritual, refined." },
-  { id: 5, image: "/images/creatives/creative-05-shoes.jpg", brand: "VELTA FITNESS", product: "Running Shoes", overlay: null },
-  { id: 6, image: "/images/creatives/creative-06-candles.jpg", brand: "MAISON HOME", product: "Scented Candle Trio", overlay: "Set the mood." },
-  { id: 7, image: "/images/creatives/creative-07-protein.jpg", brand: "NOVA NUTRITION", product: "Protein Powder", overlay: "Fuel the grind." },
-  { id: 8, image: "/images/creatives/creative-08-bedding.jpg", brand: "MERIDIAN GOODS", product: "Linen Bedding Set", overlay: null },
-  { id: 9, image: "/images/creatives/creative-09-bottle.jpg", brand: "DRIFT CO.", product: "Smart Water Bottle", overlay: "Stay ahead." },
-  { id: 10, image: "/images/creatives/creative-10-moisturizer.jpg", brand: "AURORA SKINCARE", product: "Face Moisturizer", overlay: "48hr hydration." },
+  { id: 1, image: "/images/creatives/creative-01-weekender.jpg", product: "Leather Weekender", overlay: null },
+  { id: 2, image: "/images/creatives/creative-02-serum.jpg", product: "Vitamin C Serum", overlay: "Your skin, upgraded." },
+  { id: 3, image: "/images/creatives/creative-03-earbuds.jpg", product: "Wireless Earbuds", overlay: null },
+  { id: 4, image: "/images/creatives/creative-04-matcha.jpg", product: "Organic Matcha Set", overlay: "Ritual, refined." },
+  { id: 5, image: "/images/creatives/creative-05-shoes.jpg", product: "Running Shoes", overlay: null },
+  { id: 6, image: "/images/creatives/creative-06-candles.jpg", product: "Scented Candle Trio", overlay: "Set the mood." },
+  { id: 7, image: "/images/creatives/creative-07-protein.jpg", product: "Protein Powder", overlay: "Fuel the grind." },
+  { id: 8, image: "/images/creatives/creative-08-bedding.jpg", product: "Linen Bedding Set", overlay: null },
+  { id: 9, image: "/images/creatives/creative-09-bottle.jpg", product: "Smart Water Bottle", overlay: "Stay ahead." },
+  { id: 10, image: "/images/creatives/creative-10-moisturizer.jpg", product: "Face Moisturizer", overlay: "48hr hydration." },
 ];
+
+// Duplicate for seamless loop
+const loopedCreatives = [...creatives, ...creatives];
 
 export default function CreativeSlider() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const animRef = useRef<number>(0);
+
+  // Auto-scroll loop
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    let lastTime = 0;
+    const speed = 0.5; // pixels per frame (~30px/sec at 60fps)
+
+    const animate = (time: number) => {
+      if (lastTime && !isPaused && !isDragging) {
+        el.scrollLeft += speed;
+
+        // When we've scrolled past the first set, jump back seamlessly
+        const halfWidth = el.scrollWidth / 2;
+        if (el.scrollLeft >= halfWidth) {
+          el.scrollLeft -= halfWidth;
+        }
+      }
+      lastTime = time;
+      animRef.current = requestAnimationFrame(animate);
+    };
+
+    animRef.current = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animRef.current);
+  }, [isPaused, isDragging]);
 
   const handleMouseDown = useCallback((e: React.MouseEvent) => {
     const el = scrollRef.current;
@@ -75,16 +106,19 @@ export default function CreativeSlider() {
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
+        onMouseEnter={() => setIsPaused(true)}
+        onTouchStart={() => setIsPaused(true)}
+        onTouchEnd={() => setIsPaused(false)}
       >
-        {creatives.map((creative) => (
+        {loopedCreatives.map((creative, index) => (
           <div
-            key={creative.id}
-            className="snap-start shrink-0 w-[280px] md:w-[320px]"
+            key={`${creative.id}-${index}`}
+            className="shrink-0 w-[280px] md:w-[320px]"
           >
             <div className="relative aspect-square rounded-2xl overflow-hidden bg-surface-card">
               <Image
                 src={creative.image}
-                alt={`${creative.brand} ${creative.product} ad creative`}
+                alt={`${creative.product} ad creative`}
                 fill
                 sizes="320px"
                 className="object-cover pointer-events-none"
@@ -98,10 +132,7 @@ export default function CreativeSlider() {
                 </div>
               )}
             </div>
-            <p className="text-[10px] uppercase tracking-wider text-on-surface-muted mt-3">
-              {creative.brand}
-            </p>
-            <p className="text-sm text-white/70">{creative.product}</p>
+            <p className="text-sm text-white/70 mt-3">{creative.product}</p>
           </div>
         ))}
       </div>
