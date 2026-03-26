@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import Button from "@/components/ui/Button";
 import { FormData, FormErrors, validateForm } from "@/lib/validation";
@@ -18,7 +19,8 @@ export default function ApplyForm() {
     referral: "",
   });
   const [errors, setErrors] = useState<FormErrors>({});
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting">("idle");
+  const router = useRouter();
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -41,55 +43,23 @@ export default function ApplyForm() {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const validationErrors = validateForm(formData);
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       return;
     }
-
     setStatus("submitting");
-    try {
-      const res = await fetch("/api/apply", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-      if (!res.ok) throw new Error();
-      setStatus("success");
-    } catch {
-      setStatus("error");
-    }
+    // No backend — just redirect to thank you page
+    router.push("/apply/thank-you");
   };
-
-  if (status === "success") {
-    return (
-      <div className="text-center py-16">
-        <h2 className="font-display text-display-sm md:text-display-md text-white mb-4">
-          Application received.
-        </h2>
-        <p className="text-on-surface-variant mb-6">
-          We&apos;ll be in touch within 48 hours.
-        </p>
-        <Button href="/" variant="primary">
-          Back to Home
-        </Button>
-      </div>
-    );
-  }
 
   const inputClass =
     "w-full rounded-xl px-4 py-3 text-sm text-white placeholder:text-on-surface-muted bg-surface-low border-0 focus:bg-surface-high focus:outline-none focus:ring-0 focus:shadow-[inset_0_-2px_0_0_#0058bc] transition-all duration-300";
 
   return (
     <form onSubmit={handleSubmit} noValidate>
-      {status === "error" && (
-        <div className="bg-error/10 text-error text-sm rounded-xl px-4 py-3 mb-6">
-          Something went wrong. Please try again.
-        </div>
-      )}
-
       {/* Row 1 */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
         <div>
